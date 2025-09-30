@@ -4,11 +4,11 @@
     "homepage": "https://github.com/tfeldmann/organize",
     "license": "MIT",
     "architecture": {
-        "64bit": {}
-    },
-    "depends": "python",
-    "installer": {
-        "script": "pip install organize==$version"
+        "64bit": {
+            "installer": {
+                "script": "pip install organize==$version"
+            }
+        }
     },
     "bin": "organize.exe",
     "checkver": {
