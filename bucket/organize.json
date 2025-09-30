@@ -1,0 +1,18 @@
+{
+    "version": "3.3.0",
+    "description": "The file management automation tool.",
+    "homepage": "https://github.com/tfeldmann/organize",
+    "license": "MIT",
+    "depends": "python",
+    "installer": {
+        "script": "pip install organize==$version"
+    },
+    "bin": "organize.exe",
+    "checkver": {
+        "pypi": "https://pypi.org/project/organize/"
+    },
+    "autoupdate": {
+        "source": "pypi",
+        "pypi": "https://pypi.org/project/organize/"
+    }
+}
