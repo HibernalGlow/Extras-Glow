@@ -3,19 +3,24 @@
     "description": "The file management automation tool.",
     "homepage": "https://github.com/tfeldmann/organize",
     "license": "MIT",
-    "architecture": {
-        "64bit": {
-            "installer": {
-                "script": "pip install organize==$version"
-            }
-        }
+    "depends": "python311",
+    "url": "https://files.pythonhosted.org/packages/py3/o/organize_tool/organize_tool-3.3.0-py3-none-any.whl",
+    "hash": "9f1be0cf89f650a18edfe3651586e5e1e6df981137334858fe905b1db56d492f",
+    "installer": {
+        "script": "python -m pip install \"$dir\\organize_tool-3.3.0-py3-none-any.whl\""
     },
-    "bin": "organize.exe",
+    "bin": [
+        ["python.exe", "organize", "-m", "organize"]
+    ],
     "checkver": {
-        "pypi": "https://pypi.org/project/organize/"
+        "url": "https://pypi.org/pypi/organize-tool/json",
+        "jsonpath": "$.info.version"
     },
     "autoupdate": {
-        "source": "pypi",
-        "pypi": "https://pypi.org/project/organize/"
+        "url": "https://files.pythonhosted.org/packages/py3/o/organize_tool/organize_tool-$version-py3-none-any.whl",
+        "hash": {
+            "url": "https://pypi.org/pypi/organize-tool/json",
+            "jsonpath": "$.releases['$version'][?(@.filename=='organize_tool-$version-py3-none-any.whl')].digests.sha256"
+        }
     }
 }
