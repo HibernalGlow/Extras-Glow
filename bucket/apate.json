@@ -1,0 +1,36 @@
+{
+  "version": "1.4.2",
+  "description": "File format disguise tool - quickly disguise file formats",
+  "homepage": "https://github.com/rippod/apate",
+  "license": "GPL-3.0",
+  "url": "https://github.com/rippod/apate/releases/download/apate.v1.4.2/apate.v1.4.2.zip",
+  "hash": "sha256:23c42085f440aaadba6e70a4d5f4040cc3879f673de816f7a4c5ddf358153bc3",
+  "extract_dir": "apate.v1.4.2",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/rippod/apate/releases/download/apate.v1.4.2/apate.v1.4.2.zip",
+      "hash": "sha256:23c42085f440aaadba6e70a4d5f4040cc3879f673de816f7a4c5ddf358153bc3",
+      "extract_dir": "apate.v1.4.2"
+    }
+  },
+  "bin": "apate.exe",
+  "shortcuts": [
+    [
+      "apate.exe",
+      "Apate"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/rippod/apate/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "apate\\.v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/rippod/apate/releases/download/apate.v$version/apate.v$version.zip",
+        "extract_dir": "apate.v$version"
+      }
+    }
+  }
+}
