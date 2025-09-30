@@ -1,0 +1,45 @@
+{
+    "version": "0.4.8",
+    "description": "Apollo - Enhanced Sunshine game streaming server with virtual display support",
+    "homepage": "https://github.com/ClassicOldSong/Apollo",
+    "license": "GPL-3.0",
+    "url": "https://github.com/ClassicOldSong/Apollo/releases/download/v0.4.8/Apollo-0.4.8.exe",
+    "hash": "155f0fee6d171b455bf252c282a749ad6a40ce71031cec278adde837cebfaa45",
+    "installer": {
+        "script": [
+            "Write-Host 'Apollo game streaming server installer downloaded to:' -ForegroundColor Green",
+            "Write-Host \"$dir\\Apollo-0.4.8.exe\" -ForegroundColor Yellow",
+            "Write-Host 'Note: Apollo installer requires administrator privileges.' -ForegroundColor Yellow",
+            "Write-Host 'To install Apollo manually:' -ForegroundColor Cyan",
+            "Write-Host '1. Right-click on Apollo-0.4.8.exe and select \"Run as administrator\"' -ForegroundColor White",
+            "Write-Host '2. Or use: Start-Process -FilePath \"Apollo-0.4.8.exe\" -Verb RunAs' -ForegroundColor White",
+            "Write-Host '3. After installation, configure at http://localhost:47990' -ForegroundColor White"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Apollo-0.4.8.exe",
+            "Apollo Installer"
+        ]
+    ],
+    "notes": [
+        "INSTALLER PACKAGE: This downloads and runs the Apollo game streaming server installer.",
+        "Apollo is an enhanced fork of Sunshine with additional features:",
+        "- Virtual display support with SudoVDA integration",
+        "- HDR and wide color gamut support",
+        "- Client-specific display mode override",
+        "- Remote input mode for controllers/keyboard/mouse",
+        "- Double refresh rate mode for reduced stuttering",
+        "- Per-app and per-client configurations",
+        "",
+        "After installation, configure Apollo via web interface at http://localhost:47990",
+        "Remember to quit Apollo before upgrading to prevent issues.",
+        "Check the Best Practices wiki for optimal configuration."
+    ],
+    "checkver": {
+        "github": "https://github.com/ClassicOldSong/Apollo"
+    },
+    "autoupdate": {
+        "url": "https://github.com/ClassicOldSong/Apollo/releases/download/v$version/Apollo-$version.exe"
+    }
+}
