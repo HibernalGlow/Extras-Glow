@@ -3,6 +3,9 @@
     "description": "The file management automation tool.",
     "homepage": "https://github.com/tfeldmann/organize",
     "license": "MIT",
+    "architecture": {
+        "64bit": {}
+    },
     "depends": "python",
     "installer": {
         "script": "pip install organize==$version"
