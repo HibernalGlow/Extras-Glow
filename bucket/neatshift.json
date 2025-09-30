@@ -1,0 +1,40 @@
+{
+    "version": "2.0.2",
+    "description": "NeatShift - Modern Windows file organization tool with symbolic link support",
+    "homepage": "https://github.com/BytexGrid/NeatShift",
+    "license": "GPL-3.0",
+    "url": "https://github.com/BytexGrid/NeatShift/releases/download/v2.0.2/NeatShift.exe",
+    "hash": "91ac8e78a1c9eaf51cd763b32c9e50826435bc80762c192dcad61252f2c7f638",
+    "bin": "NeatShift.exe",
+    "shortcuts": [
+        [
+            "NeatShift.exe",
+            "NeatShift"
+        ]
+    ],
+    "notes": [
+        "NeatShift is a Windows file organization tool that moves files and creates symbolic links.",
+        "",
+        "Key Features:",
+        "- Move large applications/games without breaking shortcuts and paths",
+        "- Smart symbolic link creation for transparent redirection",
+        "- Safety features: NeatSaves backup and System Restore points",
+        "- Modern Windows 11 style interface with light/dark themes",
+        "- Drag-and-drop file management",
+        "- Integrated file explorer with symbolic link management",
+        "",
+        "Requirements:",
+        "- Windows 10 version 1809 (build 17763) or later",
+        "- Administrator privileges (for creating symbolic links)",
+        "- 100 MB of disk space",
+        "",
+        "⚠️ Important: NeatShift requires administrator privileges to create symbolic links.",
+        "Right-click and 'Run as administrator' or the app will prompt for elevation."
+    ],
+    "checkver": {
+        "github": "https://github.com/BytexGrid/NeatShift"
+    },
+    "autoupdate": {
+        "url": "https://github.com/BytexGrid/NeatShift/releases/download/v$version/NeatShift.exe"
+    }
+}
