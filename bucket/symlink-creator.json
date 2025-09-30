@@ -1,0 +1,33 @@
+{
+  "version": "1.3.0",
+  "description": "A GUI app for creating symlinks, based on mklink",
+  "homepage": "https://github.com/arnobpl/SymlinkCreator",
+  "license": "MIT",
+  "url": "https://github.com/arnobpl/SymlinkCreator/releases/download/v1.3.0/Symlink.Creator.zip",
+  "hash": "sha256:646e84a6044086897a0bc15193d38c56369b1e9018f4e8d1d9e6fdb2defeeb25",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/arnobpl/SymlinkCreator/releases/download/v1.3.0/Symlink.Creator.zip",
+      "hash": "sha256:646e84a6044086897a0bc15193d38c56369b1e9018f4e8d1d9e6fdb2defeeb25"
+    }
+  },
+  "bin": "SymlinkCreator.exe",
+  "shortcuts": [
+    [
+      "SymlinkCreator.exe",
+      "Symlink Creator"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/arnobpl/SymlinkCreator/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/arnobpl/SymlinkCreator/releases/download/v$version/Symlink.Creator.zip"
+      }
+    }
+  }
+}
