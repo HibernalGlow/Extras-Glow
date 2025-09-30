@@ -1,0 +1,28 @@
+{
+    "version": "2.0.902.0",
+    "description": "GuGuai Game Accelerator Installer - Network acceleration tool for gaming",
+    "homepage": "https://update-bak.ggkuai.com",
+    "license": "Proprietary",
+    "url": "https://update-bak.ggkuai.com/download/guguai.exe",
+    "hash": "36e6f914096e18b5b8eba60eee3e20661251132cd626f5be69e1c4e910d14560",
+    "installer": {
+        "script": [
+            "Write-Host 'GuGuai Accelerator installer downloaded to:' -ForegroundColor Green",
+            "Write-Host \"$dir\\guguai.exe\" -ForegroundColor Yellow",
+            "Write-Host 'Run the installer manually or use: guguai' -ForegroundColor Cyan"
+        ]
+    },
+    "bin": "guguai.exe",
+    "shortcuts": [
+        [
+            "guguai.exe",
+            "GuGuai Accelerator Installer"
+        ]
+    ],
+    "notes": [
+        "INSTALLER PACKAGE: This downloads the GuGuai Accelerator installer executable.",
+        "The installer must be run manually to complete the software installation.",
+        "Use 'guguai' command or navigate to the installation directory to run the installer.",
+        "File location: %SCOOP%\\apps\\guguai\\current\\guguai.exe"
+    ]
+}
