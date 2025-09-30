@@ -1,0 +1,25 @@
+{
+    "version": "1.59.1",
+    "description": "Comprehensive modern game mod manager with easy installation and management.",
+    "homepage": "https://github.com/GlossMod/Gloss-Mod-Manager",
+    "license": "GPL-3.0",
+    "url": "https://github.com/GlossMod/Gloss-Mod-Manager/releases/download/v1.59.1/Gloss.Mod.Manager_1.59.1.exe",
+    "hash": "2f73b32ce087b6ee6639b4aa7483dce04edc1d95a7de000c232afab075247738",
+    "installer": {
+        "script": "Start-Process -FilePath \"$dir\\Gloss.Mod.Manager_1.59.1.exe\" -ArgumentList '/S' -Wait"
+    },
+    "checkver": {
+        "github": "https://github.com/GlossMod/Gloss-Mod-Manager"
+    },
+    "autoupdate": {
+        "url": "https://github.com/GlossMod/Gloss-Mod-Manager/releases/download/v$version/Gloss.Mod.Manager_$version.exe"
+    },
+    "notes": [
+        "Gloss Mod Manager (GMM) is a comprehensive modern game mod manager.",
+        "Features: Easy mod installation, backup saves, game library management",
+        "Supports multiple games including Cyberpunk 2077, The Witcher 3, and many more",
+        "Official website: https://gmm.aoe.top/",
+        "Documentation: https://gmm.aoe.top/en/",
+        "This is an installer package - it will install GMM to your system"
+    ]
+}
