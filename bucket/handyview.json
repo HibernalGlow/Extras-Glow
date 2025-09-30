@@ -1,0 +1,30 @@
+{
+    "version": "1.0.2",
+    "description": "Handy image viewer for convenient viewing and comparing - PyQt5 based",
+    "homepage": "https://github.com/xinntao/HandyView",
+    "license": "MIT",
+    "url": "https://github.com/xinntao/HandyView/releases/download/v1.0.2/handyview-v1.0.2-windows.zip",
+    "hash": "f4fd3246a10ca40255e98bfbb7d17c3b962dab06b192f9400278a77487506501",
+    "extract_dir": "handyviewer",
+    "bin": "handyviewer.exe",
+    "shortcuts": [
+        [
+            "handyviewer.exe",
+            "HandyView Image Viewer"
+        ]
+    ],
+    "notes": [
+        "HandyView is a handy image viewer for convenient viewing and comparing.",
+        "Features: Fixed zoom ratio switching, comparison modes, image info display,",
+        "mouse cursor position and color, rectangle drawing capabilities.",
+        "Set HandyView as default image viewer for best experience.",
+        "Shortcut keys: Space/Enter (next), Backspace (previous), Z (auto zoom), etc."
+    ],
+    "checkver": {
+        "github": "https://github.com/xinntao/HandyView"
+    },
+    "autoupdate": {
+        "url": "https://github.com/xinntao/HandyView/releases/download/v$version/handyview-v$version-windows.zip",
+        "extract_dir": "handyviewer"
+    }
+}
