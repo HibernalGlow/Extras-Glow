@@ -1,0 +1,33 @@
+{
+    "version": "0.3.12",
+    "description": "Powerful terminal expense tracker with TUI interface.",
+    "homepage": "https://github.com/EnhancedJax/Bagels",
+    "license": "GPL-3.0",
+    "depends": "python",
+    "url": "https://files.pythonhosted.org/packages/24/2e/aa99364cf180c499e02cc4f9d44b5ad35aadd5bf1957f8f035bd41dc235c/bagels-0.3.12-py3-none-any.whl",
+    "hash": "533bf416be2b1c60230352762dc04222c9b68f293eba879f1350514451d216af",
+    "installer": {
+        "script": "D:\\scoop\\apps\\python\\current\\python.exe -m pip install \"$dir\\bagels-0.3.12-py3-none-any.whl\""
+    },
+    "bin": [
+        ["D:\\scoop\\apps\\python\\current\\python.exe", "bagels", "-m", "bagels"]
+    ],
+    "checkver": {
+        "url": "https://pypi.org/pypi/bagels/json",
+        "jsonpath": "$.info.version"
+    },
+    "autoupdate": {
+        "url": "https://files.pythonhosted.org/packages/$matchHead/$matchTail/bagels-$version-py3-none-any.whl",
+        "hash": {
+            "url": "https://pypi.org/pypi/bagels/json",
+            "jsonpath": "$.releases['$version'][?(@.filename=='bagels-$version-py3-none-any.whl')].digests.sha256"
+        }
+    },
+    "notes": [
+        "Bagels is a TUI (Terminal User Interface) expense tracker.",
+        "Features: Accounts, Categories, Splits, Transfers, Templates, Insights, Budgeting",
+        "Usage: Run 'bagels' to start the application",
+        "Data location: Use 'bagels locate database' to find your data file",
+        "Configuration: Use 'bagels locate config' to find config file"
+    ]
+}
