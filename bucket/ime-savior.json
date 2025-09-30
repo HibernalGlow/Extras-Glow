@@ -1,0 +1,41 @@
+{
+    "version": "0.0.1",
+    "description": "IME Savior - Fix Windows 11 third-party input method first letter bug",
+    "homepage": "https://github.com/cs0tony/ime-savior",
+    "license": "GPL-3.0",
+    "url": "https://github.com/cs0tony/ime-savior/releases/download/v0.0.1/ImeSavior.exe",
+    "hash": "fc0c492d2ad3407a096f06153de774e0ffae3a0ec8a4e0d26f70afbf6716e001",
+    "bin": "ImeSavior.exe",
+    "shortcuts": [
+        [
+            "ImeSavior.exe",
+            "IME Savior"
+        ]
+    ],
+    "notes": [
+        "IME Savior fixes a Windows 11 bug with third-party input methods.",
+        "",
+        "Problem: When touch keyboard is enabled in Windows 11, third-party IMEs",
+        "have a bug where the first letter is always English after copying text.",
+        "",
+        "Solution: This tool automatically opens and closes the touch keyboard",
+        "for 1 second to fix the IME bug. Run it once after each system restart.",
+        "",
+        "Usage:",
+        "- Run manually: Execute 'ImeSavior' or use the Start Menu shortcut",
+        "- Auto-startup: Add to Windows startup folder for automatic fix",
+        "",
+        "The program will:",
+        "1. Open the Windows touch keyboard",
+        "2. Wait for 1 second",
+        "3. Close the touch keyboard automatically",
+        "",
+        "Note: If auto-close fails during startup, manually close the touch keyboard."
+    ],
+    "checkver": {
+        "github": "https://github.com/cs0tony/ime-savior"
+    },
+    "autoupdate": {
+        "url": "https://github.com/cs0tony/ime-savior/releases/download/v$version/ImeSavior.exe"
+    }
+}
