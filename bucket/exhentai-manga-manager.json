@@ -5,7 +5,6 @@
   "license": "MIT",
   "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v1.6.11/exhentai-manga-manager-1.6.11-win.zip",
   "hash": "sha256:08f585b8f75146b5b43184bee7fea6497eef04ff5d8c4025a19e4ebba57a4ff9",
-  "extract_dir": "exhentai-manga-manager-1.6.11-win",
   "architecture": {
     "64bit": {
       "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v1.6.11/exhentai-manga-manager-1.6.11-win.zip",
@@ -27,8 +26,7 @@
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v$version/exhentai-manga-manager-$version-win.zip",
-        "extract_dir": "exhentai-manga-manager-$version-win"
+        "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v$version/exhentai-manga-manager-$version-win.zip"
       }
     }
   }
