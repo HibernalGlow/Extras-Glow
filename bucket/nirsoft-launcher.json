@@ -1,0 +1,46 @@
+{
+  "version": "2025.03.27",
+  "description": "NirSoft 实用工具汉化版 - 包含众多系统管理和诊断工具的集合",
+  "homepage": "https://www.nirsoft.net/",
+  "license": "Freeware",
+  "url": "https://github.com/dickmoore03/NirSoft/raw/main/NirLauncher.7z",
+  "hash": "sha256:75c2d98a9f02aa5986a0e5de7ade3ca8a2b9d675c0c1c8a5d250c7697ccfa4de",
+  "extract_dir": "NirLauncher",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/dickmoore03/NirSoft/raw/main/NirLauncher.7z",
+      "hash": "sha256:75c2d98a9f02aa5986a0e5de7ade3ca8a2b9d675c0c1c8a5d250c7697ccfa4de",
+      "extract_dir": "NirLauncher"
+    }
+  },
+  "bin": [
+    "NirLauncher.exe",
+    [
+      "NirLauncher.exe",
+      "nirlauncher"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "NirLauncher.exe",
+      "NirSoft Launcher"
+    ]
+  ],
+  "persist": [
+    "NirSoft"
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/dickmoore03/NirSoft/commits/main",
+    "jsonpath": "$.commit.committer.date",
+    "regex": "([\\d]{4})-([\\d]{2})-([\\d]{2})",
+    "replace": "${1}.${2}.${3}"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/dickmoore03/NirSoft/raw/main/NirLauncher.7z",
+        "extract_dir": "NirLauncher"
+      }
+    }
+  }
+}
