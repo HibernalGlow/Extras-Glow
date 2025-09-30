@@ -1,0 +1,37 @@
+{
+  "version": "1.0.4",
+  "description": "A Tauri-based frontend for Czkawka on macOS and Windows",
+  "homepage": "https://github.com/shixinhuang99/czkawka-tauri",
+  "license": "MIT",
+  "url": "https://github.com/shixinhuang99/czkawka-tauri/releases/download/1.0.4/CzkawkaTauri_1.0.4_x64-setup.exe",
+  "hash": "sha256:425c25ea144dc37dfc1a12eaa74ba6bee59335c77a5308e894bcc658735db056",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/shixinhuang99/czkawka-tauri/releases/download/1.0.4/CzkawkaTauri_1.0.4_x64-setup.exe",
+      "hash": "sha256:425c25ea144dc37dfc1a12eaa74ba6bee59335c77a5308e894bcc658735db056"
+    }
+  },
+  "installer": {
+    "script": [
+      "Start-Process -Wait -FilePath \"$dir\\CzkawkaTauri_1.0.4_x64-setup.exe\" -ArgumentList '/S'",
+      "Remove-Item \"$dir\\CzkawkaTauri_1.0.4_x64-setup.exe\""
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$uninstallPath = \"$env:LOCALAPPDATA\\Programs\\CzkawkaTauri\\Uninstall CzkawkaTauri.exe\"",
+      "if (Test-Path $uninstallPath) { Start-Process -Wait -FilePath $uninstallPath -ArgumentList '/S' }"
+    ]
+  },
+  "checkver": {
+    "url": "https://api.github.com/repos/shixinhuang99/czkawka-tauri/releases/latest",
+    "jsonpath": "$.tag_name"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/shixinhuang99/czkawka-tauri/releases/download/$version/CzkawkaTauri_$version_x64-setup.exe"
+      }
+    }
+  }
+}
