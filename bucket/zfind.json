@@ -1,0 +1,23 @@
+{
+    "version": "0.4.7",
+    "description": "search for files (even inside tar/zip/7z/rar) using a SQL-WHERE filter",
+    "homepage": "https://github.com/laktak/zfind",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/laktak/zfind/releases/download/v0.4.7/zfind-windows-amd64.zip",
+            "hash": "4b9973eeeaa032d7dac7d021900c3bd27b80fc6ef99b36df86915f24a3c80f89"
+        }
+    },
+    "bin": "zfind.exe",
+    "checkver": {
+        "github": "https://github.com/laktak/zfind"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/laktak/zfind/releases/download/v$version/zfind-windows-amd64.zip"
+            }
+        }
+    }
+}
