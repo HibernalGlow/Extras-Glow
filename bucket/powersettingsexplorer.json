@@ -1,0 +1,25 @@
+{
+    "version": "2024.10.10",
+    "description": "Windows Power Settings Explorer - Advanced power configuration tool",
+    "homepage": "https://github.com/HibernalGlow/PowerSettingsExplorer",
+    "license": "Unknown",
+    "url": "https://github.com/HibernalGlow/PowerSettingsExplorer/raw/main/PowerSettingsExplorer.zip",
+    "hash": "aa61144604263969e0210349ace60b688b8afbf26cf6ff7fd21a5ff3985bed3e",
+    "extract_dir": "",
+    "bin": "PowerSettingsExplorer.exe",
+    "shortcuts": [
+        [
+            "PowerSettingsExplorer.exe",
+            "PowerSettings Explorer"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/HibernalGlow/PowerSettingsExplorer/commits",
+        "jsonpath": "$[0].commit.author.date",
+        "regex": "^(\\d{4})-(\\d{2})-(\\d{2})",
+        "replace": "$1.$2.$3"
+    },
+    "autoupdate": {
+        "url": "https://github.com/HibernalGlow/PowerSettingsExplorer/raw/main/PowerSettingsExplorer.zip"
+    }
+}
