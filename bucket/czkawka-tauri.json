@@ -13,27 +13,32 @@
   },
   "installer": {
     "script": [
-      "# 静默安装到 Scoop 管理的版本化目录",
+      "# 静默安装",
       "$setupFile = Get-ChildItem \"$dir\\Czkawka_*_x64-setup.exe\" | Select-Object -First 1",
-      "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S', '/D=$dir'",
+      "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S'",
       "# 清理安装包",
-      "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue"
+      "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue",
+      "# 创建符号链接指向实际安装位置",
+      "$installPath = \"$env:LOCALAPPDATA\\Czkawka\"",
+      "if (Test-Path $installPath) {",
+      "    New-Item -ItemType SymbolicLink -Path \"$dir\\CzkawkaTauri.exe\" -Target \"$installPath\\CzkawkaTauri.exe\" -Force | Out-Null",
+      "}"
     ]
   },
   "uninstaller": {
     "script": [
-      "# 卸载器通常在安装目录中",
-      "$uninstallPath = \"$dir\\Uninstall Czkawka.exe\"",
+      "# 运行卸载器",
+      "$uninstallPath = \"$env:LOCALAPPDATA\\Czkawka\\uninstall.exe\"",
       "if (Test-Path $uninstallPath) { ",
       "    Start-Process -Wait -FilePath $uninstallPath -ArgumentList '/S'",
       "}"
     ]
   },
-  "bin": "Czkawka.exe",
+  "bin": "CzkawkaTauri.exe",
   "shortcuts": [
     [
-      "Czkawka.exe",
-      "Czkawka"
+      "CzkawkaTauri.exe",
+      "Czkawka Tauri"
     ]
   ],
   "checkver": {
