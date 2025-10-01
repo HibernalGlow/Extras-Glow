@@ -14,9 +14,10 @@
   "installer": {
     "script": [
       "# 静默安装到 Scoop 管理的版本化目录",
-      "Start-Process -Wait -FilePath \"$dir\\Czkawka_$version_x64-setup.exe\" -ArgumentList '/S', '/D=$dir'",
+      "$setupFile = Get-ChildItem \"$dir\\Czkawka_*_x64-setup.exe\" | Select-Object -First 1",
+      "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S', '/D=$dir'",
       "# 清理安装包",
-      "Remove-Item \"$dir\\Czkawka_$version_x64-setup.exe\" -ErrorAction SilentlyContinue"
+      "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue"
     ]
   },
   "uninstaller": {
