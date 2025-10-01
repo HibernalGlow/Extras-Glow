@@ -18,10 +18,13 @@
       "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S'",
       "# 清理安装包",
       "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue",
-      "# 创建符号链接指向实际安装位置",
-      "$installPath = \"$env:LOCALAPPDATA\\Czkawka\"",
+      "# 创建包装脚本指向实际安装位置",
+      "$wrapperScript = \"@echo off`nstart `\"`\" `\"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe`\" %*\"",
+      "$wrapperScript | Out-File -FilePath \"$dir\\CzkawkaTauri.cmd\" -Encoding ASCII",
+      "# 同时创建一个快捷方式用的exe副本（用于shim）",
+      "$installPath = \"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe\"",
       "if (Test-Path $installPath) {",
-      "    New-Item -ItemType SymbolicLink -Path \"$dir\\CzkawkaTauri.exe\" -Target \"$installPath\\CzkawkaTauri.exe\" -Force | Out-Null",
+      "    Copy-Item $installPath \"$dir\\CzkawkaTauri.exe\" -Force",
       "}"
     ]
   },
