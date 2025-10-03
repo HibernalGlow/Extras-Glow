@@ -1,12 +1,12 @@
 {
-    "version": "1.6.11.3",
+    "version": "1.6.11.4",
     "description": "ExHentai本地漫画标签管理阅读应用, ExHentai local manga tag-manager and reader",
     "homepage": "https://github.com/HibernalGlow/exhentai-manga-manager",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/HibernalGlow/exhentai-manga-manager/releases/download/v1.6.11.3/exhentai-manga-manager-1.6.11.3-win-x64-portable.zip",
-            "hash": "142cb858eb9cc1efee98daeb1ce3781a0001b15f686175fadd56b3d49b93ebdd"
+            "url": "https://github.com/HibernalGlow/exhentai-manga-manager/releases/download/v1.6.11.4/exhentai-manga-manager-1.6.11.4-win-x64-portable.zip",
+            "hash": "080bb83a8811677aecf832a3807624f5de4db6ce094616ee1ffc0b3f59109218"
         }
     },
     "bin": "exhentai-manga-manager.exe",
