@@ -1,0 +1,46 @@
+{
+    "version": "26.1.0",
+    "description": "Use the right package manager - A wrapper that automatically detects and uses the appropriate package manager (npm, yarn, pnpm, bun, deno)",
+    "homepage": "https://github.com/antfu-collective/ni",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://mirrors.cloud.tencent.com/npm/@antfu/ni/-/ni-26.1.0.tgz",
+            "hash": "8833F7DA614BAAACEF957A8BB3A9220B59746EE5AF6603B32338A674BBB6E685"
+        }
+    },
+    "extract_dir": "package",
+    "installer": {
+        "script": [
+            "cd \"$dir\"",
+            "npm install --production --no-save",
+            "Set-Content -Path \"$dir\\ni.cmd\" -Value \"@node.exe \"\"$dir\\bin\\ni.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\nr.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nr.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\nlx.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nlx.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\nup.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nup.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\nun.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nun.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\nci.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nci.mjs\"\" %*\"",
+            "Set-Content -Path \"$dir\\na.cmd\" -Value \"@node.exe \"\"$dir\\bin\\na.mjs\"\" %*\""
+        ]
+    },
+    "bin": [
+        "ni.cmd",
+        "nr.cmd",
+        "nlx.cmd",
+        "nup.cmd",
+        "nun.cmd",
+        "nci.cmd",
+        "na.cmd"
+    ],
+    "checkver": {
+        "url": "https://registry.npmjs.org/@antfu/ni",
+        "jsonpath": "$.dist-tags.latest"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://mirrors.cloud.tencent.com/npm/@antfu/ni/-/ni-$version.tgz"
+            }
+        }
+    }
+}
