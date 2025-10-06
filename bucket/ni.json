@@ -13,14 +13,17 @@
     "installer": {
         "script": [
             "cd \"$dir\"",
-            "npm install --production --no-save",
+            "yarn install --production",
             "Set-Content -Path \"$dir\\ni.cmd\" -Value \"@node.exe \"\"$dir\\bin\\ni.mjs\"\" %*\"",
             "Set-Content -Path \"$dir\\nr.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nr.mjs\"\" %*\"",
             "Set-Content -Path \"$dir\\nlx.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nlx.mjs\"\" %*\"",
             "Set-Content -Path \"$dir\\nup.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nup.mjs\"\" %*\"",
             "Set-Content -Path \"$dir\\nun.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nun.mjs\"\" %*\"",
             "Set-Content -Path \"$dir\\nci.cmd\" -Value \"@node.exe \"\"$dir\\bin\\nci.mjs\"\" %*\"",
-            "Set-Content -Path \"$dir\\na.cmd\" -Value \"@node.exe \"\"$dir\\bin\\na.mjs\"\" %*\""
+            "Set-Content -Path \"$dir\\na.cmd\" -Value \"@node.exe \"\"$dir\\bin\\na.mjs\"\" %*\"",
+            "Write-Host 'Note: PowerShell has a built-in alias `ni` for New-Item.'",
+            "Write-Host 'To use the ni package manager, run: Remove-Item Alias:ni -Force'",
+            "Write-Host 'Or add this to your PowerShell profile for permanent fix.'"
         ]
     },
     "bin": [
