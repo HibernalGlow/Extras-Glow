@@ -14,14 +14,10 @@
         "script": [
             "cd \"$dir\"",
             "yarn install --production",
-            "Set-Content -Path \"$dir\\gemini-cli.cmd\" -Value \"@node.exe \"\"$dir\\dist\\index.js\"\" %*\"",
-            "Set-Content -Path \"$dir\\gemini.cmd\" -Value \"@node.exe \"\"$dir\\dist\\index.js\"\" %*\""
+            "Set-Content -Path \"$dir\\gemini-cli.cmd\" -Value \"@node.exe \"\"$dir\\dist\\index.js\"\" %*\""
         ]
     },
-    "bin": [
-        "gemini-cli.cmd",
-        "gemini.cmd"
-    ],
+    "bin": "gemini-cli.cmd",
     "checkver": {
         "url": "https://registry.npmjs.org/@google/gemini-cli",
         "jsonpath": "$.dist-tags.latest"
