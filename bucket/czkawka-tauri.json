@@ -1,70 +1,70 @@
 {
-  "version": "1.1.5",
-  "description": "A Tauri-based frontend for Czkawka on macOS and Windows",
+    "version": "1.1.6",
+    "description": "A Tauri-based frontend for Czkawka on macOS and Windows",
     "homepage": "https://github.com/HibernalGlow/czkawka-tauri",
-  "license": "MIT",
-  "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.1.5/Czkawka_1.1.4_x64-setup.exe",
-  "hash": "sha256:2b03c60ba11e9a423188e7b6a900b15fec0ad0688ac5307bc25f54ec4e68e4f5",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.1.5/Czkawka_1.1.4_x64-setup.exe",
-      "hash": "sha256:2b03c60ba11e9a423188e7b6a900b15fec0ad0688ac5307bc25f54ec4e68e4f5"
-    }
-  },
-  "installer": {
-    "script": [
-      "# 静默安装",
-      "$setupFile = Get-ChildItem \"$dir\\Czkawka_*_x64-setup.exe\" | Select-Object -First 1",
-      "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S'",
-      "# 清理安装包",
-      "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue",
-      "# 创建包装脚本指向实际安装位置",
-      "$wrapperScript = \"@echo off`nstart `\"`\" `\"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe`\" %*\"",
-      "$wrapperScript | Out-File -FilePath \"$dir\\CzkawkaTauri.cmd\" -Encoding ASCII",
-      "# 同时创建一个快捷方式用的exe副本（用于shim）",
-      "$installPath = \"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe\"",
-      "if (Test-Path $installPath) {",
-      "    Copy-Item $installPath \"$dir\\CzkawkaTauri.exe\" -Force",
-      "}"
-    ]
-  },
-  "uninstaller": {
-    "script": [
-      "# 运行卸载器",
-      "$uninstallPath = \"$env:LOCALAPPDATA\\Czkawka\\uninstall.exe\"",
-      "if (Test-Path $uninstallPath) { ",
-      "    Start-Process -Wait -FilePath $uninstallPath -ArgumentList '/S'",
-      "}"
-    ]
-  },
-  "bin": "CzkawkaTauri.exe",
-  "shortcuts": [
-    [
-      "CzkawkaTauri.exe",
-      "Czkawka Tauri"
-    ]
-  ],
-  "checkver": {
-        "url": "https://api.github.com/repos/HibernalGlow/czkawka-tauri/releases/latest",
-    "jsonpath": "$.tag_name"
-  },
-  "autoupdate": {
+    "license": "MIT",
+    "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.1.5/Czkawka_1.1.4_x64-setup.exe",
+    "hash": "",
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/$version/Czkawka_$version_x64-setup.exe"
-      }
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.1.6/Czkawka_1.1.6_x64-setup.exe",
+            "hash": "sha256:2b03c60ba11e9a423188e7b6a900b15fec0ad0688ac5307bc25f54ec4e68e4f5"
+        }
     },
-    "hash": {
-      "url": "$baseurl/Czkawka_$version_x64-setup.exe.sha256"
-    }
-  },
-  "notes": [
-    "Czkawka 已通过 Scoop 安装到版本化目录",
-    "运行方式: czkawka 或在开始菜单搜索 'Czkawka'",
-    "",
-    "功能特性:",
-    "- 支持 AVIF 图片格式",
-    "- 清理重复/相似文件",
-    "- 多语言支持（中英文）"
-  ]
+    "installer": {
+        "script": [
+            "# 静默安装",
+            "$setupFile = Get-ChildItem \"$dir\\Czkawka_*_x64-setup.exe\" | Select-Object -First 1",
+            "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S'",
+            "# 清理安装包",
+            "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue",
+            "# 创建包装脚本指向实际安装位置",
+            "$wrapperScript = \"@echo off`nstart `\"`\" `\"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe`\" %*\"",
+            "$wrapperScript | Out-File -FilePath \"$dir\\CzkawkaTauri.cmd\" -Encoding ASCII",
+            "# 同时创建一个快捷方式用的exe副本（用于shim）",
+            "$installPath = \"$env:LOCALAPPDATA\\Czkawka\\CzkawkaTauri.exe\"",
+            "if (Test-Path $installPath) {",
+            "    Copy-Item $installPath \"$dir\\CzkawkaTauri.exe\" -Force",
+            "}"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "# 运行卸载器",
+            "$uninstallPath = \"$env:LOCALAPPDATA\\Czkawka\\uninstall.exe\"",
+            "if (Test-Path $uninstallPath) { ",
+            "    Start-Process -Wait -FilePath $uninstallPath -ArgumentList '/S'",
+            "}"
+        ]
+    },
+    "bin": "CzkawkaTauri.exe",
+    "shortcuts": [
+        [
+            "CzkawkaTauri.exe",
+            "Czkawka Tauri"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/HibernalGlow/czkawka-tauri/releases/latest",
+        "jsonpath": "$.tag_name"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/$version/Czkawka_$version_x64-setup.exe"
+            }
+        },
+        "hash": {
+            "url": "$baseurl/Czkawka_$version_x64-setup.exe.sha256"
+        }
+    },
+    "notes": [
+        "Czkawka 已通过 Scoop 安装到版本化目录",
+        "运行方式: czkawka 或在开始菜单搜索 'Czkawka'",
+        "",
+        "功能特性:",
+        "- 支持 AVIF 图片格式",
+        "- 清理重复/相似文件",
+        "- 多语言支持（中英文）"
+    ]
 }
