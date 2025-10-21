@@ -1,12 +1,12 @@
 {
-    "version": "26.1.0",
+    "version": "27.0.0",
     "description": "Use the right package manager - A wrapper that automatically detects and uses the appropriate package manager (npm, yarn, pnpm, bun, deno)",
     "homepage": "https://github.com/antfu-collective/ni",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://mirrors.cloud.tencent.com/npm/@antfu/ni/-/ni-26.1.0.tgz",
-            "hash": "8833F7DA614BAAACEF957A8BB3A9220B59746EE5AF6603B32338A674BBB6E685"
+            "url": "https://mirrors.cloud.tencent.com/npm/@antfu/ni/-/ni-27.0.0.tgz",
+            "hash": "a2ac2dfec27c7557535dd12e3ea58d2ca89e210039b32df7627f6f177d598e93"
         }
     },
     "extract_dir": "package",
