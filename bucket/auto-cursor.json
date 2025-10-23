@@ -1,0 +1,54 @@
+{
+  "version": "0.9.0",
+  "description": "Auto Cursor - An automated tool for Cursor IDE",
+  "homepage": "https://github.com/wuqi-y/auto-cursor-releases",
+  "license": "Unknown",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v0.9.0/auto-cursor_0.9.0_x64-setup.exe",
+      "hash": "sha256:52618f44151cc1efd7734e0415ef713c56c9d250c1026d8d3c628ad8c189c52f"
+    }
+  },
+  "installer": {
+    "script": [
+      "$setupFile = Get-ChildItem \"$dir\\auto-cursor_*_x64-setup.exe\" | Select-Object -First 1",
+      "Start-Process -Wait -FilePath $setupFile.FullName -ArgumentList '/S'",
+      "Remove-Item $setupFile.FullName -ErrorAction SilentlyContinue",
+      "$wrapperScript = \"@echo off`nstart `\"`\" `\"$env:ProgramFiles\\auto-cursor\\auto-cursor.exe`\" %*\"",
+      "$wrapperScript | Out-File -FilePath \"$dir\\auto-cursor.cmd\" -Encoding ASCII",
+      "$installPath = Get-ChildItem $env:LOCALAPPDATA -Recurse -Filter 'auto-cursor.exe' -ErrorAction SilentlyContinue | Select-Object -First 1",
+      "if ($installPath) {",
+      "    Copy-Item $installPath.FullName \"$dir\\auto-cursor.exe\" -Force",
+      "    $wrapperScript = \"@echo off`nstart `\"`\" `\"$($installPath.FullName)`\" %*\"",
+      "    $wrapperScript | Out-File -FilePath \"$dir\\auto-cursor.cmd\" -Encoding ASCII",
+      "}"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$uninstallPath = Get-ChildItem $env:LOCALAPPDATA -Recurse -Filter 'uninstall.exe' -ErrorAction SilentlyContinue | Where-Object { $_.FullName -like '*auto-cursor*' } | Select-Object -First 1",
+      "if ($uninstallPath) { ",
+      "    Start-Process -Wait -FilePath $uninstallPath.FullName -ArgumentList '/S'",
+      "}"
+    ]
+  },
+  "bin": "auto-cursor.exe",
+  "shortcuts": [
+    [
+      "auto-cursor.exe",
+      "Auto Cursor"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/wuqi-y/auto-cursor-releases/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v$version/auto-cursor_$version_x64-setup.exe"
+      }
+    }
+  }
+}
