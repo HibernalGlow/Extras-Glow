@@ -1,0 +1,23 @@
+{
+  "version": "1.8",
+  "description": "JavSP — a Jav metadata & download helper (Windows amd64)",
+  "homepage": "https://github.com/Yuukiy/JavSP",
+  "license": "MIT",
+  "url": "https://github.com/Yuukiy/JavSP/releases/download/v1.8/JavSP-v1.8-Windows-amd64.zip",
+  "hash": "sha256:05A20BADB26808A83F47926E9E76E0003280C7DA929F1CE080E569C95445801A",
+  "bin": "JavSP.exe",
+  "shortcuts": [
+    [
+      "JavSP.exe",
+      "JavSP"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/Yuukiy/JavSP/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/Yuukiy/JavSP/releases/download/v$version/JavSP-v$version-Windows-amd64.zip"
+  }
+}
