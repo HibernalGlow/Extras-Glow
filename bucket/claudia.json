@@ -1,0 +1,24 @@
+{
+  "version": "0.3.3",
+  "description": "Claudia / opcode — A powerful GUI app and toolkit for Claude Code (Windows portable)",
+  "homepage": "https://github.com/lusipad/claudia",
+  "license": "AGPL-3.0",
+  "url": "https://github.com/lusipad/claudia/releases/download/v0.3.3/opcode_v0.3.3_windows_x86_64_portable.exe",
+  "hash": "sha256:6EB615C37BACADC4D1BCA5C4FD01C9EE47CE4853E9EA09BABB6FE00E2261572F",
+  "bin": "opcode_v0.3.3_windows_x86_64_portable.exe",
+  "shortcuts": [
+    [
+      "opcode_v0.3.3_windows_x86_64_portable.exe",
+      "opcode"
+      
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/lusipad/claudia/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/lusipad/claudia/releases/download/v$version/opcode_v$version_windows_x86_64_portable.exe"
+  }
+}
