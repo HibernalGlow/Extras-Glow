@@ -1,40 +1,43 @@
 {
-  "version": "0.9.50",
-  "description": "Web application for archival and reading of manga/doujinshi. Lightweight and Docker-ready for NAS/servers.",
-  "homepage": "https://github.com/Difegue/LANraragi",
-  "license": "MIT",
-  "notes": [
-    "LANraragi has been installed.",
-    "Launch Karen.exe to start and configure LANraragi.",
-    "Default web interface: http://localhost:3000"
-  ],
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/Difegue/LANraragi/releases/download/v.0.9.50/LANraragi.msi",
-      "hash": "6cb3db585c6cb6c685a394cac73d204001d3c1073438381d53ca37bf075a6bad"
-    }
-  },
-  "extract_dir": "AppDataFolder\\LANraragi",
-  "bin": [
-    "Karen.exe",
-    ["Karen.exe", "lanraragi"]
-  ],
-  "shortcuts": [
-    [
-      "Karen.exe",
-      "LANraragi"
-    ]
-  ],
-  "checkver": {
-    "url": "https://api.github.com/repos/Difegue/LANraragi/releases/latest",
-    "jsonpath": "$.tag_name",
-    "regex": "v\\.([\\d.]+)"
-  },
-  "autoupdate": {
+    "version": "0.9.60",
+    "description": "Web application for archival and reading of manga/doujinshi. Lightweight and Docker-ready for NAS/servers.",
+    "homepage": "https://github.com/Difegue/LANraragi",
+    "license": "MIT",
+    "notes": [
+        "LANraragi has been installed.",
+        "Launch Karen.exe to start and configure LANraragi.",
+        "Default web interface: http://localhost:3000"
+    ],
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/Difegue/LANraragi/releases/download/v.$version/LANraragi.msi"
-      }
+        "64bit": {
+            "url": "https://github.com/Difegue/LANraragi/releases/download/v.0.9.60/LANraragi.msi",
+            "hash": "c3d5cd3865e3534bb633d5fb7d42d48f9b01479167b6108045fd1b626a16785c"
+        }
+    },
+    "extract_dir": "AppDataFolder\\LANraragi",
+    "bin": [
+        "Karen.exe",
+        [
+            "Karen.exe",
+            "lanraragi"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "Karen.exe",
+            "LANraragi"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Difegue/LANraragi/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v\\.([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Difegue/LANraragi/releases/download/v.$version/LANraragi.msi"
+            }
+        }
     }
-  }
 }
