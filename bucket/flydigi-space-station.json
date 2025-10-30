@@ -9,15 +9,13 @@
   "installer": {
     "script": [
       "& innounp -x -d\"$dir\" \"$dir\\$fname\"",
-      "Move-Item \"$dir\\{app}\\*\" \"$dir\" -Force",
-      "Remove-Item \"$dir\\{app}\" -Recurse",
       "Remove-Item \"$dir\\$fname\""
     ]
   },
-  "bin": "FlydigiSpaceStation.exe",
+  "bin": "{app}\\FlydigiSpaceStation.exe",
   "shortcuts": [
     [
-      "FlydigiSpaceStation.exe",
+      "{app}\\FlydigiSpaceStation.exe",
       "Flydigi Space Station"
     ]
   ],
