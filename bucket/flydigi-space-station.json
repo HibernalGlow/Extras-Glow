@@ -1,0 +1,36 @@
+{
+  "version": "3.4.9.5",
+  "description": "Flydigi Space Station - companion desktop app for Flydigi devices",
+  "homepage": "https://www.flydigi.com/",
+  "license": "Freeware",
+  "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station3.0/FlydigiSpaceStation_setup_3.4.9.5_Release.exe",
+  "hash": "sha256:08962E7584B12518331C68B05A81555E54D8FAE1541B81168798F454FBEC6796",
+  "depends": "innounp",
+  "installer": {
+    "script": [
+      "& innounp -x -d\"$dir\" \"$dir\\$fname\"",
+      "Move-Item \"$dir\\{app}\\*\" \"$dir\" -Force",
+      "Remove-Item \"$dir\\{app}\" -Recurse",
+      "Remove-Item \"$dir\\$fname\""
+    ]
+  },
+  "bin": "FlydigiSpaceStation.exe",
+  "shortcuts": [
+    [
+      "FlydigiSpaceStation.exe",
+      "Flydigi Space Station"
+    ]
+  ],
+  "checkver": {
+    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/f/Flydigi/FlydigiSpaceStation",
+    "regex": "([\\d.]+)",
+    "reverse": true
+  },
+  "autoupdate": {
+    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station3.0/FlydigiSpaceStation_setup_$version_Release.exe",
+    "hash": {
+      "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/f/Flydigi/FlydigiSpaceStation/$version/Flydigi.FlydigiSpaceStation.installer.yaml",
+      "regex": "InstallerSha256:\\s+([A-Fa-f0-9]{64})"
+    }
+  }
+}

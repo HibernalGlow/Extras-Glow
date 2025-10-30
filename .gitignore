@@ -2,3 +2,5 @@
 guguai.exe
 *.exe
 $null
+/`$dir`
+/extracted
