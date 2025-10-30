@@ -7,17 +7,22 @@
   "hash": "sha256:EB9C7273A262FAC4FA2CFCA3F94E8D636C9D1B9F2D4AD8E4FD209EBE0A55968E",
   "installer": {
     "script": [
-      "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList \"/S\" -Wait",
-      "Remove-Item \"$dir\\$fname\""
+      "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+      "Remove-Item \"$dir\\$fname\"",
+      "& \"$dir\\BandiView.x64.exe\" /reg"
     ]
   },
-  "bin": "C:\\Program Files\\BandiView\\BandiView.exe",
+  "bin": [
+    "BandiView.x64.exe",
+    ["BandiView.x64.exe", "/cli", "bandiview-cli"]
+  ],
   "shortcuts": [
     [
-      "C:\\Program Files\\BandiView\\BandiView.exe",
+      "BandiView.x64.exe",
       "BandiView"
     ]
   ],
+  "depends": "7zip",
   "checkver": {
     "url": "https://cn.bandisoft.com/bandiview/",
     "regex": "版本信息: v([\\d.]+)"
