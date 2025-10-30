@@ -1,0 +1,34 @@
+{
+  "version": "2.5.7.8_2",
+  "description": "Flydigi PC Space - companion desktop app for Flydigi devices",
+  "homepage": "https://www.flydigi.com/",
+  "license": "Freeware",
+  "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station/FlydigiPcSpace_setup_2.5.7.8_2_Release.exe",
+  "hash": "sha256:6D40B1DF84FD04E2E203D8669A19ABC3F99CFA3014DBACE4A29E8A25C30E73B4",
+  "depends": "innounp",
+  "installer": {
+    "script": [
+      "& innounp -x -d\"$dir\" \"$dir\\$fname\"",
+      "Remove-Item \"$dir\\$fname\""
+    ]
+  },
+  "bin": "{app}\\FlydigiPCSpace.exe",
+  "shortcuts": [
+    [
+      "{app}\\FlydigiPCSpace.exe",
+      "Flydigi PC Space"
+    ]
+  ],
+  "checkver": {
+    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/f/Flydigi/FlydigiPCSpace",
+    "regex": "([\\d._]+)",
+    "reverse": true
+  },
+  "autoupdate": {
+    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station/FlydigiPcSpace_setup_$version_Release.exe",
+    "hash": {
+      "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/f/Flydigi/FlydigiPCSpace/$version/Flydigi.FlydigiPCSpace.installer.yaml",
+      "regex": "InstallerSha256:\\s+([A-Fa-f0-9]{64})"
+    }
+  }
+}
