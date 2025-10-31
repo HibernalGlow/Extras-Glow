@@ -1,28 +1,28 @@
 {
-    "version": "2.0.902.0",
+    "version": "2.0.1101.0",
     "description": "GuGuai Game Accelerator Installer - Network acceleration tool for gaming",
     "homepage": "https://update-bak.ggkuai.com",
     "license": "Proprietary",
     "url": "https://update-bak.ggkuai.com/download/guguai.exe",
-    "hash": "36e6f914096e18b5b8eba60eee3e20661251132cd626f5be69e1c4e910d14560",
+    "hash": "70493accd46c7988cc853db55250c10566d27c2ab2e74e7e39181d2dffb7e4a7",
+    "depends": ["7zip"],
     "installer": {
         "script": [
-            "Write-Host 'GuGuai Accelerator installer downloaded to:' -ForegroundColor Green",
-            "Write-Host \"$dir\\guguai.exe\" -ForegroundColor Yellow",
-            "Write-Host 'Run the installer manually or use: guguai' -ForegroundColor Cyan"
+            "# Extract embedded archive (SFX) using 7z to make this package portable",
+            "& 7z x -y -o\"$dir\" \"$dir\\$fname\"",
+            "Remove-Item \"$dir\\$fname\" -Force"
         ]
     },
-    "bin": "guguai.exe",
+    "bin": "GGlauncher.exe",
     "shortcuts": [
         [
-            "guguai.exe",
-            "GuGuai Accelerator Installer"
+            "GGlauncher.exe",
+            "GuGuai"
         ]
     ],
     "notes": [
-        "INSTALLER PACKAGE: This downloads the GuGuai Accelerator installer executable.",
-        "The installer must be run manually to complete the software installation.",
-        "Use 'guguai' command or navigate to the installation directory to run the installer.",
-        "File location: %SCOOP%\\apps\\guguai\\current\\guguai.exe"
+        "This installer is treated as a SFX/installer archive and is extracted with 7zip to the app folder.",
+        "The package is made portable by extracting files rather than running the original installer.",
+        "If the main executable is under a subfolder after extraction, adjust the 'bin' path accordingly."
     ]
 }
