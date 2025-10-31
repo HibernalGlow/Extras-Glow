@@ -1,0 +1,27 @@
+﻿{
+  "version": "10.0.0.7",
+  "description": "KO 加速器 (KOInstall) - 客户端安装器",
+  "homepage": "https://dl.kobooster.cn/",
+  "license": "Proprietary",
+  "url": "https://dl.kobooster.cn/ko/version/person/25_07_30/1753869315498827112909895/KOInstall.10.0.0.7.exe",
+  "hash": "sha256:E68A4820368A20C007F2D4F039C1570451DC6591CB21343C6E7408EACD7C6C03",
+  "depends": ["7zip"],
+  "installer": {
+    "script": [
+      "# Extract embedded 7z resource from the SFX/exe using 7z (makes installation portable)",
+      "& 7z x -y -o\"$dir\" \"$dir\\$fname\"",
+      "Remove-Item \"$dir\\$fname\""
+    ]
+  },
+  "bin": "KO.exe",
+  "shortcuts": [
+    [
+      "KO.exe",
+      "KO 加速器"
+    ]
+  ],
+  "notes": "This installer is an executable SFX containing a 7z archive; manifest extracts files using 7z to the app folder. After install, you may need to pick the correct exe under the extracted folders (e.g. under 'bin' or 'console').",
+  "checkver": null,
+  "autoupdate": null
+}
+
