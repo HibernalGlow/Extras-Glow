@@ -1,0 +1,16 @@
+{
+    "version": "3.0.0.1",
+    "description": "Lossless Scaling is a upscaling technology that uses AI to enhance your games and other applications.",
+    "homepage": "https://github.com/HibernalGlow/SoftPass",
+    "license": "Freeware",
+    "url": "https://github.com/HibernalGlow/SoftPass/releases/download/251031/LosslessScaling.3.0.0.1.zip",
+    "hash": "a0001c67bf983478f274a7896e2a172e196c31f08af39c1dd04c00f3b8866722",
+    "bin": "LosslessScaling.exe",
+    "shortcuts": [
+        [
+            "LosslessScaling.exe",
+            "lls"
+        ]
+    ],
+    "notes": "This is a portable version extracted from the ZIP archive."
+}
