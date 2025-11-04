@@ -19,7 +19,8 @@
     ]
   ],
   "checkver": {
-    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/n/NetEase/UURemote",
+    "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/n/NetEase/UURemote",
+    "jsonpath": "$[*].name",
     "regex": "([\\d.]+)",
     "reverse": true
   },

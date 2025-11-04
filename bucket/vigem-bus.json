@@ -17,7 +17,8 @@
   "shortcuts": [],
   "notes": "Installs a kernel driver — not portable. Installer will prompt UAC when run.",
   "checkver": {
-    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/v/ViGEm/ViGEmBus",
+    "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/v/ViGEm/ViGEmBus",
+    "jsonpath": "$[*].name",
     "regex": "([\\d.]+)",
     "reverse": true
   },

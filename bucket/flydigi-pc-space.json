@@ -20,7 +20,8 @@
     ]
   ],
   "checkver": {
-    "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/f/Flydigi/FlydigiPCSpace",
+    "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/f/Flydigi/FlydigiPCSpace",
+    "jsonpath": "$[*].name",
     "regex": "([\\d._]+)",
     "reverse": true
   },
