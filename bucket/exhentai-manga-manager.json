@@ -3,8 +3,6 @@
     "description": "ExHentai本地漫画标签管理阅读应用, ExHentai local manga tag-manager and reader",
     "homepage": "https://github.com/SchneeHertz/exhentai-manga-manager",
     "license": "MIT",
-    "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v1.6.11/exhentai-manga-manager-1.6.11-win.zip",
-    "hash": "",
     "architecture": {
         "64bit": {
             "url": "https://github.com/SchneeHertz/exhentai-manga-manager/releases/download/v1.6.12/exhentai-manga-manager-1.6.12-win.zip",
