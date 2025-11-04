@@ -5,7 +5,6 @@
   "license": "MIT",
   "url": "https://github.com/nefarius/ViGEmBus/releases/download/v1.22.0/ViGEmBus_1.22.0_x64_x86_arm64.exe",
   "hash": "sha256:89220A7865076B342892F98865F3499FB7C4CFD673159E89D352C360FD014C6A",
-  "depends": [],
   "installer": {
     "script": [
       "# This installer installs a kernel-mode driver and requires elevation. We run the installer elevated so UAC will prompt.",
@@ -13,8 +12,6 @@
       "if ($p.ExitCode -ne 0) { throw \"ViGEmBus installer failed with exit code $($p.ExitCode)\" }"
     ]
   },
-  "bin": [],
-  "shortcuts": [],
   "notes": "Installs a kernel driver — not portable. Installer will prompt UAC when run.",
   "checkver": {
     "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/v/ViGEm/ViGEmBus",
