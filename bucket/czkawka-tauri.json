@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.1.8/CzkawkaTauri.exe",
-            "hash": "sha256:bca620da7cd4072cb1b7e6ce5ff461ebeba90b31e6f7aff634f82dff92061455"
+            "hash": "bca620da7cd4072cb1b7e6ce5ff461ebeba90b31e6f7aff634f82dff92061455"
         }
     },
     "bin": "CzkawkaTauri.exe",
