@@ -1,34 +1,34 @@
 {
-  "version": "4.6.7.5589",
-  "description": "NetEase UU Remote - Remote desktop and screen sharing tool",
-  "homepage": "https://uu.163.com/",
-  "license": "Freeware",
-  "url": "https://a56.gdl.netease.com/UURemote_Setup_4.6.7.5589_1029200031_gwqd.exe",
-  "hash": "sha256:0B853FE47CB22A930B4B12C1B8077EC40ED791B5F49B78B1A1A5448820854D5C",
-  "installer": {
-    "script": [
-      "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList \"/S /D=$dir\" -Wait",
-      "Remove-Item \"$dir\\$fname\""
-    ]
-  },
-  "bin": "GameViewer\\GameViewer.exe",
-  "shortcuts": [
-    [
-      "GameViewer\\GameViewer.exe",
-      "UU Remote"
-    ]
-  ],
-  "checkver": {
-    "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/n/NetEase/UURemote",
-    "jsonpath": "$[*].name",
-    "regex": "([\\d.]+)",
-    "reverse": true
-  },
-  "autoupdate": {
-    "url": "https://a56.gdl.netease.com/UURemote_Setup_$version_$match2_gwqd.exe",
-    "hash": {
-      "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/n/NetEase/UURemote/$version/NetEase.UURemote.installer.yaml",
-      "regex": "InstallerSha256:\\s+([A-Fa-f0-9]{64})"
+    "version": "4.6.8.5638",
+    "description": "NetEase UU Remote - Remote desktop and screen sharing tool",
+    "homepage": "https://uu.163.com/",
+    "license": "Freeware",
+    "url": "https://a56.gdl.netease.com/UURemote_Setup_4.6.8.5638_$match2_gwqd.exe",
+    "hash": "ecdee2dde9c17fa4727c803e4f2a5158b634574f4c26e2e263250d6cbf446a64",
+    "installer": {
+        "script": [
+            "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList \"/S /D=$dir\" -Wait",
+            "Remove-Item \"$dir\\$fname\""
+        ]
+    },
+    "bin": "GameViewer\\GameViewer.exe",
+    "shortcuts": [
+        [
+            "GameViewer\\GameViewer.exe",
+            "UU Remote"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/microsoft/winget-pkgs/contents/manifests/n/NetEase/UURemote",
+        "jsonpath": "$[*].name",
+        "regex": "([\\d.]+)",
+        "reverse": true
+    },
+    "autoupdate": {
+        "url": "https://a56.gdl.netease.com/UURemote_Setup_$version_$match2_gwqd.exe",
+        "hash": {
+            "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/n/NetEase/UURemote/$version/NetEase.UURemote.installer.yaml",
+            "regex": "InstallerSha256:\\s+([A-Fa-f0-9]{64})"
+        }
     }
-  }
 }
