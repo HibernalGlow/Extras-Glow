@@ -1,0 +1,29 @@
+{
+    "version": "44.2.0",
+    "description": "NeeView - Simple and minimal image viewer",
+    "homepage": "https://github.com/HibernalGlow/NeeView",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/NeeView/releases/download/v44.2.0-dev.20251107143353/NeeView-x64-44.2.0-dev.20251107143117.zip",
+            "hash": "sha256:591d1979a74aaaa31c3ac3f83256506de209a4dd641812f599de189240130891"
+        }
+    },
+    "bin": "NeeView.exe",
+    "shortcuts": [
+        [
+            "NeeView.exe",
+            "NeeView"
+        ]
+    ],
+    "checkver": {
+        "github": "HibernalGlow/NeeView"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/NeeView/releases/download/$version/NeeView-x64-$version.zip"
+            }
+        }
+    }
+}
