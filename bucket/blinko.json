@@ -1,0 +1,39 @@
+{
+  "version": "1.6.5",
+  "description": "Blinko - AI-powered self-hosted note tool",
+  "homepage": "https://github.com/blinkospace/blinko",
+  "license": "GPL-3.0",
+  "noextract": true,
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/blinkospace/blinko/releases/download/1.6.5/Blinko_1.6.5_x64-setup_windows.exe",
+      "hash": "sha256:7740f11680c9c15e2e16f9769e9e34616e046fa1a7aa2de9bbc8dc3a078e16f9"
+    }
+  },
+  "depends": "7zip",
+  "installer": {
+    "script": [
+      "& 7z x \"$dir\\$fname\" -o\"$dir\" -y",
+      "$exe = Get-ChildItem -Path $dir -Filter '\"*setup*.exe\"' -ErrorAction SilentlyContinue | Select-Object -First 1",
+      "if ($exe) { & 7z x $exe.FullName -o\"$dir\" -y; Remove-Item -Path $exe.FullName -Force }",
+      "Remove-Item -Path \"$dir\\$fname\" -Force"
+    ]
+  },
+  "bin": "Blinko.exe",
+  "shortcuts": [
+    [
+      "Blinko.exe",
+      "Blinko"
+    ]
+  ],
+  "checkver": {
+    "github": "blinkospace/blinko"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/blinkospace/blinko/releases/download/$version/Blinko_$version_x64-setup_windows.exe"
+      }
+    }
+  }
+}

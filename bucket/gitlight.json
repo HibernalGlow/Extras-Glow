@@ -3,25 +3,34 @@
   "description": "GitLight - A lightweight GitHub/GitLab notifications app",
   "homepage": "https://github.com/colinlienard/gitlight",
   "license": "MIT",
+  "noextract": true,
   "architecture": {
     "64bit": {
       "url": "https://github.com/colinlienard/gitlight/releases/download/gitlight-v0.17.6/GitLight_0.17.6_x64-setup.exe",
       "hash": "sha256:f9e21321039ee9c4d5d0c74f6b85e1e74906cdbe912f045cdda8b0510b4803f9"
     }
   },
+  "depends": "7zip",
   "installer": {
     "script": [
-      "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList '/S' -Wait",
+      "& 7z x \"$dir\\$fname\" -o\"$dir\" -y",
       "Remove-Item -Path \"$dir\\$fname\" -Force"
     ]
   },
+  "bin": "GitLight.exe",
+  "shortcuts": [
+    [
+      "GitLight.exe",
+      "GitLight"
+    ]
+  ],
   "checkver": {
     "github": "colinlienard/gitlight"
   },
   "autoupdate": {
     "architecture": {
       "64bit": {
-        "url": "https://github.com/colinlienard/gitlight/releases/download/$version/GitLight_$version_x64-setup.exe"
+            "url": "https://github.com/colinlienard/gitlight/releases/download/$version/GitLight_$version_x64-setup.exe"
       }
     }
   }
