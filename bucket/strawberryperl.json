@@ -1,0 +1,32 @@
+{
+  "version": "5.32.1.1",
+  "description": "Strawberry Perl - A Perl environment for Microsoft Windows",
+  "homepage": "https://strawberryperl.com/",
+  "license": "Artistic-1.0-Perl | GPL-1.0-or-later",
+  "architecture": {
+    "64bit": {
+      "url": "https://strawberryperl.com/download/5.32.1.1/strawberry-perl-5.32.1.1-64bit-portable.zip",
+      "hash": "692646105b0f5e058198a852dc52a48f1cebcaf676d63bbdeae12f4eaee9bf5c"
+    },
+    "32bit": {
+      "url": "https://strawberryperl.com/download/5.32.1.1/strawberry-perl-5.32.1.1-32bit-portable.zip",
+      "hash": "d33a8b6cba0fd32f1e49f12f18f66d87bc86a47c0b60e97c8c3b89f1cb5d1c3e"
+    }
+  },
+  "bin": "perl\\bin\\perl.exe",
+  "env_add_path": "perl\\bin",
+  "checkver": {
+    "url": "https://strawberryperl.com/releases.html",
+    "regex": "strawberry-perl-([\\d.]+)-64bit"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://strawberryperl.com/download/$version/strawberry-perl-$version-64bit-portable.zip"
+      },
+      "32bit": {
+        "url": "https://strawberryperl.com/download/$version/strawberry-perl-$version-32bit-portable.zip"
+      }
+    }
+  }
+}
