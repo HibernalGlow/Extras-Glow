@@ -14,7 +14,15 @@
     }
   },
   "bin": "perl\\bin\\perl.exe",
-  "env_add_path": "perl\\bin",
+  "env_add_path": [
+    "perl\\bin",
+    "c\\bin"
+  ],
+  "env_set": {
+    "OPENSSL_DIR": "$dir\\c",
+    "OPENSSL_NO_VENDOR": "1",
+    "OPENSSL_RUST_USE_NASM": "1"
+  },
   "checkver": {
     "url": "https://strawberryperl.com/releases.html",
     "regex": "strawberry-perl-([\\d.]+)-64bit"
