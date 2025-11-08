@@ -1,0 +1,24 @@
+{
+  "version": "20251031",
+  "description": "pnnx - portable neural network model transformer (prebuilt Windows binary)",
+  "homepage": "https://github.com/pnnx/pnnx",
+  "license": "unknown",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/pnnx/pnnx/releases/download/20251031/pnnx-20251031-windows.zip",
+      "hash": "sha256:a519b4edb0086ab472c0243c995edb7f74e6cf5084041523957caef250eb9879"
+    }
+  },
+  "extract_dir": "pnnx-20251031-windows",
+  "bin": "pnnx.exe",
+  "checkver": {
+    "github": "pnnx/pnnx"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/pnnx/pnnx/releases/download/$version/pnnx-$version-windows.zip"
+      }
+    }
+  }
+}
