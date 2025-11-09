@@ -1,0 +1,24 @@
+{
+  "version": "3.6.0",
+  "description": "CC Switch - provider management & usage query tool",
+  "homepage": "https://github.com/farion1231/cc-switch",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/farion1231/cc-switch/releases/download/v3.6.0/CC-Switch-v3.6.0-Windows-Portable.zip",
+      "hash": "3929325221ed03f06e917c31059b777d1281a9d02f297ebac08e593076ebf5b8"
+    }
+  },
+  "bin": "cc-switch.exe",
+  "env_set": {},
+  "checkver": {
+    "github": "farion1231/cc-switch"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/farion1231/cc-switch/releases/download/v$version/CC-Switch-v$version-Windows-Portable.zip"
+      }
+    }
+  }
+}
