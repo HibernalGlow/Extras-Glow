@@ -1,0 +1,33 @@
+{
+  "version": "0.2.3",
+  "description": "upscale-rs - real-time image upscaling desktop application",
+  "homepage": "https://github.com/OLoKo64/upscale-rs",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/oloko64/upscale-rs/releases/download/v0.2.3/upscale-rs_0.2.3_x64_en-US.msi",
+      "hash": "b76828cb4e2f67d066d96b57f4a6780b6a6e29fcf61d4972e733f5a15060e78e"
+    }
+  },
+  "depends": [
+    "lessmsi"
+  ],
+  "post_install": [
+    "$cache = if ($env:SCOOP_CACHE) { $env:SCOOP_CACHE } else { Join-Path $env:SCOOP 'cache' }",
+    "$msi = (Get-ChildItem $cache -Filter 'upscale-rs#0.2.3#*.msi' -Recurse | Select-Object -First 1).FullName",
+    "if (-not $msi) { throw 'MSI not found in cache' }",
+    "lessmsi x \"$msi\" \"$dir\""
+  ],
+  "bin": "PFiles\\upscale-rs\\upscale-rs.exe",
+  "env_add_path": "PFiles\\upscale-rs\\resources\\bin\\windows",
+  "checkver": {
+    "github": "OLoKo64/upscale-rs"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/oloko64/upscale-rs/releases/download/v$version/upscale-rs_$version_x64_en-US.msi"
+      }
+    }
+  }
+}
