@@ -1,0 +1,40 @@
+{
+    "version": "1.0.0",
+    "description": "NeoView: A Tauri-based image viewer for Windows",
+    "homepage": "https://github.com/HibernalGlow/neoview",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/neoview/releases/download/1.0.0/neoview.exe",
+            "hash": "3cde7a0c807586f79adad573dc7ebe8584fe3f1e0a1d0d2b6d6febd09bffb8a0"
+        }
+    },
+    "bin": "neoview.exe",
+    "shortcuts": [
+        [
+            "neoview.exe",
+            "NeoView"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/HibernalGlow/neoview/releases/latest",
+        "jsonpath": "$.tag_name"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/neoview/releases/download/$version/neoview.exe"
+            }
+        }
+    },
+    "notes": [
+        "NeoView 已安装为便携版本",
+        "运行方式: 在终端执行 'neoview' 或在开始菜单搜索 'NeoView'",
+        "",
+        "功能特性示例:",
+        "- 基于 Tauri 2 + Svelte 5 + shadcn-svelte 的现代 UI",
+        "- 支持本地图片浏览和多窗口",
+        "",
+        "注意: 需要 Windows 10 或更高版本"
+    ]
+}
