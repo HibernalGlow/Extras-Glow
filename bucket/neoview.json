@@ -5,32 +5,18 @@
     "license": "MIT",
     "url": "https://github.com/HibernalGlow/neoview/releases/download/1.0.1/neoview_2.0.0_x64-setup.exe",
     "hash": "a3bfe55997450765efe4c87ae91464c99bd6e2938ba637de152d93bc4d0ed60b",
-    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninst*\" -Force -Recurse -ErrorAction SilentlyContinue",
     "installer": {
         "script": [
-            "$setup = Get-ChildItem \"$dir\\*setup*.exe\" -ErrorAction Stop | Select-Object -First 1",
-            "& $setup.FullName /S /D=$dir",
-            "ensure \"$persist_dir\" | Out-Null",
-            "$appDataPath = Join-Path $env:APPDATA 'neoview'",
-            "if (Test-Path $appDataPath -PathType Container) {",
-            "  if (-not (Get-Item $appDataPath).Attributes.ToString().Contains('ReparsePoint')) {",
-            "    Get-ChildItem $appDataPath -Force | Move-Item -Destination $persist_dir -Force -ErrorAction SilentlyContinue",
-            "    Remove-Item $appDataPath -Recurse -Force -ErrorAction SilentlyContinue",
-            "  }",
-            "}",
-            "if (-not (Test-Path $appDataPath)) {",
-            "  New-Item $appDataPath -ItemType Junction -Target $persist_dir | Out-Null",
-            "}"
+            "& \"$dir\\neoview_2.0.0_x64-setup.exe\" /S /D=$dir",
+            "$cmdPath = Join-Path $dir 'neoview.cmd'",
+            "Set-Content -Path $cmdPath -Value ('@echo off' + [Environment]::NewLine + '%~dp0neoview.exe %*') -Encoding ASCII"
         ]
-    },
-    "uninstaller": {
-        "script": "Remove-Item \"$env:APPDATA\\neoview\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
     },
     "bin": [
         [
-            "cmd",
+            "neoview.cmd",
             "neoview",
-            "/c \"$dir\\neoview.exe\""
+            ""
         ]
     ],
     "shortcuts": [

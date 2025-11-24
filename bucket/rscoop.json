@@ -1,0 +1,34 @@
+{
+  "version": "1.4.6",
+  "description": "A modern, open-source graphical interface (GUI) for managing Windows applications with Scoop.",
+  "homepage": "https://amarbego.github.io/Rscoop/",
+  "license": "MIT",
+  "url": "https://github.com/AmarBego/Rscoop/releases/download/v1.4.6/rscoop.exe",
+  "hash": "03f7e19003975077141d4f99edf189550c721d6e25d81aca0e8ed63491b6bc1a",
+  "installer": {
+    "script": [
+      "# Rscoop 发布为单个可执行文件，直接放到安装目录即可",
+      "Move-Item -Path (Join-Path $dir 'rscoop.exe') -Destination $dir -Force -ErrorAction 'SilentlyContinue'"
+    ]
+  },
+  "bin": [
+    [
+      "rscoop.exe",
+      "rscoop",
+      ""
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/AmarBego/Rscoop/releases/latest",
+    "jsonpath": "$.tag_name"
+  },
+  "autoupdate": {
+    "url": "https://github.com/AmarBego/Rscoop/releases/download/v$version/rscoop.exe"
+  },
+  "notes": [
+    "Rscoop 已安装为便携单文件应用",
+    "运行方式: 在终端执行 'rscoop' 或在开始菜单（如创建了快捷方式）中查找",
+    "如需安装 MSI 或使用安装程序，请到 Releases 页面选择对应资产",
+    "要求: Windows 10+"
+  ]
+}
