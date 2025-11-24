@@ -26,7 +26,13 @@
     "uninstaller": {
         "script": "Remove-Item \"$env:APPDATA\\neoview\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
     },
-    "bin": "neoview.exe",
+    "bin": [
+        [
+            "cmd",
+            "neoview",
+            "/c \"$dir\\neoview.exe\""
+        ]
+    ],
     "shortcuts": [
         [
             "neoview.exe",
