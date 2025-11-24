@@ -1,13 +1,30 @@
 {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "NeoView: A Tauri-based image viewer for Windows",
     "homepage": "https://github.com/HibernalGlow/neoview",
     "license": "MIT",
-    "architecture": {
-        "64bit": {
-            "url": "https://github.com/HibernalGlow/neoview/releases/download/1.0.0/neoview.exe",
-            "hash": "3cde7a0c807586f79adad573dc7ebe8584fe3f1e0a1d0d2b6d6febd09bffb8a0"
-        }
+    "url": "https://github.com/HibernalGlow/neoview/releases/download/1.0.1/neoview_2.0.0_x64-setup.exe",
+    "hash": "a3bfe55997450765efe4c87ae91464c99bd6e2938ba637de152d93bc4d0ed60b",
+    "pre_install": "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninst*\" -Force -Recurse -ErrorAction SilentlyContinue",
+    "installer": {
+        "script": [
+            "$setup = Get-ChildItem \"$dir\\*setup*.exe\" -ErrorAction Stop | Select-Object -First 1",
+            "& $setup.FullName /S /D=$dir",
+            "ensure \"$persist_dir\" | Out-Null",
+            "$appDataPath = Join-Path $env:APPDATA 'neoview'",
+            "if (Test-Path $appDataPath -PathType Container) {",
+            "  if (-not (Get-Item $appDataPath).Attributes.ToString().Contains('ReparsePoint')) {",
+            "    Get-ChildItem $appDataPath -Force | Move-Item -Destination $persist_dir -Force -ErrorAction SilentlyContinue",
+            "    Remove-Item $appDataPath -Recurse -Force -ErrorAction SilentlyContinue",
+            "  }",
+            "}",
+            "if (-not (Test-Path $appDataPath)) {",
+            "  New-Item $appDataPath -ItemType Junction -Target $persist_dir | Out-Null",
+            "}"
+        ]
+    },
+    "uninstaller": {
+        "script": "Remove-Item \"$env:APPDATA\\neoview\" -Recurse -Force -ErrorAction 'SilentlyContinue'"
     },
     "bin": "neoview.exe",
     "shortcuts": [
@@ -21,11 +38,7 @@
         "jsonpath": "$.tag_name"
     },
     "autoupdate": {
-        "architecture": {
-            "64bit": {
-                "url": "https://github.com/HibernalGlow/neoview/releases/download/$version/neoview.exe"
-            }
-        }
+        "url": "https://github.com/HibernalGlow/neoview/releases/download/$version/neoview_2.0.0_x64-setup.exe"
     },
     "notes": [
         "NeoView 已安装为便携版本",
