@@ -1,29 +1,35 @@
 {
-    "version": "1.0.1",
+    "version": "1.0.0",
     "description": "NeoView: A Tauri-based image viewer for Windows",
     "homepage": "https://github.com/HibernalGlow/neoview",
     "license": "MIT",
-    "url": "https://github.com/HibernalGlow/neoview/releases/download/1.0.1/neoview_2.0.0_x64-setup.exe",
-    "hash": "a3bfe55997450765efe4c87ae91464c99bd6e2938ba637de152d93bc4d0ed60b",
-    "installer": {
-        "script": [
-            "& \"$dir\\neoview_2.0.0_x64-setup.exe\" /S"
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/neoview/releases/download/1.1.0/neoview.exe",
+            "hash": "80c572418c03103cc8772b5b03d28480e4b65e530ae7c270195b5cb03687b1c7"
+        }
+    },
+    "bin": "neoview.exe",
+    "shortcuts": [
+        [
+            "neoview.exe",
+            "NeoView"
         ]
-    },
-    "bin": null,
-    "uninstaller": {
-        "script": "& \"$env:LOCALAPPDATA\\neoview\\uninstall.exe\" /S"
-    },
+    ],
     "checkver": {
         "url": "https://api.github.com/repos/HibernalGlow/neoview/releases/latest",
         "jsonpath": "$.tag_name"
     },
     "autoupdate": {
-        "url": "https://github.com/HibernalGlow/neoview/releases/download/$version/neoview_2.0.0_x64-setup.exe"
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/neoview/releases/download/$version/neoview.exe"
+            }
+        }
     },
     "notes": [
-        "NeoView 已安装到用户 AppData 目录 ($env:LOCALAPPDATA\\neoview)",
-        "运行方式: 在开始菜单搜索 'NeoView'",
+        "NeoView 已安装为便携版本",
+        "运行方式: 在终端执行 'neoview' 或在开始菜单搜索 'NeoView'",
         "",
         "功能特性示例:",
         "- 基于 Tauri 2 + Svelte 5 + shadcn-svelte 的现代 UI",
