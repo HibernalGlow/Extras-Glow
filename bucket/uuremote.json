@@ -1,10 +1,10 @@
 {
-    "version": "4.8.1.6010",
+    "version": "4.8.2.6062",
     "description": "NetEase UU Remote - Remote desktop and screen sharing tool",
     "homepage": "https://uu.163.com/",
     "license": "Freeware",
-    "url": "https://a56.gdl.netease.com/UURemote_Setup_4.8.1.6010_$match2_gwqd.exe",
-    "hash": "d2dbceb1e901b25679f9e6617703abc524339d8b3d23ab0de7dafdcb632909bd",
+    "url": "https://a56.gdl.netease.com/UURemote_Setup_4.8.2.6062_$match2_gwqd.exe",
+    "hash": "14254af2fc676fac8a73de092a5cf572ac800cf99928e03143ddeabd8f8ee9ae",
     "installer": {
         "script": [
             "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList \"/S /D=$dir\" -Wait",
