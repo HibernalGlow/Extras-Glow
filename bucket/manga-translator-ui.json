@@ -1,0 +1,42 @@
+{
+    "version": "1.9.3",
+    "description": "开源漫画翻译工具，基于 manga-image-translator 引擎，支持日漫、韩漫、美漫自动翻译，提供 30+ 种翻译引擎",
+    "homepage": "https://github.com/hgmzhn/manga-translator-ui",
+    "license": "GPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/hgmzhn/manga-translator-ui/releases/download/v1.9.3/manga-translator-cpu-v1.9.3.7z.001",
+            "hash": "sha256:5d4a241c0a01c22886181dbfc57f7867e95ae846cf68728f9d805380ae8c9346"
+        }
+    },
+    "bin": "app.exe",
+    "shortcuts": [
+        [
+            "app.exe",
+            "Manga Translator UI"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/hgmzhn/manga-translator-ui/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/hgmzhn/manga-translator-ui/releases/download/v$version/manga-translator-cpu-v$version.7z.001"
+            }
+        }
+    },
+    "notes": [
+        "Manga Translator UI 已安装 (CPU 版本)",
+        "运行方式: 在终端执行 'app' 或在开始菜单搜索 'Manga Translator UI'",
+        "",
+        "功能特性:",
+        "- 支持日漫、韩漫、美漫自动翻译",
+        "- 提供 30+ 种翻译引擎 (包括 GPT-4o、Gemini 等 AI 翻译)",
+        "- 内置可视化编辑器可自由调整文本框和样式",
+        "",
+        "如需 GPU 版本请访问 GitHub 页面下载"
+    ]
+}
