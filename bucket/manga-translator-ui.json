@@ -5,8 +5,14 @@
     "license": "GPL-3.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/hgmzhn/manga-translator-ui/releases/download/v1.9.3/manga-translator-cpu-v1.9.3.7z.001",
-            "hash": "sha256:5d4a241c0a01c22886181dbfc57f7867e95ae846cf68728f9d805380ae8c9346"
+            "url": [
+                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v1.9.3/manga-translator-gpu-v1.9.3.7z.001",
+                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v1.9.3/manga-translator-gpu-v1.9.3.7z.002"
+            ],
+            "hash": [
+                "sha256:19f8d7717332aa0638ed219840f830493452f98f4b583655dae835bcf26717de",
+                "sha256:c43df63fc5d105a7ff299e4b2e29fa458139832f05b92921ead542eaf019371c"
+            ]
         }
     },
     "bin": "app.exe",
@@ -24,12 +30,15 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/hgmzhn/manga-translator-ui/releases/download/v$version/manga-translator-cpu-v$version.7z.001"
+                "url": [
+                    "https://github.com/hgmzhn/manga-translator-ui/releases/download/v$version/manga-translator-gpu-v$version.7z.001",
+                    "https://github.com/hgmzhn/manga-translator-ui/releases/download/v$version/manga-translator-gpu-v$version.7z.002"
+                ]
             }
         }
     },
     "notes": [
-        "Manga Translator UI 已安装 (CPU 版本)",
+        "Manga Translator UI 已安装 (GPU 版本 - NVIDIA CUDA 12.x)",
         "运行方式: 在终端执行 'app' 或在开始菜单搜索 'Manga Translator UI'",
         "",
         "功能特性:",
@@ -37,6 +46,6 @@
         "- 提供 30+ 种翻译引擎 (包括 GPT-4o、Gemini 等 AI 翻译)",
         "- 内置可视化编辑器可自由调整文本框和样式",
         "",
-        "如需 GPU 版本请访问 GitHub 页面下载"
+        "注意: 需要支持 CUDA 12.x 的 NVIDIA 显卡 (驱动 >= 525.60.13)"
     ]
 }
