@@ -1,0 +1,54 @@
+{
+    "version": "1.2",
+    "description": "PotPlayer 实时字幕翻译插件，支持 OpenAI 兼容接口 (vLLM、SGLang 等)",
+    "homepage": "https://github.com/RagnarokChan/PotPlayer-OpenAICompat-Translate",
+    "license": "Unknown",
+    "url": "https://github.com/RagnarokChan/PotPlayer-OpenAICompat-Translate/archive/refs/heads/main.zip",
+    "hash": "",
+    "extract_dir": "PotPlayer-OpenAICompat-Translate-main",
+    "installer": {
+        "script": [
+            "$potplayerPath = \"$(scoop prefix potplayer)\\Extension\\Subtitle\\Translate\"",
+            "if (Test-Path $potplayerPath) {",
+            "    Copy-Item \"$dir\\SubtitleTranslate - OpenAI-API.as\" -Destination $potplayerPath -Force",
+            "    Copy-Item \"$dir\\SubtitleTranslate - OpenAI-API.ico\" -Destination $potplayerPath -Force",
+            "    Write-Host '已复制插件到 PotPlayer 扩展目录: ' $potplayerPath -ForegroundColor Green",
+            "} else {",
+            "    Write-Host '未找到 PotPlayer 扩展目录，请手动复制文件到 PotPlayer\\Extension\\Subtitle\\Translate' -ForegroundColor Yellow",
+            "}"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "$potplayerPath = \"$(scoop prefix potplayer)\\Extension\\Subtitle\\Translate\"",
+            "if (Test-Path \"$potplayerPath\\SubtitleTranslate - OpenAI-API.as\") {",
+            "    Remove-Item \"$potplayerPath\\SubtitleTranslate - OpenAI-API.as\" -Force",
+            "    Remove-Item \"$potplayerPath\\SubtitleTranslate - OpenAI-API.ico\" -Force -ErrorAction SilentlyContinue",
+            "    Write-Host '已从 PotPlayer 扩展目录移除插件' -ForegroundColor Green",
+            "}"
+        ]
+    },
+    "checkver": {
+        "url": "https://raw.githubusercontent.com/RagnarokChan/PotPlayer-OpenAICompat-Translate/main/SubtitleTranslate%20-%20OpenAI-API.as",
+        "regex": "string GetVersion\\(\\)\\s*\\{\\s*return\\s*\"([\\d.]+)\"\\s*;\\s*\\}"
+    },
+    "autoupdate": {
+        "url": "https://github.com/RagnarokChan/PotPlayer-OpenAICompat-Translate/archive/refs/heads/main.zip"
+    },
+    "notes": [
+        "PotPlayer OpenAI 兼容字幕翻译插件已安装",
+        "",
+        "配置说明:",
+        "1. 编辑脚本文件 SubtitleTranslate - OpenAI-API.as",
+        "2. 填写 CFG_API_URL (如: http://127.0.0.1:8000/v1/chat/completions)",
+        "3. 在 PotPlayer 中: 右键 -> 字幕 -> 实时字幕翻译 -> 选择此插件",
+        "4. 通过 PotPlayer 登录对话框设置模型名称和 API Key",
+        "",
+        "功能特性:",
+        "- 支持任意 OpenAI 兼容接口 (vLLM、SGLang)",
+        "- 强化 few-shot 上下文记忆",
+        "- 可选温度覆盖设置",
+        "",
+        "插件已复制到: $(scoop prefix potplayer)\\Extension\\Subtitle\\Translate"
+    ]
+}
