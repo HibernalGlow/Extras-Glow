@@ -13,11 +13,16 @@
     "installer": {
         "script": [
             "cd \"$dir\"",
-            "yarn install --production",
-            "Set-Content -Path \"$dir\\gemini-cli.cmd\" -Value \"@node.exe \"\"$dir\\dist\\index.js\"\" %*\""
+            "pnpm install --production --no-optional",
+            "Remove-Item \"$dir\\node_modules\\.bin\" -Recurse -Force -ErrorAction SilentlyContinue"
         ]
     },
-    "bin": "gemini-cli.cmd",
+    "bin": [
+        [
+            "node",
+            "dist\\index.js"
+        ]
+    ],
     "checkver": {
         "url": "https://registry.npmjs.org/@google/gemini-cli",
         "jsonpath": "$.dist-tags.latest"
