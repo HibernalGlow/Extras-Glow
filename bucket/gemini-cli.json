@@ -13,7 +13,7 @@
     "installer": {
         "script": [
             "cd \"$dir\"",
-            "yarn install --production",
+            "npm install --omit=dev",
             "Set-Content -Path \"$dir\\gemini-cli.cmd\" -Value \"@node.exe \"\"$dir\\dist\\index.js\"\" %*\""
         ]
     },
