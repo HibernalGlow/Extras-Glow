@@ -13,15 +13,17 @@
     "installer": {
         "script": [
             "cd \"$dir\"",
-            "pnpm install --production --no-optional",
+            "pnpm install --production --no-optional --ignore-scripts",
             "Remove-Item \"$dir\\node_modules\\.bin\" -Recurse -Force -ErrorAction SilentlyContinue"
         ]
     },
-    "bin": [
-        [
-            "node",
-            "dist\\index.js"
-        ]
+    "bin": "gemini-cli.cmd",
+    "post_install": [
+        "if (!(Test-Path \"$dir\\gemini-cli.cmd\")) {",
+        "    $cmd = \"@echo off",
+        "node.exe \\\"%~dp0dist\\index.js\\\" %*\"",
+        "    Set-Content -Path \"$dir\\gemini-cli.cmd\" -Value $cmd -Encoding ASCII",
+        "}"
     ],
     "checkver": {
         "url": "https://registry.npmjs.org/@google/gemini-cli",
