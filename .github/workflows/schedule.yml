@@ -3,6 +3,8 @@ on:
   schedule:
     # run every 12 hours
     - cron: "20 */12 * * *"
+  repository_dispatch:
+    types: [neoview-release]
 name: Excavator
 jobs:
   excavate:
