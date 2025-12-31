@@ -1,12 +1,12 @@
 {
-    "version": "0.22.4",
+    "version": "0.22.5",
     "description": "Gemini CLI - A command-line interface for Google's Gemini AI models",
     "homepage": "https://github.com/google-gemini/gemini-cli#readme",
     "license": "Apache-2.0",
     "architecture": {
         "64bit": {
-            "url": "https://mirrors.cloud.tencent.com/npm/@google/gemini-cli/-/gemini-cli-0.22.4.tgz",
-            "hash": "06a2980802fedcaa1d71699fe7c96717a725eebc8742bc4fa63225b035089520"
+            "url": "https://mirrors.cloud.tencent.com/npm/@google/gemini-cli/-/gemini-cli-0.22.5.tgz",
+            "hash": "d727f1f08ff9441c67661a91a0be183e55a0e09a077bfaa58595167906df6861"
         }
     },
     "extract_dir": "package",
