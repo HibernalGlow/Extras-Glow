@@ -1,10 +1,10 @@
 {
-    "version": "1.65.0",
+    "version": "1.65.1",
     "description": "Comprehensive modern game mod manager with easy installation and management.",
     "homepage": "https://github.com/GlossMod/Gloss-Mod-Manager",
     "license": "GPL-3.0",
-    "url": "https://github.com/GlossMod/Gloss-Mod-Manager/releases/download/v1.65.0/Gloss.Mod.Manager_1.65.0.exe",
-    "hash": "443956476ea8a115ac3a190527c01066f9f96dd66b44aea829652e8a04f56901",
+    "url": "https://github.com/GlossMod/Gloss-Mod-Manager/releases/download/v1.65.1/Gloss.Mod.Manager_1.65.1.exe",
+    "hash": "0832459e7a0f2edc3dc1f790e26c9eb218a8bef498eea4f4dabaeae48b4f926b",
     "installer": {
         "script": "Start-Process -FilePath \"$dir\\Gloss.Mod.Manager_1.59.1.exe\" -ArgumentList '/S' -Wait"
     },
