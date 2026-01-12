@@ -5,14 +5,19 @@
   "license": "MIT",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v3.3.9/Antigravity.Tools_3.3.9_x64-setup.exe#/dl.7z"
+      "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v3.3.9/Antigravity.Tools_3.3.9_x64-setup.exe#/dl.7z",
+      "hash": "a756d3e188cecb2712dc11b8418b5842c2f8b7530d579b50c9af334a7b5025ba"
     }
   },
   "installer": {
     "script": [
-      "Expand-7zipArchive -Path \"$dir\\$*\" -DestinationPath \"$dir\" -Removal",
-      "Get-ChildItem \"$dir\" -Filter '*.nsi' | Remove-Item -Force",
-      "Get-ChildItem \"$dir\" -Include '*.exe' -Recurse | Where-Object { $_.Name -notmatch 'uninstall|setup' } | Move-Item -Destination \"$dir\\Antigravity.Tools.exe\" -Force"
+      "Move-Item \"$dir\\antigravity_tools.exe\" \"$dir\\Antigravity.Tools.exe\" -Force",
+      "Remove-Item \"$dir\\$PLUGINSDIR\" -Recurse -Force",
+      "Remove-Item \"$dir\\.rsrc\" -Recurse -Force",
+      "Remove-Item \"$dir\\.data\" -Force",
+      "Remove-Item \"$dir\\.rdata\" -Force",
+      "Remove-Item \"$dir\\.reloc\" -Force",
+      "Remove-Item \"$dir\\.text\" -Force"
     ]
   },
   "bin": "Antigravity.Tools.exe",
