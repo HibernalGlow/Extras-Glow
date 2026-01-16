@@ -1,0 +1,41 @@
+{
+    "version": "0.0.4",
+    "description": "A modern file explorer and toolkit built with Tauri, SvelteKit, and Python.",
+    "homepage": "https://github.com/HibernalGlow/aestivus",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/aestivus/releases/download/0.0.4/aestivus.exe",
+            "hash": "76f4e2c2940870e2937639a352127694da7980af8f7526bd9092a80abf16cce08"
+        }
+    },
+    "bin": "aestivus.exe",
+    "shortcuts": [
+        [
+            "aestivus.exe",
+            "Aestivus"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/HibernalGlow/aestivus/releases/latest",
+        "jsonpath": "$.tag_name"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/aestivus/releases/download/$version/aestivus.exe"
+            }
+        }
+    },
+    "notes": [
+        "Aestivus 已安装为便携版本",
+        "运行方式: aestivus 或在开始菜单搜索 'Aestivus'",
+        "",
+        "功能特性:",
+        "- 基于 Tauri + SvelteKit + Python 构建",
+        "- 现代化 Web UI - SvelteKit + TypeScript + Tailwind CSS",
+        "- 跨平台桌面应用，支持工具节点可视化编排",
+        "",
+        "注意: 该应用依赖系统 Python 3.11+, 请确保已安装并配置好 Python 环境"
+    ]
+}
