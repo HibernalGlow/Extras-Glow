@@ -6,7 +6,7 @@
     "architecture": {
         "64bit": {
             "url": "https://github.com/HibernalGlow/aestivus/releases/download/0.0.4/aestivus.exe",
-            "hash": "76f4e2c2940870e2937639a352127694da7980af8f7526bd9092a80abf16cce08"
+            "hash": "76f4e2c2940870e2937639a352127694da7980af8f7526bd9092a80abf16ce08"
         }
     },
     "bin": "aestivus.exe",
