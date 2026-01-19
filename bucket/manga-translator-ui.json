@@ -1,17 +1,17 @@
 {
-    "version": "2.0.7",
+    "version": "2.0.8",
     "description": "开源漫画翻译工具，基于 manga-image-translator 引擎，支持日漫、韩漫、美漫自动翻译，提供 30+ 种翻译引擎",
     "homepage": "https://github.com/hgmzhn/manga-translator-ui",
     "license": "GPL-3.0",
     "architecture": {
         "64bit": {
             "url": [
-                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v2.0.7/manga-translator-gpu-v2.0.7.7z.001",
-                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v2.0.7/manga-translator-gpu-v2.0.7.7z.002"
+                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v2.0.8/manga-translator-gpu-v2.0.8.7z.001",
+                "https://github.com/hgmzhn/manga-translator-ui/releases/download/v2.0.8/manga-translator-gpu-v2.0.8.7z.002"
             ],
             "hash": [
-                "a9cefb90f39ee76fbe35c48120bfd991d51a5fd50ac635d5cd832958f9ab79b3",
-                "a9a563f932ad9a3ad1f640d05b3bec299cfd98a193aedb051cf8cdc52824db88"
+                "23cace8e280b9a137886da5d07b00a6700241df4dadfe9f03f4cf3f499bd3afe",
+                "a14ce279e4b2e414a559fd5ddc3d764aa894bd9837a15a79776353994bbda31b"
             ]
         }
     },
