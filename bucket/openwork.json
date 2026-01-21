@@ -1,0 +1,38 @@
+{
+    "version": "0.2.4",
+    "description": "OpenWork - AI-powered freelancer aggregator tool",
+    "homepage": "https://github.com/different-ai/openwork",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/different-ai/openwork/releases/download/v0.2.4/OpenWork_0.2.4_x64_en-US.msi",
+            "hash": "74e088e40443fef686955049a34d72030dbf0f270ef51bfd8a9de5746671e40e"
+        }
+    },
+    "depends": [
+        "lessmsi"
+    ],
+    "post_install": [
+        "$cache = if ($env:SCOOP_CACHE) { $env:SCOOP_CACHE } else { Join-Path $env:SCOOP 'cache' }",
+        "$msi = (Get-ChildItem $cache -Filter 'openwork#0.2.4#*.msi' -Recurse | Select-Object -First 1).FullName",
+        "if (-not $msi) { throw 'MSI not found in cache' }",
+        "lessmsi x \"$msi\" \"$dir\""
+    ],
+    "bin": "PFiles\\OpenWork\\OpenWork.exe",
+    "shortcuts": [
+        [
+            "OpenWork.exe",
+            "OpenWork"
+        ]
+    ],
+    "checkver": {
+        "github": "different-ai/openwork"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/different-ai/openwork/releases/download/v$version/OpenWork_$version_x64_en-US.msi"
+            }
+        }
+    }
+}
