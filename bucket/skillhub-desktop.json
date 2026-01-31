@@ -1,0 +1,40 @@
+{
+  "version": "0.2.7",
+  "description": "One desktop to manage your agent skills.",
+  "homepage": "https://github.com/skillhub-club/skillhub-desktop",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/skillhub-club/skillhub-desktop/releases/download/v0.2.7/SkillHub.Desktop_0.2.7_x64_en-US.msi",
+      "hash": "75f3f70921db002df79fbd0b94e0e52c386a61423db6eea3a62c5bc4cb448565"
+    }
+  },
+  "depends": "lessmsi",
+  "post_install": [
+    "$cache = if ($env:SCOOP_CACHE) { $env:SCOOP_CACHE } else { Join-Path $env:SCOOP 'cache' }",
+    "$msi = (Get-ChildItem $cache -Filter \"skillhub-desktop#$version#*.msi\" -Recurse | Select-Object -First 1).FullName",
+    "if (-not $msi) { throw 'MSI not found in cache' }",
+    "lessmsi x \"$msi\" \"$dir\"",
+    "if (Test-Path \"$dir\\SourceDir\") {",
+    "    Get-ChildItem \"$dir\\SourceDir\\*\" | Move-Item -Destination \"$dir\" -Force",
+    "    Remove-Item \"$dir\\SourceDir\" -Recurse -Force",
+    "}"
+  ],
+  "bin": "PFiles\\SkillHub Desktop\\skillhub-desktop.exe",
+  "shortcuts": [
+    [
+      "PFiles\\SkillHub Desktop\\skillhub-desktop.exe",
+      "SkillHub Desktop"
+    ]
+  ],
+  "checkver": {
+    "github": "skillhub-club/skillhub-desktop"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/skillhub-club/skillhub-desktop/releases/download/v$version/SkillHub.Desktop_$version_x64_en-US.msi"
+      }
+    }
+  }
+}
