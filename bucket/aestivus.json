@@ -1,12 +1,12 @@
 {
-    "version": "0.0.4",
+    "version": "0.0.7",
     "description": "A modern file explorer and toolkit built with Tauri, SvelteKit, and Python.",
     "homepage": "https://github.com/HibernalGlow/aestivus",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/HibernalGlow/aestivus/releases/download/0.0.4/aestivus.exe",
-            "hash": "76f4e2c2940870e2937639a352127694da7980af8f7526bd9092a80abf16ce08"
+            "url": "https://github.com/HibernalGlow/aestivus/releases/download/0.0.7/aestivus.exe",
+            "hash": "711be8367f35897dc500008b0cf495daec10a7b0f46d6913917f8705caec99c7"
         }
     },
     "bin": "aestivus.exe",

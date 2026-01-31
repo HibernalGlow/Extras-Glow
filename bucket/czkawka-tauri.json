@@ -1,12 +1,12 @@
 {
-    "version": "1.2.3",
+    "version": "1.3.1",
     "description": "A Tauri-based frontend for Czkawka on macOS and Windows",
     "homepage": "https://github.com/HibernalGlow/czkawka-tauri",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.2.3/CzkawkaTauri.exe",
-            "hash": "c9b60ea09dde2d71b4ec5e381934d30e420254c7e36bd1e819085c96fcb97681"
+            "url": "https://github.com/HibernalGlow/czkawka-tauri/releases/download/1.3.1/CzkawkaTauri.exe",
+            "hash": "1b12e31b9952032a50de0a03675c451765f1e435c1ec8da2ce8c58df26e5426b"
         }
     },
     "bin": "CzkawkaTauri.exe",
