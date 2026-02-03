@@ -1,12 +1,12 @@
 {
-    "version": "4.0.13",
+    "version": "4.0.15",
     "description": "A modern, cross-platform account manager for Antigravity. Features one-click account switching, automatic backups, and a sleek GUI built with Flet",
     "homepage": "https://github.com/lbjlaq/Antigravity-Manager",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v4.0.13/Antigravity.Tools_4.0.13_x64-setup.exe#/dl.7z",
-            "hash": "090f1154039a1f7ccdb865255dc24ce14d215acdff23c15a24e3b34340e99c4c"
+            "url": "https://github.com/lbjlaq/Antigravity-Manager/releases/download/v4.0.15/Antigravity.Tools_4.0.15_x64-setup.exe#/dl.7z",
+            "hash": "8746f349e9b54af9bda0f40a60813f99409ba690b7366d477856affab3ee4b1c"
         }
     },
     "installer": {
