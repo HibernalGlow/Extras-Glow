@@ -1,0 +1,29 @@
+{
+  "version": "1.7.1300.1822",
+  "description": "Live Captions Translator - A tool for translating live captions.",
+  "homepage": "https://github.com/SakiRinn/LiveCaptions-Translator",
+  "license": "GPL-3.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/SakiRinn/LiveCaptions-Translator/releases/download/v1.7.1300.1822/LiveCaptionsTranslator-win-x64.exe",
+      "hash": "6ad1b31c853e4a839e60b761ffbe95659e3728111d6d057708ec8e5af97b5ac7"
+    }
+  },
+  "bin": "LiveCaptionsTranslator-win-x64.exe",
+  "shortcuts": [
+    [
+      "LiveCaptionsTranslator-win-x64.exe",
+      "LiveCaptions Translator"
+    ]
+  ],
+  "checkver": {
+    "github": "SakiRinn/LiveCaptions-Translator"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/SakiRinn/LiveCaptions-Translator/releases/download/v$version/LiveCaptionsTranslator-win-x64.exe"
+      }
+    }
+  }
+}
