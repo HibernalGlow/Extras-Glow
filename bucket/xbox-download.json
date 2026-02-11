@@ -1,0 +1,35 @@
+{
+  "version": "2.0.1.73",
+  "description": "XboxDownload - A tool for speeding up Xbox/PC(Microsoft Store) downloads.",
+  "homepage": "https://github.com/skydevil88/XboxDownload",
+  "license": "GPL-3.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/skydevil88/XboxDownload/releases/download/v2.0.1.73/XboxDownload-windows-x64.zip",
+      "hash": "a3913bd4eb9849afcbcd820d77e04829f4c28611417f7e6ff3e149182b4a852b"
+    },
+    "arm64": {
+      "url": "https://github.com/skydevil88/XboxDownload/releases/download/v2.0.1.73/XboxDownload-windows-arm64.zip"
+    }
+  },
+  "bin": "XboxDownload.exe",
+  "shortcuts": [
+    [
+      "XboxDownload.exe",
+      "XboxDownload"
+    ]
+  ],
+  "checkver": {
+    "github": "skydevil88/XboxDownload"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/skydevil88/XboxDownload/releases/download/v$version/XboxDownload-windows-x64.zip"
+      },
+      "arm64": {
+        "url": "https://github.com/skydevil88/XboxDownload/releases/download/v$version/XboxDownload-windows-arm64.zip"
+      }
+    }
+  }
+}
