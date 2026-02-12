@@ -1,0 +1,23 @@
+{
+  "version": "1.0.3-20260211-1741",
+  "description": "MicYou - An AI-powered voice tool.",
+  "homepage": "https://github.com/LanRhyme/MicYou",
+  "license": "GPL-3.0",
+  "url": "https://github.com/LanRhyme/MicYou/releases/download/v1.0.3-20260211-1741/MicYou-Win1.0.3.zip",
+  "hash": "e9f46e38c995cbebd952db70429d08220a0cbd3eb8f143ec16a53dda4c0a89c5",
+  "extract_dir": "MicYou",
+  "bin": "MicYou.exe",
+  "shortcuts": [
+    [
+      "MicYou.exe",
+      "MicYou"
+    ]
+  ],
+  "checkver": {
+    "github": "LanRhyme/MicYou",
+    "regex": "v([\\d.]+)-([\\d-]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/LanRhyme/MicYou/releases/download/v$version/MicYou-Win$match1.zip"
+  }
+}
