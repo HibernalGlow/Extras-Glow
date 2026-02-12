@@ -1,12 +1,12 @@
 {
-    "version": "5.7.0",
+    "version": "5.7.8",
     "description": "NeoView: A Tauri-based image viewer for Windows",
     "homepage": "https://github.com/HibernalGlow/neoview",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/HibernalGlow/neoview/releases/download/5.7.0/neoview.exe",
-            "hash": "19f60f2d4d7242b940df14e7c7af12520d52344476cb7f359fba8047ff00e61d"
+            "url": "https://github.com/HibernalGlow/neoview/releases/download/5.7.8/neoview.exe",
+            "hash": "ec55044394f7317e7cf9160f9af1d95c2f66d1a7d4ebf7af9b02064345d6ea05"
         }
     },
     "bin": "neoview.exe",
