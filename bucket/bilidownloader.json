@@ -1,0 +1,23 @@
+{
+    "version": "1.3.18",
+    "description": "超级好用简洁的 GUI BiliBili 视频下载器 (Bilibili video downloader with GUI)",
+    "homepage": "https://github.com/Majjcom/BiliDownloader",
+    "license": "MIT",
+    "url": "https://github.com/Majjcom/BiliDownloader/releases/download/1.3.18/BiliDownloader1.3.18_Portable312.7z",
+    "hash": "ab9c090e32dc10c840b7f21aa6fd0c88b090b08b46d48459ce37af8a8a5e08ec",
+    "extract_dir": "BiliDownloaderPortable",
+    "bin": "BiliDownloader.exe",
+    "shortcuts": [
+        [
+            "BiliDownloader.exe",
+            "BiliDownloader"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Majjcom/BiliDownloader/releases/latest",
+        "jsonpath": "$.tag_name"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Majjcom/BiliDownloader/releases/download/$version/BiliDownloader$version_Portable312.7z"
+    }
+}
