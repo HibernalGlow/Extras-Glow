@@ -1,0 +1,22 @@
+{
+  "version": "1.5",
+  "description": "Pause My Game W - A tool to pause games",
+  "homepage": "https://github.com/cornradio/pausemygameW",
+  "license": "Unknown",
+  "url": "https://github.com/cornradio/pausemygameW/releases/download/v1.5/PMG.exe",
+  "hash": "22ead3e1f32ba119d0775c0c4756d2887f7cec3aeeeec80501c4cc4913c991f8",
+  "pre_install": [
+    "Invoke-WebRequest -Uri 'https://live.sysinternals.com/pssuspend.exe' -OutFile \"$dir\\pssuspend.exe\" -UseBasicParsing"
+  ],
+  "bin": "PMG.exe",
+  "shortcuts": [
+    [
+      "PMG.exe",
+      "PauseMyGameW"
+    ]
+  ],
+  "checkver": "github",
+  "autoupdate": {
+    "url": "https://github.com/cornradio/pausemygameW/releases/download/v$version/PMG.exe"
+  }
+}
