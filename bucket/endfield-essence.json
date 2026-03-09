@@ -1,0 +1,32 @@
+{
+    "version":  "1.7",
+    "description":  "Endfield Essence",
+    "homepage":  "https://github.com/Evoltsuki/Endfield_essence",
+    "license":  "Freeware",
+    "url":  "https://github.com/Evoltsuki/Endfield_essence/releases/download/beta_v1.7/beta.v1.7.zip",
+    "hash":  "0C9426257A49A0D9160C710B8522438DC7C77513BCF2CFA90DD635AD83DC22B2",
+    "extract_dir":  null,
+    "bin":  "毕业基质自动识别工具beta.exe",
+    "shortcuts":  [
+                      [
+                          "毕业基质自动识别工具beta.exe",
+                          "Endfield Essence"
+                      ]
+                  ],
+    "persist":  [
+                    "Jiucuo.json",
+                    "config -2560X1600.json"
+                ],
+    "pre_install": [
+                       "if (!(Test-Path \"$dir\\Jiucuo.json\")) {",
+                       "    Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/Evoltsuki/Endfield_essence/master/Jiucuo.json' -OutFile \"$dir\\Jiucuo.json\"",
+                       "}"
+                   ],
+    "checkver":  {
+                     "github":  "https://github.com/Evoltsuki/Endfield_essence"
+                 },
+    "autoupdate":  {
+                       "url":  "https://github.com/Evoltsuki/Endfield_essence/releases/download/$matchTag/$matchFile",
+                       "extract_dir":  null
+                   }
+}
