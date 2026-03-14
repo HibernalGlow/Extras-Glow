@@ -1,0 +1,50 @@
+{
+  "version": "2.4.0",
+  "description": "Phone Link / KDE Connect alternative.",
+  "homepage": "https://github.com/shrimqy/Sefirah",
+  "license": "Unknown",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/shrimqy/Sefirah/releases/download/v2.4.0/sefirah-2.4.0-win-x64-sideload.zip",
+      "hash": "0f1c9315d235a111d6d465d10a591809e31040fe1142aa356daebe95a70a6034"
+    },
+    "arm64": {
+      "url": "https://github.com/shrimqy/Sefirah/releases/download/v2.4.0/sefirah-2.4.0-win-arm64-sideload.zip",
+      "hash": "b63fc924fbc90381774bac158d0f0ec8423592515e90deacb7502128c692e79e"
+    }
+  },
+  "installer": {
+    "script": [
+      "$cer = Get-ChildItem \"$dir\" -Filter \"*.cer\" -Recurse | Select-Object -First 1",
+      "if ($cer) {",
+      "  Write-Host \"Installing certificate: $($cer.Name)\" -ForegroundColor Cyan",
+      "  Start-Process PowerShell -ArgumentList \"-NoProfile -NonInteractive -Command Import-Certificate -FilePath `\"$($cer.FullName)`\" -CertStoreLocation Cert:\\LocalMachine\\TrustedPeople\" -Verb RunAs -Wait",
+      "}",
+      "$msix = Get-ChildItem \"$dir\" -Filter \"*.msix\" -Recurse | Select-Object -First 1",
+      "if ($msix) {",
+      "  Write-Host \"Installing MSIX package: $($msix.Name)\" -ForegroundColor Cyan",
+      "  Add-AppxPackage -Path \"$($msix.FullName)\"",
+      "}"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$package = Get-AppxPackage -Name \"*Sefirah*\"",
+      "if ($package) {",
+      "  Write-Host \"Uninstalling Sefirah package...\" -ForegroundColor Cyan",
+      "  Remove-AppxPackage -Package $package.PackageFullName",
+      "}"
+    ]
+  },
+  "checkver": "github",
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/shrimqy/Sefirah/releases/download/v$version/sefirah-$version-win-x64-sideload.zip"
+      },
+      "arm64": {
+        "url": "https://github.com/shrimqy/Sefirah/releases/download/v$version/sefirah-$version-win-arm64-sideload.zip"
+      }
+    }
+  }
+}
