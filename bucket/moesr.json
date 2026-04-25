@@ -1,0 +1,27 @@
+{
+  "version": "1.1.0",
+  "description": "AI图像超分辨率工具，支持多种模型和工作流",
+  "homepage": "https://github.com/TeamMoeAI/MoeSR",
+  "license": "AGPL-3.0",
+  "url": "https://github.com/TeamMoeAI/MoeSR/releases/download/v1.1.0/MoeSRv1.1.0.7z",
+  "hash": "sha256:9d51f3a865d06277bd32b351312ec26dd9a712c78a7dfc46f4ea9d8fb001e6a4",
+  "extract_dir": "MoeSR",
+  "shortcuts": [
+    [
+      "Run.bat",
+      "MoeSR"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/TeamMoeAI/MoeSR/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/TeamMoeAI/MoeSR/releases/download/v$version/MoeSRv$version.7z",
+    "hash": {
+      "url": "https://api.github.com/repos/TeamMoeAI/MoeSR/releases/latest",
+      "jsonpath": "$.assets.[?(@name=='MoeSRv$version.7z')].digest"
+    }
+  }
+}

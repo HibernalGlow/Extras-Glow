@@ -1,0 +1,32 @@
+{
+  "version": "30.1.0",
+  "description": "FFmpeg-based automated video editor with smart silence detection and speed changes",
+  "homepage": "https://github.com/WyattBlue/auto-editor",
+  "license": "MIT",
+  "url": "https://github.com/WyattBlue/auto-editor/releases/download/30.1.0/auto-editor-windows-x86_64.exe",
+  "hash": "sha256:76576fd93b54bf9edb42f0ddf95e389a682c8e9ede67e2ed5f69ab77c721cca0",
+  "bin": [
+    [
+      "auto-editor-windows-x86_64.exe",
+      "auto-editor"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "auto-editor-windows-x86_64.exe",
+      "Auto Editor"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/WyattBlue/auto-editor/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "([\\d.]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/WyattBlue/auto-editor/releases/download/$version/auto-editor-windows-x86_64.exe",
+    "hash": {
+      "url": "https://api.github.com/repos/WyattBlue/auto-editor/releases/latest",
+      "jsonpath": "$.assets.[?(@name=='auto-editor-windows-x86_64.exe')].digest"
+    }
+  }
+}

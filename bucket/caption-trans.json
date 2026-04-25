@@ -1,0 +1,18 @@
+{
+    "version": "1.1.3",
+    "description": "使用 AI 大模型翻译视频字幕的一站式工具，特别为日语优化",
+    "homepage": "https://github.com/cddqssc/Caption-Trans",
+    "license": "MIT",
+    "url": "https://github.com/cddqssc/Caption-Trans/releases/download/v1.1.3/caption_trans-windows-x64.zip",
+    "hash": "53a11a4f67600c36cb06c6a9c47d8a1b499cea0ec8c9919bb98dbf9d4308fa15",
+    "shortcuts": [
+        [
+            "caption_trans.exe",
+            "Caption-Trans"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/cddqssc/Caption-Trans/releases/download/v$version/caption_trans-windows-x64.zip"
+    }
+}

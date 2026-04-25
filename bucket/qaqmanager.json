@@ -1,0 +1,37 @@
+{
+  "version": "4.5.9",
+  "description": "QAQ管理器 - Windows桌面自动化工具",
+  "homepage": "https://github.com/peterdua/qaqmanager-releases",
+  "license": "MIT",
+  "noextract": true,
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/peterdua/qaqmanager-releases/releases/download/v4.5.9/QAQManagerV4_Setup_4.5.9.exe",
+      "hash": "sha256:8da1461d0089909df816485acd71563f346f802641ef8a5993b5f23a392b1cac"
+    }
+  },
+  "depends": "7zip",
+  "installer": {
+    "script": [
+      "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+      "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+    ]
+  },
+  "bin": "QAQManagerV4.exe",
+  "shortcuts": [
+    [
+      "QAQManagerV4.exe",
+      "QAQ管理器"
+    ]
+  ],
+  "checkver": {
+    "github": "peterdua/qaqmanager-releases"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/peterdua/qaqmanager-releases/releases/download/v$version/QAQManagerV4_Setup_$version.exe"
+      }
+    }
+  }
+}
