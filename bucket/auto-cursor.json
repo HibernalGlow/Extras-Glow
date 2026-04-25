@@ -1,12 +1,12 @@
 {
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Auto Cursor - An automated tool for Cursor IDE",
     "homepage": "https://github.com/wuqi-y/auto-cursor-releases",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.0/auto-cursor_2.0.0_x64-setup.exe",
-            "hash": "ed49ef828f2996a40017f4fe30a39ed6ea27d19bf1e8fec3bfbf094b58af1501"
+            "url": "https://github.com/wuqi-y/auto-cursor-releases/releases/download/v2.0.1/auto-cursor_2.0.1_x64-setup.exe",
+            "hash": "08d4cd519accabd3c98684eb800dbff9b4255160207d4fac17217fac9307371a"
         }
     },
     "installer": {
