@@ -1,10 +1,10 @@
 {
-    "version": "4.1.4.0",
+    "version": "2.5.7.8_2",
     "description": "Flydigi PC Space - companion desktop app for Flydigi devices",
     "homepage": "https://www.flydigi.com/",
     "license": "Freeware",
-    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station/FlydigiPcSpace_setup_4.1.4.0_Release.exe",
-    "hash": "64489a1a569cc12a22b7256cf218aa5a8d405a037e71aff31cbf586bbefaf519",
+    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station/FlydigiPcSpace_setup_2.5.7.8_2_Release.exe",
+    "hash": "6d40b1df84fd04e2e203d8669a19abc3f99cfa3014dbace4a29e8a25c30e73b4",
     "depends": "innounp",
     "installer": {
         "script": [
