@@ -1,0 +1,26 @@
+{
+    "version": "2.2.3",
+    "description": "PowerToys Crop And Lock 的独立增强重实现，支持窗口裁剪置顶",
+    "homepage": "https://github.com/melody0709/zencrop",
+    "license": "MIT",
+    "url": "https://github.com/melody0709/zencrop/releases/download/v2.2.3/ZenCrop_v2.2.3.exe",
+    "hash": "6c358ba1f8eafc10d052b1b0722350464d45ed8f38e6ddb34c0175b28dba8a53",
+    "bin": "ZenCrop_v2.2.3.exe",
+    "shortcuts": [
+        [
+            "ZenCrop_v2.2.3.exe",
+            "ZenCrop"
+        ]
+    ],
+    "checkver": "github",
+    "autoupdate": {
+        "url": "https://github.com/melody0709/zencrop/releases/download/v$version/ZenCrop_v$version.exe",
+        "bin": "ZenCrop_v$version.exe",
+        "shortcuts": [
+            [
+                "ZenCrop_v$version.exe",
+                "ZenCrop"
+            ]
+        ]
+    }
+}
