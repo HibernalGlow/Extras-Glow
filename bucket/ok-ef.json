@@ -1,0 +1,37 @@
+{
+    "version": "0.2.56",
+    "description": "基于图像识别的终末地自动化程序，支持后台运行",
+    "homepage": "https://github.com/AliceJump/ok-end-field",
+    "license": "AGPL-3.0",
+    "noextract": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/AliceJump/ok-end-field/releases/download/v0.2.56/ok-ef-win32-China-setup.exe",
+            "hash": "sha256:ab742e8770f935c0e7c97372eeb35f69a6b40f3df66ee0f9bc60d41e976d92d6"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+        ]
+    },
+    "bin": "ok-ef.exe",
+    "shortcuts": [
+        [
+            "ok-ef.exe",
+            "OK-EF"
+        ]
+    ],
+    "checkver": {
+        "github": "AliceJump/ok-end-field"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/AliceJump/ok-end-field/releases/download/v$version/ok-ef-win32-China-setup.exe"
+            }
+        }
+    }
+}
