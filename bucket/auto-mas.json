@@ -1,0 +1,28 @@
+{
+    "version": "5.2.0",
+    "description": "多脚本多配置统一管理与自动化工具，支持管理大量脚本并设计自动化任务流",
+    "homepage": "https://github.com/AUTO-MAS-Project/AUTO-MAS",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/AUTO-MAS-Project/AUTO-MAS/releases/download/v5.2.0/AUTO-MAS-Lite-v5.2.0-x64.zip",
+            "hash": "c8f5fdcccc6aaadc76801af5f3fd6b23d5f27ddcbc374f75453ac55566a53b83"
+        }
+    },
+    "shortcuts": [
+        [
+            "AUTO-MAS.exe",
+            "AUTO-MAS"
+        ]
+    ],
+    "checkver": {
+        "github": "AUTO-MAS-Project/AUTO-MAS"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/AUTO-MAS-Project/AUTO-MAS/releases/download/v$version/AUTO-MAS-Lite-v$version-x64.zip"
+            }
+        }
+    }
+}
