@@ -1,0 +1,37 @@
+{
+    "version": "2026.5.4",
+    "description": "管理 Markdown 知识库的桌面应用，文件优先、Git 优先、离线优先",
+    "homepage": "https://github.com/refactoringhq/tolaria",
+    "license": "AGPL-3.0",
+    "noextract": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/refactoringhq/tolaria/releases/download/v2026-05-04/Tolaria_2026.5.4_x64-setup.exe",
+            "hash": "sha256:b184fd8433f8e13747fffdcd9f85dd2a64ecee80399f71e60f4f57c136539366"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Tolaria.exe",
+            "Tolaria"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/refactoringhq/tolaria/releases/latest",
+        "regex": "Tolaria_([\\d.]+)_x64-setup\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/refactoringhq/tolaria/releases/latest/download/Tolaria_$version_x64-setup.exe"
+            }
+        }
+    }
+}

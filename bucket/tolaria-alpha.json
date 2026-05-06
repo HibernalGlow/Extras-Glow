@@ -1,0 +1,30 @@
+{
+    "version": "2026.5.6-alpha.11",
+    "description": "管理 Markdown 知识库的桌面应用 - Alpha 预览版（每次推送到 main 分支自动构建）",
+    "homepage": "https://github.com/refactoringhq/tolaria",
+    "license": "AGPL-3.0",
+    "noextract": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/refactoringhq/tolaria/releases/download/alpha-v2026.5.6-alpha.0011/Tolaria_2026.5.6-alpha.11_x64-setup.exe",
+            "hash": "sha256:ff51a7d01dc4713adba85e3d9793cd5cae6f1310f42a9558704b1133a031e996"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Tolaria.exe",
+            "Tolaria Alpha"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/refactoringhq/tolaria/releases",
+        "regex": "Tolaria_([\\d.]+-alpha[\\d.]+)_x64-setup\\.exe"
+    }
+}
