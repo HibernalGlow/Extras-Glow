@@ -1,0 +1,37 @@
+{
+    "version": "1.4.0",
+    "description": "本地优先的 AI 笔记应用，支持 Markdown 编辑、双向链接、知识图谱和 AI 助手",
+    "homepage": "https://github.com/blueberrycongee/Lumina-Note",
+    "license": "Apache-2.0",
+    "noextract": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/blueberrycongee/Lumina-Note/releases/download/v1.4.0/Lumina.Note.Setup.1.4.0.exe",
+            "hash": "sha256:5eb3d4aa94069e807ed6355b06abd577e02b42b752a5b1aef0e430acf685e029"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Lumina Note.exe",
+            "Lumina Note"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/blueberrycongee/Lumina-Note/releases/latest",
+        "regex": "Lumina\\.Note\\.Setup\\.([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/blueberrycongee/Lumina-Note/releases/download/v$version/Lumina.Note.Setup.$version.exe"
+            }
+        }
+    }
+}
