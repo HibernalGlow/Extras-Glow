@@ -1,10 +1,10 @@
 {
-    "version": "4.9.1.6121",
+    "version": "4.22.1.7835",
     "description": "NetEase UU Remote - Remote desktop and screen sharing tool",
     "homepage": "https://uu.163.com/",
     "license": "Freeware",
-    "url": "https://a56.gdl.netease.com/UURemote_Setup_4.9.1.6121_$match2_gwqd.exe",
-    "hash": "f039dea4c9511b16c6aaed13d32eadc0199b6fb6fe3612ae6ec948d6870abc52",
+    "url": "https://a56.gdl.netease.com/UURemote_Setup_4.22.1.7835_0429211132_gwqd.exe",
+    "hash": "0d9720d0b9048ea279dd88f4ebf13462f2da8e63a9658c2e285fe46e89d37fe1",
     "installer": {
         "script": [
             "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList \"/S /D=$dir\" -Wait",
@@ -25,10 +25,10 @@
         "reverse": true
     },
     "autoupdate": {
-        "url": "https://a56.gdl.netease.com/UURemote_Setup_$version_$match2_gwqd.exe",
+        "url": "$match1",
         "hash": {
             "url": "https://raw.githubusercontent.com/microsoft/winget-pkgs/master/manifests/n/NetEase/UURemote/$version/NetEase.UURemote.installer.yaml",
-            "regex": "InstallerSha256:\\s+([A-Fa-f0-9]{64})"
+            "regex": "InstallerUrl:\\s+(https://[^\\s]+\\.exe)[\\s\\S]*?InstallerSha256:\\s+([A-Fa-f0-9]{64})"
         }
     }
 }

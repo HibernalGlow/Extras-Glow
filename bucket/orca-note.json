@@ -1,0 +1,37 @@
+{
+    "version": "1.76.0",
+    "description": "适用于大纲和长文写作的笔记应用，支持 AI 助手和插件扩展",
+    "homepage": "https://github.com/sethyuan/orca-note",
+    "license": "Unknown",
+    "noextract": true,
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/sethyuan/orca-note/releases/download/v1.76.0/orcanote-win-x64-1.76.0.exe",
+            "hash": "sha256:00965b50766832c59f6b85665a544ebfd203a78b93f3796434cad9cfaf388b8c"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem -Path \"$dir\" -Filter '*.7z' -Recurse | ForEach-Object { 7z x $_.FullName -o\"$dir\" -y }"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Orca Note.exe",
+            "Orca Note"
+        ]
+    ],
+    "checkver": {
+        "url": "https://github.com/sethyuan/orca-note/releases/latest",
+        "regex": "orcanote-win-x64-([\\d.]+)\\.exe"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/sethyuan/orca-note/releases/download/v$version/orcanote-win-x64-$version.exe"
+            }
+        }
+    }
+}
