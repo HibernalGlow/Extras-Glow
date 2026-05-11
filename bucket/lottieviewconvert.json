@@ -1,0 +1,29 @@
+{
+  "version": "1.3.2",
+  "description": "A powerful cross-platform desktop application for converting TGS (Telegram Stickers), Discord animated stickers and Lottie animations to various formats",
+  "homepage": "https://github.com/SwaggyMacro/LottieViewConvert",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/SwaggyMacro/LottieViewConvert/releases/download/v1.3.2/LottieViewConvert.Win.X64.zip",
+      "hash": "3c51d61c5d3c64c64acc03f05c181eebe56d22409807c2e2af33581146e2aaf1"
+    }
+  },
+  "bin": "LottieViewConvert.exe",
+  "shortcuts": [
+    [
+      "LottieViewConvert.exe",
+      "LottieViewConvert"
+    ]
+  ],
+  "checkver": {
+    "github": "SwaggyMacro/LottieViewConvert"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/SwaggyMacro/LottieViewConvert/releases/download/v$version/LottieViewConvert.Win.X64.zip"
+      }
+    }
+  }
+}

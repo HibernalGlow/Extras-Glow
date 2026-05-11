@@ -1,0 +1,42 @@
+{
+  "version": "0.1.0",
+  "description": "A fast image optimization tool with desktop GUI. Convert, compress, resize, crop, and extend images using modern codecs",
+  "homepage": "https://github.com/clroot/slimg",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/clroot/slimg/releases/download/gui-v0.1.0/slimg_0.1.0_x64-setup.exe",
+      "hash": "cea734f4d7360772d7d6155735179ecac6b0a337f12f9cffced9481fbb664d76"
+    }
+  },
+  "depends": "7zip",
+  "installer": {
+    "script": [
+      "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+      "Remove-Item \"$dir\\$fname\" -Force",
+      "$exe = Get-ChildItem \"$dir\" -Filter 'slimg*.exe' -Recurse | Where-Object { $_.Name -notlike '*setup*' } | Select-Object -First 1 -ExpandProperty FullName",
+      "if ($exe) {",
+      "    $target = \"$dir\\slimg.exe\"",
+      "    if (Test-Path $exe) { Move-Item $exe $target -Force }",
+      "}"
+    ]
+  },
+  "bin": "slimg.exe",
+  "shortcuts": [
+    [
+      "slimg.exe",
+      "Slimg GUI"
+    ]
+  ],
+  "checkver": {
+    "github": "clroot/slimg",
+    "regex": "tags/gui-v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/clroot/slimg/releases/download/gui-v$version/slimg_$version_x64-setup.exe"
+      }
+    }
+  }
+}
