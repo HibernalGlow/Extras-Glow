@@ -1,0 +1,32 @@
+{
+    "version": "1.2.3",
+    "description": "Easy-to-use image converter for modern formats. Supports fast parallel encoding, lossless JPEG transcoding, JPEG XL, AVIF, JPEGLI, ExifTool, and more.",
+    "homepage": "https://github.com/HibernalGlow/Xlchemy",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/Xlchemy/releases/download/v1.2.3/xlchemy-win-1.2.3-x86_64-portable.zip",
+            "hash": "a0bd090909399ea9a8c125af84dedf336c8288372ef662071c36677f3ea61926",
+            "extract_dir": "xlchemy-win-1.2.3-x86_64-portable"
+        }
+    },
+    "bin": "xlchemy.exe",
+    "shortcuts": [
+        [
+            "xlchemy.exe",
+            "Xlchemy"
+        ]
+    ],
+    "persist": "_internal\\user_data",
+    "checkver": {
+        "github": "https://github.com/HibernalGlow/Xlchemy"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/Xlchemy/releases/download/v$version/xlchemy-win-$version-x86_64-portable.zip",
+                "extract_dir": "xlchemy-win-$version-x86_64-portable"
+            }
+        }
+    }
+}
