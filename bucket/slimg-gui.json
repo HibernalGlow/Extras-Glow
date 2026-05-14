@@ -16,15 +16,15 @@
       "Remove-Item \"$dir\\$fname\" -Force",
       "$exe = Get-ChildItem \"$dir\" -Filter 'slimg*.exe' -Recurse | Where-Object { $_.Name -notlike '*setup*' } | Select-Object -First 1 -ExpandProperty FullName",
       "if ($exe) {",
-      "    $target = \"$dir\\slimg.exe\"",
-      "    if (Test-Path $exe) { Move-Item $exe $target -Force }",
+      "$target = \"$dir\\slimg-gui.exe\"",
+      "if (Test-Path $exe) { Move-Item $exe $target -Force }",
       "}"
     ]
   },
-  "bin": "slimg.exe",
+  "bin": "slimg-gui.exe",
   "shortcuts": [
     [
-      "slimg.exe",
+      "slimg-gui.exe",
       "Slimg GUI"
     ]
   ],
