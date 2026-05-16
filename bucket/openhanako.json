@@ -1,0 +1,36 @@
+{
+    "version": "0.181.2",
+    "description": "OpenHanako - 一个有记忆、有灵魂的私人 AI 助理",
+    "homepage": "https://github.com/liliMozi/openhanako",
+    "license": "Apache-2.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/liliMozi/openhanako/releases/download/v0.181.2/Hanako-0.181.2-Windows-x64.exe",
+            "hash": "sha256:d4a7c8478a6c67689695c55512da285ee11fe068f8035e76422351452387d7be"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "7z x \"$dir\\`$PLUGINSDIR\\app-64.7z\" -o\"$dir\" -y",
+            "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\$fname\" -Recurse -Force"
+        ]
+    },
+    "shortcuts": [
+        [
+            "Hanako.exe",
+            "OpenHanako"
+        ]
+    ],
+    "checkver": {
+        "github": "liliMozi/openhanako"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/liliMozi/openhanako/releases/download/v$version/Hanako-$version-Windows-x64.exe"
+            }
+        }
+    }
+}
