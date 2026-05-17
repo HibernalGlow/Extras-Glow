@@ -1,0 +1,29 @@
+{
+    "version": "0.0.1",
+    "description": "电源定时器工具，支持倒计时、指定时间、网速监控、CPU监控后执行睡眠/休眠/关机/重启操作",
+    "homepage": "https://github.com/HibernalGlow/zeztz",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/HibernalGlow/zeztz/releases/download/v0.0.1/zeztz-v0.0.1-windows-amd64.exe",
+            "hash": "sha256:D08B3DD949940ABA011007D89F47B6FC1EAC69B04CF79F6983FE5267B444B1E9"
+        }
+    },
+    "bin": "zeztz-v0.0.1-windows-amd64.exe",
+    "shortcuts": [
+        [
+            "zeztz-v0.0.1-windows-amd64.exe",
+            "zeztz"
+        ]
+    ],
+    "checkver": {
+        "github": "HibernalGlow/zeztz"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/HibernalGlow/zeztz/releases/download/v$version/zeztz-v$version-windows-amd64.exe"
+            }
+        }
+    }
+}
