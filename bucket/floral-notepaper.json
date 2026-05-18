@@ -1,0 +1,43 @@
+{
+    "version": "1.0.3",
+    "description": "花笺 - 基于 Tauri 2 + React 的轻量、优雅、现代化的本地便签工具",
+    "homepage": "https://github.com/Achilng/floral-notepaper",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Achilng/floral-notepaper/releases/download/v1.0.3/floral-notepaper.exe",
+            "hash": "fe92e2b74f021ad0e983f6dac664d7a793a66b623db4e386e37e4a0b08e4e817"
+        }
+    },
+    "bin": "floral-notepaper.exe",
+    "shortcuts": [
+        [
+            "floral-notepaper.exe",
+            "花笺"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Achilng/floral-notepaper/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Achilng/floral-notepaper/releases/download/v$version/floral-notepaper.exe"
+            }
+        }
+    },
+    "notes": [
+        "花笺 已安装为便携版本",
+        "运行方式: 在终端执行 'floral-notepaper' 或在开始菜单搜索 '花笺'",
+        "",
+        "功能特性:",
+        "- Markdown 编辑与预览 (GitHub Flavored Markdown)",
+        "- 快捷便签: 全局快捷键 Ctrl+Space 唤出",
+        "- 磁贴模式: 将笔记固定在桌面",
+        "- 支持导入导出 .md 文件",
+        "",
+        "注意: 需要 Windows 10 或更高版本"
+    ]
+}
