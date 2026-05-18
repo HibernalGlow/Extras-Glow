@@ -1,0 +1,44 @@
+{
+    "version": "1.2.11",
+    "description": "MooshieUI: A modern, beginner-friendly desktop frontend for ComfyUI built with Tauri",
+    "homepage": "https://github.com/Mooshieblob1/MooshieUI",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Mooshieblob1/MooshieUI/releases/download/v1.2.11/MooshieUI_1.2.11_x64-setup.exe#/dl.7z",
+            "hash": "5e0be00dfaa75cb9e698d36125cfb237a6db6c5b20c4a18d21ec80a3815e1874"
+        }
+    },
+    "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse -ErrorAction SilentlyContinue",
+    "bin": "comfyui-desktop.exe",
+    "shortcuts": [
+        [
+            "comfyui-desktop.exe",
+            "MooshieUI"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/Mooshieblob1/MooshieUI/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Mooshieblob1/MooshieUI/releases/download/v$version/MooshieUI_$version_x64-setup.exe#/dl.7z"
+            }
+        }
+    },
+    "notes": [
+        "MooshieUI 已安装为便携版本",
+        "运行方式: 在终端执行 'MooshieUI' 或在开始菜单搜索 'MooshieUI'",
+        "",
+        "功能特性:",
+        "- 基于 Tauri + Svelte 5 的现代 UI",
+        "- 支持 Text to Image, Image to Image, Inpainting 三种生成模式",
+        "- 内置 Upscale (Tiled Diffusion) 功能",
+        "- 支持 11 种语言 (包括中文)",
+        "",
+        "注意: 需要配合 ComfyUI 后端使用"
+    ]
+}
