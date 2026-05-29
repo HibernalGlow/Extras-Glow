@@ -1,10 +1,10 @@
 {
-    "version": "4.2.0.9",
+    "version": "4.2.1.1",
     "description": "Flydigi Space Station - companion desktop app for Flydigi devices",
     "homepage": "https://www.flydigi.com/",
     "license": "Freeware",
-    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station3.0/FlydigiSpaceStation_setup_4.2.0.9_Release.exe",
-    "hash": "736070b18d99ef77b0eb4622fb670613cf86b6fcc1bcded923a4bae8dfdc373a",
+    "url": "https://tencent-android.cdn.flydigi.com/PC/Space%20Station3.0/FlydigiSpaceStation_setup_4.2.1.1_Release.exe",
+    "hash": "61f093c36f765ed49476a0db25a82226da8934973533b28a0041e7caf90ce4e1",
     "depends": "innounp",
     "installer": {
         "script": [
