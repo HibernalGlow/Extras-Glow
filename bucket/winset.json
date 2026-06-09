@@ -1,0 +1,23 @@
+{
+  "version": "1.1.2",
+  "description": "Windows 11 轻松设置工具",
+  "homepage": "https://github.com/lhj1618GitHub/win-set",
+  "license": "Unknown",
+  "url": "https://github.com/lhj1618GitHub/win-set/releases/download/1.1.2/Windows11-set-1.1.2.zip",
+  "hash": "sha256:6080ce604b1b0237c78324a98a2baff4268092d822ae770e8d5273f2807bf54f",
+  "bin": "Windows11轻松设置.exe",
+  "shortcuts": [
+    [
+      "Windows11轻松设置.exe",
+      "Windows11 轻松设置"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/lhj1618GitHub/win-set/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "([\\d.]+)"
+  },
+  "autoupdate": {
+    "url": "https://github.com/lhj1618GitHub/win-set/releases/download/$version/Windows11-set-$version.zip"
+  }
+}

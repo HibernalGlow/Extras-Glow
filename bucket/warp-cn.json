@@ -1,0 +1,45 @@
+{
+    "version": "0.2026.06.01-cn.0",
+    "description": "Warp 中文社区版 - 现代化 Rust 终端，内置 AI，客户端 UI 全量汉化",
+    "homepage": "https://github.com/Heartcoolman/warp-cn",
+    "license": {
+        "identifier": "AGPL-3.0",
+        "url": "https://github.com/Heartcoolman/warp-cn/blob/master/LICENSE-AGPL"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/Heartcoolman/warp-cn/releases/download/v0.2026.06.01-cn.0/WarpOssSetup.exe",
+            "hash": "sha256:934d40c59e0f794aae7de622cef70f40b46d2bbc0adf76cc4160a9a8a0802053"
+        }
+    },
+    "innosetup": true,
+    "shortcuts": [
+        [
+            "warp-oss.exe",
+            "Warp CN"
+        ]
+    ],
+    "post_uninstall": [
+        "if ($purge) {",
+        "    $Directories = [string[]](",
+        "        [System.IO.Path]::Combine($env:LOCALAPPDATA,'warp')",
+        "    )",
+        "    $Directories.ForEach{",
+        "        if ([System.IO.Directory]::Exists($_)) {",
+        "            $null = [System.IO.Directory]::Delete($_,$true)",
+        "        }",
+        "    }",
+        "}"
+    ],
+    "checkver": {
+        "github": "Heartcoolman/warp-cn",
+        "regex": "v([\\d.]+-cn\\.\\d+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/Heartcoolman/warp-cn/releases/download/v$version/WarpOssSetup.exe"
+            }
+        }
+    }
+}

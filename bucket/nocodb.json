@@ -1,0 +1,36 @@
+{
+    "version": "2026.06.0",
+    "description": "Open Source Airtable Alternative - Turns any database into a smart spreadsheet",
+    "homepage": "https://nocodb.com",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/nocodb/nocodb/releases/download/2026.06.0/Noco-win-x64.exe#/nocodb.exe",
+            "hash": "sha256:cc79f07604ef8bcb57481523ced0628d58a53b6164858f21299221602d5c7818"
+        },
+        "arm64": {
+            "url": "https://github.com/nocodb/nocodb/releases/download/2026.06.0/Noco-win-arm64.exe#/nocodb.exe",
+            "hash": "sha256:78dbf528fe7677b7fa1382b89b62927c6aeae7499d17b595c3a483602ae7eb9e"
+        }
+    },
+    "bin": "nocodb.exe",
+    "shortcuts": [
+        [
+            "nocodb.exe",
+            "NocoDB"
+        ]
+    ],
+    "checkver": {
+        "github": "nocodb/nocodb"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/nocodb/nocodb/releases/download/$version/Noco-win-x64.exe#/nocodb.exe"
+            },
+            "arm64": {
+                "url": "https://github.com/nocodb/nocodb/releases/download/$version/Noco-win-arm64.exe#/nocodb.exe"
+            }
+        }
+    }
+}

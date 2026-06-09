@@ -1,0 +1,51 @@
+{
+    "version": "1.1.7",
+    "description": "Enhanced launcher and manager for Codex App.",
+    "homepage": "https://github.com/BigPizzaV3/CodexPlusPlus",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v1.1.7/CodexPlusPlus-1.1.7-windows-x64-setup.exe",
+            "hash": "ad066d1d2e0b8b2ae02df10c1e59164b6994e33f5ef8c706801f5a9abfa74d24"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+            "Remove-Item \"$dir\\$fname\" -Force",
+            "$main = Get-ChildItem \"$dir\" -Filter 'codex-plus-plus.exe' -Recurse | Select-Object -First 1 -ExpandProperty FullName",
+            "$mgr = Get-ChildItem \"$dir\" -Filter 'codex-plus-plus-manager.exe' -Recurse | Select-Object -First 1 -ExpandProperty FullName",
+            "if (-not $main) { throw 'codex-plus-plus.exe not found after extraction' }",
+            "if (-not $mgr) { throw 'codex-plus-plus-manager.exe not found after extraction' }",
+            "if ($main -ne \"$dir\\codex-plus-plus.exe\") { Move-Item $main \"$dir\\codex-plus-plus.exe\" -Force }",
+            "if ($mgr -ne \"$dir\\codex-plus-plus-manager.exe\") { Move-Item $mgr \"$dir\\codex-plus-plus-manager.exe\" -Force }"
+        ]
+    },
+    "bin": [
+        "codex-plus-plus.exe",
+        "codex-plus-plus-manager.exe"
+    ],
+    "shortcuts": [
+        [
+            "codex-plus-plus.exe",
+            "Codex++"
+        ],
+        [
+            "codex-plus-plus-manager.exe",
+            "Codex++ Manager"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/BigPizzaV3/CodexPlusPlus/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v$version/CodexPlusPlus-$version-windows-x64-setup.exe"
+            }
+        }
+    }
+}
