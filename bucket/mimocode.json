@@ -1,0 +1,52 @@
+{
+    "version": "0.1.0",
+    "description": "MiMo Code - 小米开源的 AI 代码编辑器，基于 VS Code 构建",
+    "homepage": "https://github.com/XiaomiMiMo/MiMo-Code",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.0/mimocode-windows-x64.zip",
+            "hash": ""
+        },
+        "arm64": {
+            "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v0.1.0/mimocode-windows-arm64.zip",
+            "hash": ""
+        }
+    },
+    "bin": "mimocode.exe",
+    "shortcuts": [
+        [
+            "mimocode.exe",
+            "MiMo Code"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/XiaomiMiMo/MiMo-Code/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v$version/mimocode-windows-x64.zip"
+            },
+            "arm64": {
+                "url": "https://github.com/XiaomiMiMo/MiMo-Code/releases/download/v$version/mimocode-windows-arm64.zip"
+            }
+        },
+        "hash": {
+            "url": "$url.sha256"
+        }
+    },
+    "notes": [
+        "MiMo Code 已安装为便携版本",
+        "运行方式: 在终端执行 'mimocode' 或在开始菜单搜索 'MiMo Code'",
+        "",
+        "功能特性:",
+        "- 小米开源的 AI 代码编辑器",
+        "- 基于 VS Code 构建",
+        "- 内置 AI 辅助编程功能",
+        "",
+        "注意: 需要 Windows 10 或更高版本"
+    ]
+}

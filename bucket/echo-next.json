@@ -1,0 +1,45 @@
+{
+  "version": "26.6.11",
+  "description": "ECHO NEXT - Open-source desktop music player for local libraries, HiFi output and long-term maintenance",
+  "homepage": "https://github.com/Moekotori/ECHO",
+  "license": "Apache-2.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/Moekotori/ECHO/releases/download/26.6.11/ECHO-NEXT-Setup-26.6.11.exe",
+      "hash": "sha256:ad4a00636c93b73f91425a540028a796fb957681635cae128c6d102e719a90ad"
+    }
+  },
+  "depends": "7zip",
+  "installer": {
+    "script": [
+      "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+      "Remove-Item \"$dir\\$fname\" -Force",
+      "& 7z x \"$dir\\`$PLUGINSDIR\\app-64.7z\" -o\"$dir\" -y | Out-Null",
+      "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force",
+      "Remove-Item \"$dir\\`$R0\" -Recurse -Force",
+      "Remove-Item \"$dir\\uninstallerIcon.ico\" -Force -ErrorAction SilentlyContinue"
+    ]
+  },
+  "bin": [
+    [
+      "ECHO NEXT.exe",
+      "echo-next"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "ECHO NEXT.exe",
+      "ECHO NEXT"
+    ]
+  ],
+  "checkver": {
+    "github": "Moekotori/ECHO"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/Moekotori/ECHO/releases/download/$version/ECHO-NEXT-Setup-$version.exe"
+      }
+    }
+  }
+}
