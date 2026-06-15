@@ -1,12 +1,12 @@
 {
-    "version": "1.2.7",
+    "version": "1.2.9",
     "description": "Easy-to-use image converter for modern formats. Wails-based rewrite with native desktop UI. Supports fast parallel encoding, lossless JPEG transcoding, JPEG XL, AVIF, JPEGLI, ExifTool, and more.",
     "homepage": "https://github.com/HibernalGlow/Xlchemy",
     "license": "GPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/HibernalGlow/Xlchemy/releases/download/v1.2.7/Xlchemy-Wails-v1.2.7-portable-win-x64.zip",
-            "hash": "4eda6bb4a454c52fdfd69a79909899bfc8571c3d6eb744e9be605b8c73392a2a"
+            "url": "https://github.com/HibernalGlow/Xlchemy/releases/download/v1.2.9/Xlchemy-Wails-v1.2.9-portable-win-x64.zip",
+            "hash": "69c70d6dee3fe58e03a7e1eaf4d80bd49fa9ce28eb4f8000eb5e5ea2568a3d84"
         }
     },
     "bin": "xlchemy-wails.exe",
