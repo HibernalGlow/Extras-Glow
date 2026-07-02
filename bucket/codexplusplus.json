@@ -1,12 +1,12 @@
 {
-    "version": "1.2.26",
+    "version": "1.2.28",
     "description": "Enhanced launcher and manager for Codex App.",
     "homepage": "https://github.com/BigPizzaV3/CodexPlusPlus",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v1.2.26/CodexPlusPlus-1.2.26-windows-x64-setup.exe",
-            "hash": "aba0f4b76730916455d2f3dd85f2589a336804f54b659fee3481369a40c46695"
+            "url": "https://github.com/BigPizzaV3/CodexPlusPlus/releases/download/v1.2.28/CodexPlusPlus-1.2.28-windows-x64-setup.exe",
+            "hash": "8ee01676631516cda6574b827a97c53cec3d68a859f69404f76f9343eea0da5b"
         }
     },
     "depends": "7zip",
