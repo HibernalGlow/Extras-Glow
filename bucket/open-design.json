@@ -1,12 +1,12 @@
 {
-    "version": "0.10.1",
+    "version": "0.12.0",
     "description": "Open Design - 开源设计工具，面向所有人的现代设计平台",
     "homepage": "https://github.com/nexu-io/open-design",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.10.1/open-design-0.10.1-win-x64-portable.zip",
-            "hash": "5a5bfd759479b69c020639506025020d570ad1b75201fccf61f699749bcdab1a"
+            "url": "https://github.com/nexu-io/open-design/releases/download/open-design-v0.12.0/open-design-0.12.0-win-x64-portable.zip",
+            "hash": "4adf73c9bb5d0db7639f82e674764fe5e3c1ee4b1274c188cf6b469faac2cb4f"
         }
     },
     "bin": "Open Design.exe",
