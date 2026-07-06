@@ -1,0 +1,48 @@
+{
+  "version": "0.11.0",
+  "description": "Windows Explorer shell extension for showing cover thumbnails and preview-pane previews of archive and ebook files (Rust fork of ArcThumb)",
+  "homepage": "https://github.com/HibernalGlow/ArcThumbX",
+  "license": "MIT OR Apache-2.0",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/HibernalGlow/ArcThumbX/releases/download/v0.11.0/ArcThumb-0.11.0-portable-x64.zip",
+      "hash": "sha256:bf0eddc559db5bb8a2f19f605c1135e6f01c26f5e7394d46110b2e1fed615172"
+    }
+  },
+  "installer": {
+    "script": [
+      "Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue",
+      "Stop-Process -Name dllhost -Force -ErrorAction SilentlyContinue",
+      "Stop-Process -Name prevhost -Force -ErrorAction SilentlyContinue",
+      "$configExe = Join-Path $dir 'arcthumb-config.exe'",
+      "if (Test-Path $configExe) { & $configExe '--install' }",
+      "Start-Process explorer"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "Stop-Process -Name explorer -Force -ErrorAction SilentlyContinue",
+      "Stop-Process -Name dllhost -Force -ErrorAction SilentlyContinue",
+      "Stop-Process -Name prevhost -Force -ErrorAction SilentlyContinue",
+      "$configExe = Join-Path $dir 'arcthumb-config.exe'",
+      "if (Test-Path $configExe) { & $configExe '--uninstall' }",
+      "Start-Process explorer"
+    ]
+  },
+  "shortcuts": [
+    [
+      "arcthumb-config.exe",
+      "ArcThumb Configuration"
+    ]
+  ],
+  "checkver": {
+    "github": "HibernalGlow/ArcThumbX"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/HibernalGlow/ArcThumbX/releases/download/v$version/ArcThumb-$version-portable-x64.zip"
+      }
+    }
+  }
+}

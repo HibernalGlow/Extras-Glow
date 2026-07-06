@@ -1,0 +1,35 @@
+{
+  "version": "3.3.1.0",
+  "description": "A powerful and beautiful viewer app for booklovers and comic fans, supporting CBR, CBZ, PDF and EPUB books.",
+  "homepage": "https://github.com/kurema/BookViewerApp3",
+  "license": "MIT",
+  "url": "https://github.com/kurema/BookViewerApp3/releases/download/v3.3.1.0/StorePackage_3.3.1.0.zip",
+  "installer": {
+    "script": [
+      "$cer = Get-ChildItem \"$dir\" -Filter \"*.cer\" -Recurse | Select-Object -First 1",
+      "if ($cer) {",
+      "  Write-Host \"Installing certificate: $($cer.Name)\" -ForegroundColor Cyan",
+      "  Start-Process PowerShell -ArgumentList \"-NoProfile -NonInteractive -Command Import-Certificate -FilePath `\"$($cer.FullName)`\" -CertStoreLocation Cert:\\LocalMachine\\TrustedPeople\" -Verb RunAs -Wait",
+      "}",
+      "$msix = Get-ChildItem \"$dir\" -Filter \"*.msixbundle\" -Recurse | Select-Object -First 1",
+      "if (!$msix) { $msix = Get-ChildItem \"$dir\" -Filter \"*.msix\" -Recurse | Select-Object -First 1 }",
+      "if ($msix) {",
+      "  Write-Host \"Installing MSIX package: $($msix.Name)\" -ForegroundColor Cyan",
+      "  Add-AppxPackage -Path \"$($msix.FullName)\"",
+      "}"
+    ]
+  },
+  "uninstaller": {
+    "script": [
+      "$package = Get-AppxPackage -Name \"*BookViewer*\"",
+      "if ($package) {",
+      "  Write-Host \"Uninstalling BookViewerApp3 package...\" -ForegroundColor Cyan",
+      "  Remove-AppxPackage -Package $package.PackageFullName",
+      "}"
+    ]
+  },
+  "checkver": "github",
+  "autoupdate": {
+    "url": "https://github.com/kurema/BookViewerApp3/releases/download/v$version/StorePackage_$version.zip"
+  }
+}
