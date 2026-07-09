@@ -1,0 +1,28 @@
+{
+    "version": "1.4.128",
+    "description": "Orca AI IDE - AI-powered code editor with multi-agent orchestration",
+    "homepage": "https://github.com/stablyai/orca",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/stablyai/orca/releases/download/v1.4.128/orca-windows-setup.exe",
+            "hash": "sha512:88fe0fcc4d6337197391deef6ba9dac90162bf533a3e9ee32846566129b73c904c8ed723cb64705f2ad123c26e3c71f108ff1336b120f61402a1df4647700a87"
+        }
+    },
+    "installer": {
+        "script": [
+            "Start-Process \"$dir\\$fname\" -ArgumentList '/S' -Wait"
+        ]
+    },
+    "checkver": {
+        "url": "https://github.com/stablyai/orca/releases/latest",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/stablyai/orca/releases/download/v$version/orca-windows-setup.exe"
+            }
+        }
+    }
+}
