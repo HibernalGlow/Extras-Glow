@@ -1,10 +1,10 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Xiranite desktop application.",
     "homepage": "https://github.com/HibernalGlow/Xiranite",
     "license": "Unknown",
-    "url": "https://github.com/HibernalGlow/Xiranite/releases/download/v0.0.2/Xiranite.exe",
-    "hash": "sha256:2abfb455bf39b8486a00b631880ca8778c77509df28dafcdc3e18c6dab14239b",
+    "url": "https://github.com/HibernalGlow/Xiranite/releases/download/v0.0.3/Xiranite.exe",
+    "hash": "50e1d1d7107dbbfa9078fe993b539a94c1ad8b01902444f33befe95572732c7d",
     "bin": "Xiranite.exe",
     "shortcuts": [
         [
