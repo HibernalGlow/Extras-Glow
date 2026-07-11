@@ -18,6 +18,12 @@
         "if (Test-Path \"$dir\\SourceDir\") {",
         "    Get-ChildItem \"$dir\\SourceDir\\*\" | Move-Item -Destination \"$dir\" -Force",
         "    Remove-Item \"$dir\\SourceDir\" -Recurse -Force",
+        "}",
+        "$exe = Get-ChildItem \"$dir\" -Filter 'pi-ui.exe' -Recurse | Select-Object -First 1 -ExpandProperty FullName",
+        "if (-not $exe) { throw 'pi-ui.exe not found after extraction' }",
+        "if ((Split-Path $exe -Parent) -ne $dir) {",
+        "    $target = Join-Path $dir 'pi-ui.exe'",
+        "    Move-Item $exe $target -Force",
         "}"
     ],
     "bin": "pi-ui.exe",

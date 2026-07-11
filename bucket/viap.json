@@ -9,12 +9,31 @@
             "hash": "36583785ed4f90ae29f597f43ed4eae9bf5b35546c47c29debbe0728de0c45db"
         }
     },
-    "depends": "7zip",
     "installer": {
         "script": [
-            "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
-            "Remove-Item \"$dir\\$fname\" -Force",
-            "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force"
+            "& $dir\$fname /S /D=$dir",
+            "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue",
+            "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force -ErrorAction SilentlyContinue",
+            "$appdata = [Environment]::GetFolderPath('ApplicationData')",
+            "$target = Join-Path $appdata 'viap'",
+            "$persist = Join-Path $persist_dir 'AppData-Roaming-viap'",
+            "if (Test-Path $target -PathType Container) {",
+            "    if (-not (Test-Path $persist)) {",
+            "        New-Item -ItemType Directory -Path (Split-Path $persist -Parent) -Force | Out-Null",
+            "        Move-Item $target $persist -Force",
+            "    }",
+            "} elseif (-not (Test-Path $persist)) {",
+            "    New-Item -ItemType Directory -Path $persist -Force | Out-Null",
+            "}",
+            "Remove-Item $target -Force -Recurse -ErrorAction SilentlyContinue",
+            "New-Item -ItemType Junction -Path $target -Target $persist | Out-Null"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "$appdata = [Environment]::GetFolderPath('ApplicationData')",
+            "$target = Join-Path $appdata 'viap'",
+            "Remove-Item $target -Force -Recurse -ErrorAction SilentlyContinue"
         ]
     },
     "bin": "viap.exe",
@@ -30,19 +49,4 @@
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Chunyu33/viap/releases/download/v$version/viap_$version_x64-setup.exe"
-            }
-        }
-    },
-    "notes": [
-        "Viap 是一款 Tauri 桌面应用，可将 C 盘应用通过符号链接无损迁移到其他磁盘",
-        "运行方式: viap 或在开始菜单搜索 'Viap'",
-        "",
-        "功能特性:",
-        "- 一键迁移 C 盘应用到其他磁盘",
-        "- 一键恢复，随时迁回原位置",
-        "- 智能识别开发者目录（Gradle、Maven、npm/Yarn、Cargo、pip/uv、NuGet、Claude Code、Codex 等）",
-        "",
-        "注意: 该工具需要管理员权限运行以创建符号链接"
-    ]
-}
+                "url": "https://github.com/Chunyu33/viap/releases/download/v$
