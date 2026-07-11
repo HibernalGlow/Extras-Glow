@@ -5,41 +5,36 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v0.8.0/pi-ui-windows-x64.msi",
+            "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v0.8.0/pi-ui-windows-x64.msi#/dl.msi_",
             "hash": "0578ce97c5ad1704cd0464269a0babf9e698e6fef70576b59a5261a936785246"
         }
     },
     "depends": "lessmsi",
-    "post_install": [
-        "$cache = if ($env:SCOOP_CACHE) { $env:SCOOP_CACHE } else { Join-Path $env:SCOOP 'cache' }",
-        "$msi = (Get-ChildItem $cache -Filter 'pi-ui#$version#*.msi' -Recurse | Select-Object -First 1).FullName",
-        "if (-not $msi) { throw 'MSI not found in cache' }",
-        "lessmsi x \"$msi\" \"$dir\"",
-        "if (Test-Path \"$dir\\SourceDir\") {",
-        "    Get-ChildItem \"$dir\\SourceDir\\*\" | Move-Item -Destination \"$dir\" -Force",
-        "    Remove-Item \"$dir\\SourceDir\" -Recurse -Force",
-        "}",
-        "$exe = Get-ChildItem \"$dir\" -Filter 'pi-ui.exe' -Recurse | Select-Object -First 1 -ExpandProperty FullName",
-        "if (-not $exe) { throw 'pi-ui.exe not found after extraction' }",
-        "if ((Split-Path $exe -Parent) -ne $dir) {",
-        "    $target = Join-Path $dir 'pi-ui.exe'",
-        "    Move-Item $exe $target -Force",
-        "}"
+    "pre_install": [
+        "$stage = Join-Path $dir '_msi'",
+        "New-Item -ItemType Directory -Path $stage -Force | Out-Null",
+        "& lessmsi x \"$dir\\$fname\" ($stage + '\\')",
+        "if ($LASTEXITCODE -ne 0) { throw 'Failed to extract the pi-ui MSI payload' }",
+        "$payload = Get-ChildItem $stage -Filter 'payload.tar.zst' -File -Recurse | Select-Object -First 1",
+        "if (-not $payload) { throw 'payload.tar.zst was not found in the pi-ui MSI' }",
+        "Expand-7zipArchive -Path $payload.FullName -DestinationPath $dir -Removal",
+        "if (-not (Test-Path \"$dir\\pi-ui\\pi-ui.exe\" -PathType Leaf)) { throw 'pi-ui.exe was not found after payload extraction' }",
+        "Remove-Item $stage, \"$dir\\$fname\" -Recurse -Force"
     ],
-    "bin": "pi-ui.exe",
+    "bin": "pi-ui\\pi-ui.exe",
     "shortcuts": [
         [
-            "pi-ui.exe",
+            "pi-ui\\pi-ui.exe",
             "Pi UI"
         ]
     ],
     "checkver": {
-        "github": "hyperpuncher/pi-ui"
+        "github": "https://github.com/hyperpuncher/pi-ui"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v$version/pi-ui-windows-x64.msi"
+                "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v$version/pi-ui-windows-x64.msi#/dl.msi_"
             }
         }
     },

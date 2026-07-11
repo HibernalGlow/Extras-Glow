@@ -5,37 +5,53 @@
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Chunyu33/viap/releases/download/v1.1.4/viap_1.1.4_x64-setup.exe",
+            "url": "https://github.com/Chunyu33/viap/releases/download/v1.1.4/viap_1.1.4_x64-setup.exe#/dl.7z",
             "hash": "36583785ed4f90ae29f597f43ed4eae9bf5b35546c47c29debbe0728de0c45db"
         }
     },
-    "installer": {
-        "script": [
-            "& $dir\$fname /S /D=$dir",
-            "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue",
-            "Remove-Item \"$dir\\`$PLUGINSDIR\" -Recurse -Force -ErrorAction SilentlyContinue",
-            "$appdata = [Environment]::GetFolderPath('ApplicationData')",
-            "$target = Join-Path $appdata 'viap'",
-            "$persist = Join-Path $persist_dir 'AppData-Roaming-viap'",
-            "if (Test-Path $target -PathType Container) {",
-            "    if (-not (Test-Path $persist)) {",
-            "        New-Item -ItemType Directory -Path (Split-Path $persist -Parent) -Force | Out-Null",
-            "        Move-Item $target $persist -Force",
-            "    }",
-            "} elseif (-not (Test-Path $persist)) {",
-            "    New-Item -ItemType Directory -Path $persist -Force | Out-Null",
-            "}",
-            "Remove-Item $target -Force -Recurse -ErrorAction SilentlyContinue",
-            "New-Item -ItemType Junction -Path $target -Target $persist | Out-Null"
-        ]
-    },
-    "uninstaller": {
-        "script": [
-            "$appdata = [Environment]::GetFolderPath('ApplicationData')",
-            "$target = Join-Path $appdata 'viap'",
-            "Remove-Item $target -Force -Recurse -ErrorAction SilentlyContinue"
-        ]
-    },
+    "pre_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe\" -Recurse -Force -ErrorAction SilentlyContinue",
+        "if (-not (Test-Path \"$dir\\viap.exe\" -PathType Leaf)) { throw 'viap.exe was not found after archive extraction' }",
+        "$appData = [Environment]::GetFolderPath('ApplicationData')",
+        "$configPath = Join-Path $appData 'viap.json'",
+        "$defaultData = Join-Path $appData 'viap'",
+        "$persistData = Join-Path $persist_dir 'data'",
+        "$sourceData = $defaultData",
+        "if (Test-Path $configPath -PathType Leaf) {",
+        "    try {",
+        "        $configuredData = (Get-Content $configPath -Raw -Encoding UTF8 | ConvertFrom-Json).data_dir",
+        "        if (-not [string]::IsNullOrWhiteSpace([string]$configuredData)) { $sourceData = [Environment]::ExpandEnvironmentVariables([string]$configuredData) }",
+        "    } catch { warn 'Ignoring an invalid viap.json data-directory pointer' }",
+        "}",
+        "$sourceFull = [IO.Path]::GetFullPath($sourceData).TrimEnd('\\')",
+        "$defaultFull = [IO.Path]::GetFullPath($defaultData).TrimEnd('\\')",
+        "$persistFull = [IO.Path]::GetFullPath($persistData).TrimEnd('\\')",
+        "$sameDataPath = [StringComparer]::OrdinalIgnoreCase.Equals($sourceFull, $persistFull)",
+        "if (Test-Path $persistData -PathType Leaf) { throw \"Viap persist path is not a directory: $persistData\" }",
+        "if (-not $sameDataPath -and (Test-Path $sourceData -PathType Container) -and (Test-Path $persistData -PathType Container)) {",
+        "    if (Get-ChildItem $persistData -Force | Select-Object -First 1) { throw 'Both the current Viap data directory and Scoop persist directory contain data; refusing to overwrite either one' }",
+        "    Remove-Item $persistData -Recurse -Force",
+        "}",
+        "if (-not (Test-Path $persistData -PathType Container)) {",
+        "    New-Item -ItemType Directory -Path $persist_dir -Force | Out-Null",
+        "    if (-not $sameDataPath -and (Test-Path $sourceData -PathType Container)) {",
+        "        $migratingData = Join-Path $persist_dir 'data.migrating'",
+        "        if (Test-Path $migratingData) { throw \"Stale Viap migration directory exists: $migratingData\" }",
+        "        & robocopy $sourceData $migratingData /E /COPY:DAT /DCOPY:DAT /XJ /R:2 /W:1 | Out-Null",
+        "        $robocopyExit = $LASTEXITCODE",
+        "        if ($robocopyExit -ge 8) { throw \"Failed to migrate Viap data (robocopy exit code $robocopyExit)\" }",
+        "        Move-Item $migratingData $persistData",
+        "        if ([StringComparer]::OrdinalIgnoreCase.Equals($sourceFull, $defaultFull)) { Remove-Item $sourceData -Recurse -Force }",
+        "    } else {",
+        "        New-Item -ItemType Directory -Path $persistData | Out-Null",
+        "    }",
+        "}",
+        "$pointerJson = @{ data_dir = $persistData } | ConvertTo-Json",
+        "$tempConfig = $configPath + '.tmp'",
+        "[IO.File]::WriteAllText($tempConfig, $pointerJson, (New-Object Text.UTF8Encoding($false)))",
+        "Move-Item $tempConfig $configPath -Force"
+    ],
+    "persist": "data",
     "bin": "viap.exe",
     "shortcuts": [
         [
@@ -44,9 +60,26 @@
         ]
     ],
     "checkver": {
-        "github": "Chunyu33/viap"
+        "github": "https://github.com/Chunyu33/viap"
     },
     "autoupdate": {
         "architecture": {
             "64bit": {
-                "url": "https://github.com/Chunyu33/viap/releases/download/v$
+                "url": "https://github.com/Chunyu33/viap/releases/download/v$version/viap_$version_x64-setup.exe#/dl.7z"
+            }
+        }
+    },
+    "notes": [
+        "Viap 是一款 Tauri 桌面应用，可将 C 盘应用通过符号链接无损迁移到其他磁盘",
+        "运行方式: viap 或在开始菜单搜索 'Viap'",
+        "数据目录由 %APPDATA%\\viap.json 指向 Scoop persist 目录",
+        "",
+        "功能特性:",
+        "- 一键迁移 C 盘应用到其他磁盘",
+        "- 一键恢复，随时迁回原位置",
+        "- 智能识别开发者目录（Gradle、Maven、npm/Yarn、Cargo、pip/uv、NuGet、Claude Code、Codex 等）",
+        "",
+        "注意: 该工具需要管理员权限运行以创建符号链接",
+        "请通过 scoop update viap 更新，不要使用应用内更新器"
+    ]
+}
