@@ -1,0 +1,53 @@
+{
+    "version": "0.8.0",
+    "description": "Pi UI - keyboard-first desktop GUI for pi",
+    "homepage": "https://github.com/hyperpuncher/pi-ui",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v0.8.0/pi-ui-windows-x64.msi",
+            "hash": "0578ce97c5ad1704cd0464269a0babf9e698e6fef70576b59a5261a936785246"
+        }
+    },
+    "depends": "lessmsi",
+    "post_install": [
+        "$cache = if ($env:SCOOP_CACHE) { $env:SCOOP_CACHE } else { Join-Path $env:SCOOP 'cache' }",
+        "$msi = (Get-ChildItem $cache -Filter 'pi-ui#$version#*.msi' -Recurse | Select-Object -First 1).FullName",
+        "if (-not $msi) { throw 'MSI not found in cache' }",
+        "lessmsi x \"$msi\" \"$dir\"",
+        "if (Test-Path \"$dir\\SourceDir\") {",
+        "    Get-ChildItem \"$dir\\SourceDir\\*\" | Move-Item -Destination \"$dir\" -Force",
+        "    Remove-Item \"$dir\\SourceDir\" -Recurse -Force",
+        "}"
+    ],
+    "bin": "pi-ui.exe",
+    "shortcuts": [
+        [
+            "pi-ui.exe",
+            "Pi UI"
+        ]
+    ],
+    "checkver": {
+        "github": "hyperpuncher/pi-ui"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v$version/pi-ui-windows-x64.msi"
+            }
+        }
+    },
+    "notes": [
+        "Pi UI is a keyboard-first desktop GUI for pi (pi.dev).",
+        "Run with: pi-ui",
+        "",
+        "Keybinds:",
+        "- Ctrl+K: command menu",
+        "- Ctrl+O: new session",
+        "- Ctrl+R: session picker",
+        "- Ctrl+L: model picker",
+        "- Alt+T: cycle thinking level",
+        "- /: slash commands",
+        "- @: file picker"
+    ]
+}
