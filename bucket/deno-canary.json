@@ -1,0 +1,30 @@
+{
+    "version": "2.9.0+796a222",
+    "description": "Deno JavaScript and TypeScript runtime, pinned to a canary build for Deno Desktop regression testing",
+    "homepage": "https://deno.com",
+    "license": {
+        "identifier": "MIT"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://dl.deno.land/canary/796a222842f06c6c361972b30da65f753abd245e/deno-x86_64-pc-windows-msvc.zip",
+            "hash": "2d85a411a25b29695751a3ea707e521a592fa802f12627f5eae5e039c717896b"
+        }
+    },
+    "extract_to": "app",
+    "env_set": {
+        "DENO_DIR": "$persist_dir\\.deno",
+        "DENO_INSTALL_ROOT": "$persist_dir\\.deno\\bin"
+    },
+    "env_add_path": ".deno\\bin",
+    "bin": "app\\deno.exe",
+    "link": [
+        "$home\\.deno",
+        "$env:LocalAppData\\deno"
+    ],
+    "notes": [
+        "Pinned canary: 796a222842f06c6c361972b30da65f753abd245e.",
+        "This manifest intentionally has no checkver or autoupdate entry.",
+        "Run: deno --version"
+    ]
+}
