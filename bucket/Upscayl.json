@@ -1,0 +1,32 @@
+{
+    "version": "2.15.0",
+    "description": "免费开源的 AI 图像质量增强器 | Free and Open Source AI Image Upscaler",
+    "homepage": "https://upscayl.org",
+    "license": {
+        "identifier": "AGPL-3.0-or-later"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/upscayl/upscayl/releases/download/v2.15.0/upscayl-2.15.0-win.zip",
+            "hash": "6aa2f137ce45bac3877c5634bb0829f398ed757cbf4a72ccdef12b7473407823"
+        }
+    },
+    "extract_to": "app",
+    "bin": "app\\resources\\bin\\upscayl-bin.exe",
+    "shortcuts": [
+        [
+            "app\\Upscayl.exe",
+            "Upscayl"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/upscayl/upscayl"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/upscayl/upscayl/releases/download/v$version/upscayl-$version-win.zip"
+            }
+        }
+    }
+}
