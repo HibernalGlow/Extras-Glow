@@ -1,12 +1,12 @@
 {
-    "version": "1.1.5",
+    "version": "1.1.6",
     "description": "Viap - 专业的 Windows 应用存储重定向工具，使用符号链接将 C 盘应用无损迁移到其他磁盘",
     "homepage": "https://github.com/Chunyu33/viap",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Chunyu33/viap/releases/download/v1.1.5/viap_1.1.5_x64-setup.exe#/dl.7z",
-            "hash": "67c7cb6dc49f700b767c285a830b7a4b572a701b50923c2faf0a96094baee20d"
+            "url": "https://github.com/Chunyu33/viap/releases/download/v1.1.6/viap_1.1.6_x64-setup.exe#/dl.7z",
+            "hash": "b1c4cbcb0342dba2026fbaaaad0ca47df881d9526dbf3dbac5da13ee3cac38d7"
         }
     },
     "pre_install": [
