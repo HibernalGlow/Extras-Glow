@@ -1,12 +1,12 @@
 {
-    "version": "0.10.8",
+    "version": "0.10.9",
     "description": "Pi UI - keyboard-first desktop GUI for pi",
     "homepage": "https://github.com/hyperpuncher/pi-ui",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v0.10.8/pi-ui-windows-x64.msi#/dl.msi_",
-            "hash": "0a6f7215c69a7f1dfd6afd719491fd605e02d044ac8c286f677b684698d46ac9"
+            "url": "https://github.com/hyperpuncher/pi-ui/releases/download/v0.10.9/pi-ui-windows-x64.msi#/dl.msi_",
+            "hash": "ce6f3abbb80359457805fd363255434f79e60bbc6f54a8af69074b3eafbfce66"
         }
     },
     "depends": "lessmsi",
