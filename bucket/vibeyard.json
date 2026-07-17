@@ -1,0 +1,38 @@
+{
+    "version": "0.3.3",
+    "description": "IDE for managing multiple AI coding agent sessions, projects, and workspaces",
+    "homepage": "https://github.com/elirantutia/vibeyard",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/elirantutia/vibeyard/releases/download/v0.3.3/Vibeyard-0.3.3.exe#/Vibeyard.exe",
+            "hash": "dcf91dd19f312c27d0be44eac38619a14bc2b943e45e22896e4633433dcfd8b9"
+        }
+    },
+    "bin": "Vibeyard.exe",
+    "shortcuts": [
+        [
+            "Vibeyard.exe",
+            "Vibeyard"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/elirantutia/vibeyard/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/elirantutia/vibeyard/releases/download/v$version/Vibeyard-$version.exe#/Vibeyard.exe"
+            }
+        },
+        "hash": {
+            "url": "https://api.github.com/repos/elirantutia/vibeyard/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='Vibeyard-$version.exe')].digest"
+        }
+    },
+    "notes": [
+        "Vibeyard requires at least one authenticated AI coding CLI: Claude Code, Codex CLI, or Gemini CLI."
+    ]
+}
