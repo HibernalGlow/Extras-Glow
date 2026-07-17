@@ -1,0 +1,36 @@
+{
+    "version": "0.1.6",
+    "description": "Terminal workspace for running multiple AI coding CLIs in parallel",
+    "homepage": "https://github.com/oso95/Codirigent",
+    "license": "GPL-3.0-only",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/oso95/Codirigent/releases/download/v0.1.6/codirigent-v0.1.6-x86_64-pc-windows-msvc.zip",
+            "hash": "88e0cb97fed70bac139915b31be87e1bb4b46b93d83fb02c5fe5e48a056f22c2"
+        }
+    },
+    "bin": [
+        "codirigent.exe",
+        "codirigent-hook.exe"
+    ],
+    "shortcuts": [
+        [
+            "codirigent.exe",
+            "Codirigent"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/oso95/Codirigent"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/oso95/Codirigent/releases/download/v$version/codirigent-v$version-x86_64-pc-windows-msvc.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/oso95/Codirigent/releases/download/v$version/checksums-sha256.txt",
+            "regex": "$sha256\\s+$basename"
+        }
+    }
+}
