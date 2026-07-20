@@ -1,0 +1,38 @@
+{
+    "version": "0.1.16",
+    "description": "Desktop workspace for managing RunHQ coding agent sessions",
+    "homepage": "https://github.com/runhq-io/runhq-desktop-releases",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/runhq-io/runhq-desktop-releases/releases/download/v0.1.16/RunHQ_0.1.16_x64-setup.exe#/dl.7z",
+            "hash": "c5b3c4eebdb84ff33d6241fb8bbcf4baad63f85d228dce88eb0d1d22f0f19b22"
+        }
+    },
+    "post_install": [
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue"
+    ],
+    "bin": "runhq-desktop.exe",
+    "shortcuts": [
+        [
+            "runhq-desktop.exe",
+            "RunHQ"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/runhq-io/runhq-desktop-releases/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/runhq-io/runhq-desktop-releases/releases/download/v$version/RunHQ_$version_x64-setup.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "https://api.github.com/repos/runhq-io/runhq-desktop-releases/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='RunHQ_$version_x64-setup.exe')].digest"
+        }
+    }
+}
