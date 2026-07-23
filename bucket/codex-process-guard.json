@@ -1,0 +1,38 @@
+{
+    "version": "0.1.1",
+    "description": "Emergency external containment guard for the Codex Desktop process-cleanup storm",
+    "homepage": "https://github.com/BIOcanse/CodexProcessGuard",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/BIOcanse/CodexProcessGuard/releases/download/v0.1.1/CodexProcessGuard-v0.1.1-win-x64.zip",
+            "hash": "sha256:87cc21f12696517964c7b56d771d12bf20718948911686c366c60d89f94d2f94"
+        }
+    },
+    "extract_dir": "CodexProcessGuard-v0.1.1-win-x64",
+    "bin": "CodexProcessGuard.exe",
+    "shortcuts": [
+        [
+            "CodexProcessGuard.exe",
+            "Codex Process Guard"
+        ]
+    ],
+    "persist": "guardsettings.json",
+    "checkver": {
+        "url": "https://api.github.com/repos/BIOcanse/CodexProcessGuard/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/BIOcanse/CodexProcessGuard/releases/download/v$version/CodexProcessGuard-v$version-win-x64.zip",
+                "extract_dir": "CodexProcessGuard-v$version-win-x64"
+            }
+        },
+        "hash": {
+            "url": "https://api.github.com/repos/BIOcanse/CodexProcessGuard/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='CodexProcessGuard-v$version-win-x64.zip')].digest"
+        }
+    }
+}
