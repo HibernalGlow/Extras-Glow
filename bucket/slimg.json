@@ -1,18 +1,17 @@
 {
-  "version": "0.5.1",
+  "version": "0.6.0",
   "description": "A fast image optimization tool. Convert, compress, resize, crop, and extend images using modern codecs",
   "homepage": "https://github.com/clroot/slimg",
   "license": "MIT",
   "architecture": {
     "64bit": {
-      "url": "https://github.com/clroot/slimg/releases/download/v0.5.1/slimg-x86_64-pc-windows-msvc.zip",
-      "hash": "5ecd86132277dfc6904a966df1138c6797e6298e058c82a4bbc0aa30ebf0266c"
+      "url": "https://github.com/clroot/slimg/releases/download/v0.6.0/slimg-x86_64-pc-windows-msvc.zip",
+      "hash": "66af0dc4651e7f294ce4edcdf13fb18dec3dd7eeaa0f3215768420c82a85e7e4"
     }
   },
   "bin": "slimg.exe",
   "checkver": {
-    "github": "clroot/slimg",
-    "regex": "tags/v([\\d.]+)"
+    "github": "https://github.com/clroot/slimg"
   },
   "autoupdate": {
     "architecture": {
