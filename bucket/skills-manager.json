@@ -15,11 +15,15 @@
   "bin": [
     [
       "skills-manager.exe",
-      "skills-manager"
+      "skills-manager-gui"
     ],
     [
       "skills-manager-cli.exe",
       "skills-manager-cli"
+    ],
+    [
+      "skills-manager-cli.exe",
+      "skills-manager"
     ]
   ],
   "shortcuts": [
@@ -46,6 +50,6 @@
   },
   "notes": [
     "Installed as a portable application by extracting the Tauri NSIS package.",
-    "Use 'skills-manager' for the GUI or 'skills-manager-cli' for command-line operations."
+    "Use 'skills-manager-gui' for the GUI, or 'skills-manager' / 'skills-manager-cli' for command-line operations."
   ]
 }
