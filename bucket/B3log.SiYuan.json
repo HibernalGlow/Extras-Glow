@@ -29,10 +29,10 @@
     ],
     "link": [
         "$home\\SiYuan",
-        "$home\\.config\\siyuan"
+        "$home\\.config\\siyuan",
+        "$env:AppData\\SiYuan-Electron"
     ],
     "cleanup": [
-        "$env:AppData\\SiYuan-Electron",
         "$env:LocalAppData\\siyuan-updater"
     ],
     "pre_install": [
