@@ -24,7 +24,7 @@
     "bin": [
         [
             "app\\resources\\kernel\\SiYuan-Kernel.exe",
-            "siyuan-kernel"
+            "siyuan"
         ]
     ],
     "link": [
