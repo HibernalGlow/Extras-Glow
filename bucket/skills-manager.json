@@ -1,0 +1,51 @@
+{
+  "version": "1.28.3",
+  "description": "Desktop application and CLI for managing AI agent skills across coding tools",
+  "homepage": "https://github.com/xingkongliang/skills-manager",
+  "license": "MIT",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/xingkongliang/skills-manager/releases/download/v1.28.3/skills-manager_1.28.3_x64-setup.exe#/dl.7z",
+      "hash": "0516f5b3ac3f158cab29f9283d609f21944a1cc21b9ee71b4e9f20179b954624"
+    }
+  },
+  "post_install": [
+    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue"
+  ],
+  "bin": [
+    [
+      "skills-manager.exe",
+      "skills-manager"
+    ],
+    [
+      "skills-manager-cli.exe",
+      "skills-manager-cli"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "skills-manager.exe",
+      "Skills Manager"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/xingkongliang/skills-manager/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/xingkongliang/skills-manager/releases/download/v$version/skills-manager_$version_x64-setup.exe#/dl.7z"
+      }
+    },
+    "hash": {
+      "url": "https://api.github.com/repos/xingkongliang/skills-manager/releases/tags/v$version",
+      "jsonpath": "$.assets.[?(@name=='skills-manager_$version_x64-setup.exe')].digest"
+    }
+  },
+  "notes": [
+    "Installed as a portable application by extracting the Tauri NSIS package.",
+    "Use 'skills-manager' for the GUI or 'skills-manager-cli' for command-line operations."
+  ]
+}
