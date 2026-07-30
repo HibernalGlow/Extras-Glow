@@ -1,0 +1,49 @@
+{
+  "version": "0.2.2",
+  "description": "Native Tauri desktop app for the Grok coding CLI",
+  "homepage": "https://github.com/RongleCat/grok-app",
+  "license": "LicenseRef-Source-Available",
+  "architecture": {
+    "64bit": {
+      "url": "https://github.com/RongleCat/grok-app/releases/download/v0.2.2/Grok_0.2.2_x64-setup.exe#/dl.7z",
+      "hash": "56471159e274783b0b530abe7e21102f1b337e5f32b815721d83cf9250c10777"
+    }
+  },
+  "pre_install": [
+    "if (-not (Test-Path \"$dir\\grok-app.exe\" -PathType Leaf)) { throw 'grok-app.exe was not found after Tauri package extraction' }",
+    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue"
+  ],
+  "bin": [
+    [
+      "grok-app.exe",
+      "grok-app"
+    ]
+  ],
+  "shortcuts": [
+    [
+      "grok-app.exe",
+      "Grok"
+    ]
+  ],
+  "checkver": {
+    "url": "https://api.github.com/repos/RongleCat/grok-app/releases/latest",
+    "jsonpath": "$.tag_name",
+    "regex": "v([\\d.]+)"
+  },
+  "autoupdate": {
+    "architecture": {
+      "64bit": {
+        "url": "https://github.com/RongleCat/grok-app/releases/download/v$version/Grok_$version_x64-setup.exe#/dl.7z"
+      }
+    },
+    "hash": {
+      "url": "https://api.github.com/repos/RongleCat/grok-app/releases/tags/v$version",
+      "jsonpath": "$.assets.[?(@name=='Grok_$version_x64-setup.exe')].digest"
+    }
+  },
+  "notes": [
+    "Installed by extracting the upstream Tauri NSIS package; the installer is never run.",
+    "Run the desktop app with the grok-app command or the Start Menu shortcut.",
+    "The Grok Build CLI must be installed separately for the app to execute coding tasks."
+  ]
+}
