@@ -1,0 +1,46 @@
+{
+    "version": "2.01",
+    "description": "Displays installed Explorer shell extensions and lets you disable unwanted integrations, such as a third-party virtual drive entry.",
+    "homepage": "https://www.nirsoft.net/utils/shexview.html",
+    "license": "Freeware",
+    "architecture": {
+        "64bit": {
+            "url": "https://www.nirsoft.net/utils/shexview-x64.zip",
+            "hash": "73248fb48ee6387cadbd6bdde5265cbef465cea7fca8f3b72eac5c408f4e7ccb"
+        },
+        "32bit": {
+            "url": "https://www.nirsoft.net/utils/shexview.zip",
+            "hash": "b0f5e6bea715be67460d24e4ffe5256297ffd990cc4f5bfa902f9d5af0d1196d"
+        }
+    },
+    "bin": "shexview.exe",
+    "shortcuts": [
+        [
+            "shexview.exe",
+            "NirSoft\\ShellExView"
+        ]
+    ],
+    "persist": [
+        "shexview_lng.ini",
+        "shexview.cfg"
+    ],
+    "notes": [
+        "Select the unwanted Explorer integration, choose Disable Selected Items, then restart Windows Explorer to refresh This PC.",
+        "This disables the Explorer extension; it does not uninstall the parent application or delete its files.",
+        "Run the tool as administrator if the extension cannot be disabled for the current user."
+    ],
+    "checkver": {
+        "url": "https://www.nirsoft.net/pad/shexview.xml",
+        "xpath": "/XML_DIZ_INFO/Program_Info/Program_Version"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://www.nirsoft.net/utils/shexview-x64.zip"
+            },
+            "32bit": {
+                "url": "https://www.nirsoft.net/utils/shexview.zip"
+            }
+        }
+    }
+}
