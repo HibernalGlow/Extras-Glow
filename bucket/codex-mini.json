@@ -11,16 +11,17 @@
     },
     "installer": {
         "script": [
-            "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList '/S' -Wait",
+            "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList '/S'",
+            "Start-Sleep -Seconds 5",
             "Remove-Item \"$dir\\$fname\" -Force",
-            "$app = Get-ChildItem -Path \"$env:LOCALAPPDATA\\Programs\",\"$env:LOCALAPPDATA\" -Filter 'GPT Mini.exe' -File -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1",
+            "$app = Get-Item \"$env:LOCALAPPDATA\\Programs\\GPT Mini\\GPT Mini.exe\" -ErrorAction SilentlyContinue",
             "if (!$app) { throw 'GPT Mini.exe was not found after installation.' }",
-            "\"@echo off`r`nstart \"\" \"$($app.FullName)\" %*\" | Set-Content -Path \"$dir\\GPT Mini.cmd\" -Encoding ASCII"
+            "Set-Content -Path \"$dir\\GPT Mini.cmd\" -Value @('@echo off', ('start \"\" \"' + $app.FullName + '\" %*')) -Encoding ASCII"
         ]
     },
     "uninstaller": {
         "script": [
-            "$uninstaller = Get-ChildItem -Path \"$env:LOCALAPPDATA\\Programs\",\"$env:LOCALAPPDATA\" -Filter 'Uninstall*.exe' -File -Recurse -ErrorAction SilentlyContinue | Where-Object FullName -like '*GPT Mini*' | Select-Object -First 1",
+            "$uninstaller = Get-Item \"$env:LOCALAPPDATA\\Programs\\GPT Mini\\Uninstall GPT Mini.exe\" -ErrorAction SilentlyContinue",
             "if ($uninstaller) { Start-Process -FilePath $uninstaller.FullName -ArgumentList '/S' -Wait }"
         ]
     },
