@@ -1,0 +1,46 @@
+{
+    "version": "5.4.2",
+    "description": "A lightweight desktop client for Codex and GPT Mini",
+    "homepage": "https://github.com/CoimgRain/Codex-Mini",
+    "license": "Unknown",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/CoimgRain/Codex-Mini/releases/download/codex-mini-v5.4.2/GPTMini_v5.4.2_Windows_Setup.exe",
+            "hash": "6be21a259bbf424169dc4df508891d64a89fa387bbd1f3ed3f2492e8a8bd43c6"
+        }
+    },
+    "installer": {
+        "script": [
+            "Start-Process -FilePath \"$dir\\$fname\" -ArgumentList '/S' -Wait",
+            "Remove-Item \"$dir\\$fname\" -Force",
+            "$app = Get-ChildItem -Path \"$env:LOCALAPPDATA\\Programs\",\"$env:LOCALAPPDATA\" -Filter 'GPT Mini.exe' -File -Recurse -ErrorAction SilentlyContinue | Select-Object -First 1",
+            "if (!$app) { throw 'GPT Mini.exe was not found after installation.' }",
+            "\"@echo off`r`nstart \"\" \"$($app.FullName)\" %*\" | Set-Content -Path \"$dir\\GPT Mini.cmd\" -Encoding ASCII"
+        ]
+    },
+    "uninstaller": {
+        "script": [
+            "$uninstaller = Get-ChildItem -Path \"$env:LOCALAPPDATA\\Programs\",\"$env:LOCALAPPDATA\" -Filter 'Uninstall*.exe' -File -Recurse -ErrorAction SilentlyContinue | Where-Object FullName -like '*GPT Mini*' | Select-Object -First 1",
+            "if ($uninstaller) { Start-Process -FilePath $uninstaller.FullName -ArgumentList '/S' -Wait }"
+        ]
+    },
+    "bin": "GPT Mini.cmd",
+    "shortcuts": [
+        [
+            "GPT Mini.cmd",
+            "Codex-Mini"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/CoimgRain/Codex-Mini/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "codex-mini-v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/CoimgRain/Codex-Mini/releases/download/codex-mini-v$version/GPTMini_v$version_Windows_Setup.exe"
+            }
+        }
+    }
+}
