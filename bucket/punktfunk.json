@@ -1,0 +1,35 @@
+{
+    "version": "0.24.0",
+    "description": "Low-latency desktop and game streaming host with virtual displays",
+    "homepage": "https://git.unom.io/unom/punktfunk",
+    "license": "MIT OR Apache-2.0",
+    "notes": [
+        "Requires Windows 11 22H2 (build 22621) or later.",
+        "The installer installs a machine-wide service and virtual-display drivers, so it prompts for elevation.",
+        "Open https://<host-ip>:47992 after installation to configure the host."
+    ],
+    "architecture": {
+        "64bit": {
+            "url": "https://git.unom.io/unom/punktfunk/releases/download/v0.24.0/punktfunk-host-setup-0.24.0.exe",
+            "hash": "75b34f1c2d1c08f362b03846e23514a3107549fafb85a84309083625d977dc70"
+        }
+    },
+    "installer": {
+        "script": "Start-Process -Wait -FilePath \"$dir\\$fname\" -ArgumentList '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', '/SP-'"
+    },
+    "uninstaller": {
+        "script": "Start-Process -Wait -FilePath \"$env:ProgramFiles\\punktfunk\\unins000.exe\" -ArgumentList '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART'"
+    },
+    "checkver": {
+        "url": "https://git.unom.io/api/v1/repos/unom/punktfunk/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://git.unom.io/unom/punktfunk/releases/download/v$version/punktfunk-host-setup-$version.exe"
+            }
+        }
+    }
+}
