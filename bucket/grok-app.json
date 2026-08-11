@@ -1,12 +1,12 @@
 {
-    "version": "0.2.12",
+    "version": "0.2.14",
     "description": "Native Tauri desktop app for the Grok coding CLI",
     "homepage": "https://github.com/RongleCat/grok-app",
     "license": "LicenseRef-Source-Available",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/RongleCat/grok-app/releases/download/v0.2.12/Grok_0.2.12_x64-setup.exe#/dl.7z",
-            "hash": "890c27f0d7a25460eb38591eb2784c5af10d51c58bb7226349d007a8e09fdf46"
+            "url": "https://github.com/RongleCat/grok-app/releases/download/v0.2.14/Grok_0.2.14_x64-setup.exe#/dl.7z",
+            "hash": "fa2d55225583efe225f1157bcd0b0ac5999972478f15b7f135dbf63576ca5dea"
         }
     },
     "pre_install": [
