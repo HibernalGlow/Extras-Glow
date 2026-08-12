@@ -1,51 +1,51 @@
 {
-  "version": "0.2.5",
-  "description": "Desktop workbench for the Pi coding agent",
-  "homepage": "https://github.com/heyhuynhgiabuu/openpi",
-  "license": "MIT",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v0.2.5/OpenPi-0.2.5-x64.exe#/dl.7z",
-      "hash": "37d77f01a7e7175d1e1cb07d20da6bc306001cbfd446acd90977b64d078b2c5c"
-    }
-  },
-  "pre_install": [
-    "$payload = Join-Path \"$dir\\`$PLUGINSDIR\" 'app-64.7z'",
-    "if (-not (Test-Path $payload -PathType Leaf)) { throw 'OpenPi application payload was not found in the NSIS package' }",
-    "Expand-7zipArchive -Path $payload -DestinationPath $dir -Removal",
-    "if (-not (Test-Path \"$dir\\OpenPi.exe\" -PathType Leaf)) { throw 'OpenPi.exe was not found after payload extraction' }",
-    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue"
-  ],
-  "bin": [
-    [
-      "OpenPi.exe",
-      "openpi"
-    ]
-  ],
-  "shortcuts": [
-    [
-      "OpenPi.exe",
-      "OpenPi"
-    ]
-  ],
-  "checkver": {
-    "url": "https://api.github.com/repos/heyhuynhgiabuu/openpi/releases/latest",
-    "jsonpath": "$.tag_name",
-    "regex": "v([\\d.]+)"
-  },
-  "autoupdate": {
+    "version": "0.2.6",
+    "description": "Desktop workbench for the Pi coding agent",
+    "homepage": "https://github.com/heyhuynhgiabuu/openpi",
+    "license": "MIT",
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v$version/OpenPi-$version-x64.exe#/dl.7z"
-      }
+        "64bit": {
+            "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v0.2.6/OpenPi-0.2.6-x64.exe#/dl.7z",
+            "hash": "ecfbd6e83e4cdfdf26e7e7f880d5580d3ce8407172cb669eb96945d7b56150f0"
+        }
     },
-    "hash": {
-      "url": "https://api.github.com/repos/heyhuynhgiabuu/openpi/releases/tags/v$version",
-      "jsonpath": "$.assets.[?(@name=='OpenPi-$version-x64.exe')].digest"
-    }
-  },
-  "notes": [
-    "OpenPi is installed by extracting the upstream Windows NSIS package; its installer is not run.",
-    "Run it from the Start Menu shortcut or with the openpi command."
-  ]
+    "pre_install": [
+        "$payload = Join-Path \"$dir\\`$PLUGINSDIR\" 'app-64.7z'",
+        "if (-not (Test-Path $payload -PathType Leaf)) { throw 'OpenPi application payload was not found in the NSIS package' }",
+        "Expand-7zipArchive -Path $payload -DestinationPath $dir -Removal",
+        "if (-not (Test-Path \"$dir\\OpenPi.exe\" -PathType Leaf)) { throw 'OpenPi.exe was not found after payload extraction' }",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\" -Force -Recurse -ErrorAction SilentlyContinue"
+    ],
+    "bin": [
+        [
+            "OpenPi.exe",
+            "openpi"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "OpenPi.exe",
+            "OpenPi"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/heyhuynhgiabuu/openpi/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v$version/OpenPi-$version-x64.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "https://api.github.com/repos/heyhuynhgiabuu/openpi/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='OpenPi-$version-x64.exe')].digest"
+        }
+    },
+    "notes": [
+        "OpenPi is installed by extracting the upstream Windows NSIS package; its installer is not run.",
+        "Run it from the Start Menu shortcut or with the openpi command."
+    ]
 }
