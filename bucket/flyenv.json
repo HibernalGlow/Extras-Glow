@@ -1,0 +1,39 @@
+{
+    "version": "4.18.0",
+    "description": "All-In-One Native Local Development Environment for Windows, macOS & Linux. Docker alternative for PHP, Node.js, Python and more",
+    "homepage": "https://github.com/xpf0000/FlyEnv",
+    "license": "BSD-3-Clause",
+    "url": "https://github.com/xpf0000/FlyEnv/releases/download/v4.18.0/FlyEnv-Setup-4.18.0.exe",
+    "hash": "695dc5747f3a1987ba28de62112f787a0bbbeedfa583db127d1fab25cea7ec1d",
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "# Extract the NSIS installer",
+            "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+            "# Extract app-64.7z from $PLUGINSDIR",
+            "$appArchive = Join-Path $dir '$PLUGINSDIR\\app-64.7z'",
+            "if (Test-Path $appArchive) {",
+            "    & 7z x $appArchive \"-o$dir\" -y | Out-Null",
+            "    # Clean up",
+            "    Remove-Item (Join-Path $dir '$PLUGINSDIR') -Recurse -Force -ErrorAction SilentlyContinue",
+            "    Remove-Item (Join-Path $dir '$R0') -Recurse -Force -ErrorAction SilentlyContinue",
+            "    Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue",
+            "} else {",
+            "    Write-Error 'Failed to extract installer'",
+            "}"
+        ]
+    },
+    "bin": "FlyEnv.exe",
+    "shortcuts": [
+        [
+            "FlyEnv.exe",
+            "FlyEnv"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/xpf0000/FlyEnv"
+    },
+    "autoupdate": {
+        "url": "https://github.com/xpf0000/FlyEnv/releases/download/v$version/FlyEnv-Setup-$version.exe"
+    }
+}
