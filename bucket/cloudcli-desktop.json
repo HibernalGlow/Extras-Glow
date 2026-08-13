@@ -1,52 +1,52 @@
 {
-  "version": "1.37.0",
-  "description": "Desktop companion for CloudCLI, Claude Code, Cursor CLI, and Codex",
-  "homepage": "https://github.com/siteboon/claudecodeui",
-  "license": "AGPL-3.0-or-later",
-  "architecture": {
-    "64bit": {
-      "url": "https://github.com/siteboon/claudecodeui/releases/download/v1.37.0/cloudcli-desktop-1.37.0-win-x64.exe#/dl.7z",
-      "hash": "36e7659fb688639e4fd1b1964c06087d063df362c61b11d4db124303eb7502f2"
-    }
-  },
-  "pre_install": [
-    "$payload = Get-ChildItem \"$dir\\`$PLUGINSDIR\" -Filter 'app-*.7z' -File | Select-Object -First 1",
-    "if (-not $payload) { throw 'CloudCLI application payload was not found in the NSIS package' }",
-    "Expand-7zipArchive -Path $payload.FullName -DestinationPath $dir -Removal",
-    "if (-not (Test-Path \"$dir\\CloudCLI.exe\" -PathType Leaf)) { throw 'CloudCLI.exe was not found after payload extraction' }",
-    "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\", \"$dir\\uninstallerIcon.ico\" -Force -Recurse -ErrorAction SilentlyContinue"
-  ],
-  "bin": [
-    [
-      "CloudCLI.exe",
-      "cloudcli-desktop"
-    ]
-  ],
-  "shortcuts": [
-    [
-      "CloudCLI.exe",
-      "CloudCLI"
-    ]
-  ],
-  "checkver": {
-    "url": "https://api.github.com/repos/siteboon/claudecodeui/releases/latest",
-    "jsonpath": "$.tag_name",
-    "regex": "v([\\d.]+)"
-  },
-  "autoupdate": {
+    "version": "1.37.1",
+    "description": "Desktop companion for CloudCLI, Claude Code, Cursor CLI, and Codex",
+    "homepage": "https://github.com/siteboon/claudecodeui",
+    "license": "AGPL-3.0-or-later",
     "architecture": {
-      "64bit": {
-        "url": "https://github.com/siteboon/claudecodeui/releases/download/v$version/cloudcli-desktop-$version-win-x64.exe#/dl.7z"
-      }
+        "64bit": {
+            "url": "https://github.com/siteboon/claudecodeui/releases/download/v1.37.1/cloudcli-desktop-1.37.1-win-x64.exe#/dl.7z",
+            "hash": "e870bb2820e0f9649c0514415d0ed2e9a5cdda14c79656cd9c6b890a3a18d4bb"
+        }
     },
-    "hash": {
-      "url": "https://api.github.com/repos/siteboon/claudecodeui/releases/tags/v$version",
-      "jsonpath": "$.assets.[?(@name=='cloudcli-desktop-$version-win-x64.exe')].digest"
-    }
-  },
-  "notes": [
-    "Installed by extracting the upstream Electron NSIS package; the installer is never run.",
-    "Run the desktop companion with the cloudcli-desktop command or the Start Menu shortcut.",
-    "The self-hosted cloudcli CLI is distributed separately through npm."
-  ]
+    "pre_install": [
+        "$payload = Get-ChildItem \"$dir\\`$PLUGINSDIR\" -Filter 'app-*.7z' -File | Select-Object -First 1",
+        "if (-not $payload) { throw 'CloudCLI application payload was not found in the NSIS package' }",
+        "Expand-7zipArchive -Path $payload.FullName -DestinationPath $dir -Removal",
+        "if (-not (Test-Path \"$dir\\CloudCLI.exe\" -PathType Leaf)) { throw 'CloudCLI.exe was not found after payload extraction' }",
+        "Remove-Item \"$dir\\`$PLUGINSDIR\", \"$dir\\`$R0\", \"$dir\\uninstall.exe\", \"$dir\\uninstallerIcon.ico\" -Force -Recurse -ErrorAction SilentlyContinue"
+    ],
+    "bin": [
+        [
+            "CloudCLI.exe",
+            "cloudcli-desktop"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "CloudCLI.exe",
+            "CloudCLI"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/siteboon/claudecodeui/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/siteboon/claudecodeui/releases/download/v$version/cloudcli-desktop-$version-win-x64.exe#/dl.7z"
+            }
+        },
+        "hash": {
+            "url": "https://api.github.com/repos/siteboon/claudecodeui/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='cloudcli-desktop-$version-win-x64.exe')].digest"
+        }
+    },
+    "notes": [
+        "Installed by extracting the upstream Electron NSIS package; the installer is never run.",
+        "Run the desktop companion with the cloudcli-desktop command or the Start Menu shortcut.",
+        "The self-hosted cloudcli CLI is distributed separately through npm."
+    ]
 }
