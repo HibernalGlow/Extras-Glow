@@ -12,6 +12,36 @@
             "Taix"
         ]
     ],
+    "post_install": [
+        "$shellExe = Join-Path $dir 'taix-shell.exe'",
+        "$registered = $false",
+        "# Try official scheduled-task registration (needs admin for HighestAvailable run level)",
+        "$p = Start-Process -FilePath $shellExe -ArgumentList 'install' -WorkingDirectory $dir -Wait -PassThru -NoNewWindow",
+        "if ($p.ExitCode -eq 0) { $registered = $true }",
+        "# Fallback for non-admin: startup-folder shortcut for auto-launch",
+        "if (-not $registered) {",
+        "    $startup = [Environment]::GetFolderPath('Startup')",
+        "    $ws = New-Object -ComObject WScript.Shell",
+        "    $sc = $ws.CreateShortcut((Join-Path $startup 'TaixShell.lnk'))",
+        "    $sc.TargetPath = $shellExe",
+        "    $sc.WorkingDirectory = $dir",
+        "    $sc.Save()",
+        "    Write-Host '[taix] Auto-launch via startup shortcut (scheduled task needs admin; run \"taix-shell install\" as admin to upgrade)'",
+        "} else {",
+        "    Write-Host '[taix] TaixShell scheduled task registered'",
+        "}",
+        "# Start the watchdog now so the client can connect immediately",
+        "Start-Process -FilePath $shellExe -WorkingDirectory $dir"
+    ],
+    "pre_uninstall": [
+        "$shellExe = Join-Path $dir 'taix-shell.exe'",
+        "if (Test-Path $shellExe) {",
+        "    Start-Process -FilePath $shellExe -ArgumentList 'uninstall' -WorkingDirectory $dir -Wait -PassThru -NoNewWindow | Out-Null",
+        "}",
+        "$startup = [Environment]::GetFolderPath('Startup')",
+        "Remove-Item (Join-Path $startup 'TaixShell.lnk') -Force -ErrorAction SilentlyContinue",
+        "Get-Process -Name 'taix-shell','taix-server','taix-monitor-windows' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue"
+    ],
     "checkver": {
         "github": "https://github.com/NLick47/Taix"
     },
