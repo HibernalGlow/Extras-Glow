@@ -1,17 +1,19 @@
 {
-    "version": "2.10.0",
+    "version": "2.14.0",
     "description": "Elegant, snappy and practical tray flyout for Windows 10/11 — volume, wifi, airplane, battery, clock and more.",
     "homepage": "https://github.com/unchihugo/FluentFlyout",
     "license": "MIT",
-    "url": "https://github.com/unchihugo/FluentFlyout/releases/download/v2.10.0/FluentFlyout_2.10.0_x64_Installer.zip",
-    "hash": "00af37d3f1b4f6f833d6afb15a8b5073e75985d4d5e0c8ad0da8596454539044",
+    "url": "https://files.fluentflyout.com/FluentFlyout_2.14.0_x64_Installer.zip",
+    "hash": "702dbca1ffbc484d01e5fc9a094c3821e45b9abfcca4153c5cd31b4302c238e1",
     "installer": {
         "script": [
             "# Scoop already extracted the installer zip into $dir.",
             "# Install the signing certificate into the current user's TrustedPeople store",
-            "$cert = Join-Path $dir 'SystemFiles\\FluentFlyoutMSIX_2.10.0.0_x64_GitHub Release.cer'",
-            "$bundle = Join-Path $dir 'SystemFiles\\FluentFlyoutMSIX_2.10.0.0_x64_GitHub Release.msixbundle'",
-            "certutil.exe -addstore TrustedPeople \"$cert\" | Out-Null",
+            "$cert = Get-ChildItem \"$dir\\SystemFiles\\*.cer\" | Select-Object -First 1 -ExpandProperty FullName",
+            "$bundle = Get-ChildItem \"$dir\\SystemFiles\\*.msixbundle\" | Select-Object -First 1 -ExpandProperty FullName",
+            "if (!$cert -or !$bundle) { throw 'The FluentFlyout certificate or MSIX bundle is missing.' }",
+            "certutil.exe -user -addstore TrustedPeople \"$cert\" | Out-Null",
+            "if ($LASTEXITCODE -ne 0) { throw 'Failed to trust the FluentFlyout signing certificate.' }",
             "# Best-effort: enable sideloading of trusted apps (requires admin; ignored if unavailable)",
             "try { Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock' -Name AllowAllTrustedApps -Value 1 -ErrorAction SilentlyContinue } catch {}",
             "# Sideload the MSIX bundle (requires Developer Mode or sideloading enabled on Windows)",
@@ -32,6 +34,9 @@
             "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue"
         ]
     },
+    "uninstaller": {
+        "script": "$package = Get-AppxPackage -Name '*FluentFlyout*' | Select-Object -First 1; if ($package) { $package | Remove-AppxPackage }"
+    },
     "bin": [
         [
             "fluentflyout-launch.ps1",
@@ -42,6 +47,6 @@
         "github": "https://github.com/unchihugo/FluentFlyout"
     },
     "autoupdate": {
-        "url": "https://github.com/unchihugo/FluentFlyout/releases/download/v$version/FluentFlyout_$version_x64_Installer.zip"
+        "url": "https://files.fluentflyout.com/FluentFlyout_$version_x64_Installer.zip"
     }
 }
