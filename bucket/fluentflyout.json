@@ -1,0 +1,47 @@
+{
+    "version": "2.10.0",
+    "description": "Elegant, snappy and practical tray flyout for Windows 10/11 — volume, wifi, airplane, battery, clock and more.",
+    "homepage": "https://github.com/unchihugo/FluentFlyout",
+    "license": "MIT",
+    "url": "https://github.com/unchihugo/FluentFlyout/releases/download/v2.10.0/FluentFlyout_2.10.0_x64_Installer.zip",
+    "hash": "00af37d3f1b4f6f833d6afb15a8b5073e75985d4d5e0c8ad0da8596454539044",
+    "installer": {
+        "script": [
+            "# Scoop already extracted the installer zip into $dir.",
+            "# Install the signing certificate into the current user's TrustedPeople store",
+            "$cert = Join-Path $dir 'SystemFiles\\FluentFlyoutMSIX_2.10.0.0_x64_GitHub Release.cer'",
+            "$bundle = Join-Path $dir 'SystemFiles\\FluentFlyoutMSIX_2.10.0.0_x64_GitHub Release.msixbundle'",
+            "certutil.exe -addstore TrustedPeople \"$cert\" | Out-Null",
+            "# Best-effort: enable sideloading of trusted apps (requires admin; ignored if unavailable)",
+            "try { Set-ItemProperty -Path 'HKLM:\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\AppModelUnlock' -Name AllowAllTrustedApps -Value 1 -ErrorAction SilentlyContinue } catch {}",
+            "# Sideload the MSIX bundle (requires Developer Mode or sideloading enabled on Windows)",
+            "Add-AppxPackage -Path \"$bundle\" -ForceApplicationShutdown",
+            "# Create a launcher that finds the installed app and runs it",
+            "$launcher = Join-Path $dir 'fluentflyout-launch.ps1'",
+            "Set-Content -Encoding UTF8 $launcher '`$pkg = Get-AppxPackage -Name ''*FluentFlyout*'' | Select-Object -First 1'",
+            "Add-Content $launcher 'if (`$pkg) {'",
+            "Add-Content $launcher '    `$exe = Join-Path `$pkg.InstallLocation ''FluentFlyout\\FluentFlyout.exe'''",
+            "Add-Content $launcher '    Start-Process `$exe'",
+            "Add-Content $launcher '} else {'",
+            "Add-Content $launcher '    Write-Host ''FluentFlyout is not installed. Enable sideloading/Developer Mode and reinstall.'''",
+            "Add-Content $launcher '}'",
+            "# Clean up the extracted installer artifacts (the app now lives in WindowsApps)",
+            "Remove-Item (Join-Path $dir 'SystemFiles') -Recurse -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir 'FluentFlyout_Installer.bat') -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir 'README.txt') -Force -ErrorAction SilentlyContinue",
+            "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue"
+        ]
+    },
+    "bin": [
+        [
+            "fluentflyout-launch.ps1",
+            "fluentflyout"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/unchihugo/FluentFlyout"
+    },
+    "autoupdate": {
+        "url": "https://github.com/unchihugo/FluentFlyout/releases/download/v$version/FluentFlyout_$version_x64_Installer.zip"
+    }
+}

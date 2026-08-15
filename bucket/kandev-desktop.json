@@ -1,0 +1,40 @@
+{
+    "version": "0.87.1",
+    "description": "Kandev Desktop - desktop client for the AI Kanban & Development Environment",
+    "homepage": "https://github.com/kdlbs/kandev",
+    "license": "AGPL-3.0",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/kdlbs/kandev/releases/download/v0.87.1/kandev-desktop-windows-x64-Kandev_0.87.1_x64-setup.exe",
+            "hash": "4fa654f43f26691e9338bbf9c60ccb2372befc4bb9788083dcb1ebc91542db41"
+        }
+    },
+    "depends": "7zip",
+    "installer": {
+        "script": [
+            "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+            "Remove-Item (Join-Path $dir '$PLUGINSDIR') -Recurse -Force -ErrorAction SilentlyContinue",
+            "Remove-Item \"$dir\\uninstall.exe\", \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue"
+        ]
+    },
+    "bin": "kandev-desktop.exe",
+    "shortcuts": [
+        [
+            "kandev-desktop.exe",
+            "Kandev Desktop"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/kdlbs/kandev"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/kdlbs/kandev/releases/download/v$version/kandev-desktop-windows-x64-Kandev_$version_x64-setup.exe",
+                "hash": {
+                    "url": "$url.sha256"
+                }
+            }
+        }
+    }
+}
