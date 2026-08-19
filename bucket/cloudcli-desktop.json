@@ -1,12 +1,12 @@
 {
-    "version": "1.37.1",
+    "version": "1.37.2",
     "description": "Desktop companion for CloudCLI, Claude Code, Cursor CLI, and Codex",
     "homepage": "https://github.com/siteboon/claudecodeui",
     "license": "AGPL-3.0-or-later",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/siteboon/claudecodeui/releases/download/v1.37.1/cloudcli-desktop-1.37.1-win-x64.exe#/dl.7z",
-            "hash": "e870bb2820e0f9649c0514415d0ed2e9a5cdda14c79656cd9c6b890a3a18d4bb"
+            "url": "https://github.com/siteboon/claudecodeui/releases/download/v1.37.2/cloudcli-desktop-1.37.2-win-x64.exe#/dl.7z",
+            "hash": "282f8438e706f918138991e12c1537a22fee16feef6f7e62af900488fee4cef3"
         }
     },
     "pre_install": [
