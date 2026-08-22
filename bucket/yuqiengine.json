@@ -1,0 +1,29 @@
+{
+    "version": "0.1.2",
+    "description": "面向 Windows 10/11 的模块化系统优化、状态检测、恢复与诊断工具（宇奇引擎）。",
+    "homepage": "https://github.com/ZYY817/YuqiEngine",
+    "license": "Proprietary",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/ZYY817/YuqiEngine/releases/download/v0.1.2/YuqiEngine-v0.1.2-Portable-ZH-EN.zip",
+            "hash": "dbffa73cc69ad65781c1e279e2c66d4f14224d763a365953d6edb75bc52ed9ad"
+        }
+    },
+    "bin": "YuqiEngine.exe",
+    "shortcuts": [
+        [
+            "YuqiEngine.exe",
+            "YuqiEngine"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/ZYY817/YuqiEngine"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ZYY817/YuqiEngine/releases/download/v$version/YuqiEngine-v$version-Portable-ZH-EN.zip"
+            }
+        }
+    }
+}

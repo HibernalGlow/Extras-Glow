@@ -168,6 +168,7 @@ scoop config aria2-min-split-size 4M
 |    MisakaTranslator    |     [misakatranslator](https://github.com/hanmin0822/MisakaTranslator)      |    ✓     | by @CronusLM |
 |       mpv.net_CM       |          [mpv.net-cm](https://hooke007.github.io/index2#mpvnetcm)           |    ✓     |              |
 |   HEU_KMS_Activator    |       [heu-kms-activator](https://github.com/zbezj/HEU_KMS_Activator)       |    ✓     |              |
+|        宇奇引擎         |          [yuqiengine](https://github.com/ZYY817/YuqiEngine)           |    ✓     |  游戏性能优化工具，便携版约 560 MB  |
 |    LKY-OfficeTools     |     [lky-officetools](https://github.com/OdysseusYuan/LKY_OfficeTools)      |    ✓     |              |
 |   PHPStudy2016 scoop   | [phpstudy-lagecy-scoop](https://github.com/chawyehsu/phpstudy-lagecy-scoop) |    ✓     |              |
 |         Reader         |                 [reader](https://github.com/binbyu/Reader)                  |    ✓     |              |

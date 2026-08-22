@@ -1,0 +1,35 @@
+{
+    "version": "0.2.9",
+    "description": "Unofficial Windows Terminal fork whose panes can render with ghostty's engine per-profile. Installs alongside stock Windows Terminal, with no MSIX signing/certificate trust required for the portable build.",
+    "homepage": "https://github.com/ibuildthecloud/winterm-ghostty",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/ibuildthecloud/winterm-ghostty/releases/download/v0.2.9/winterm-ghostty-0.2.9.0-x64-portable.zip",
+            "hash": "ba9a9184edb24286115029ff584d814a1392eed31d034f23174742d3a069155a"
+        }
+    },
+    "extract_dir": "terminal-0.2.9.0",
+    "persist": "settings",
+    "bin": [
+        [
+            "WindowsTerminal.exe",
+            "wtg"
+        ]
+    ],
+    "notes": "This release ships only the portable ZIP (no MSIX). No certificate install is needed — the .cer / Import-Certificate step in docs/install.md applies only to the MSIX path, which is not published for v0.2.9 because no signing certificate is configured. To enable the ghostty engine, add \"engine\": \"ghostty\" to a profile in settings.json (Ctrl+, → Open JSON file). The portable build keeps settings beside the exe via the bundled .portable marker; it has no Start menu entry or wtg.exe alias.",
+    "checkver": {
+        "github": "https://github.com/ibuildthecloud/winterm-ghostty"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ibuildthecloud/winterm-ghostty/releases/download/v$version/winterm-ghostty-$version.0-x64-portable.zip"
+            }
+        },
+        "hash": {
+            "url": "https://github.com/ibuildthecloud/winterm-ghostty/releases/download/v$version/SHA256SUMS.txt",
+            "find": "([0-9a-f]{64})\\s+.*winterm-ghostty-$version\\.0-x64-portable\\.zip"
+        }
+    }
+}
