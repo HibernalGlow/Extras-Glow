@@ -1,12 +1,12 @@
 {
-    "version": "0.3.5",
+    "version": "0.3.6",
     "description": "IDE for managing multiple AI coding agent sessions, projects, and workspaces",
     "homepage": "https://github.com/elirantutia/vibeyard",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/elirantutia/vibeyard/releases/download/v0.3.5/Vibeyard-0.3.5.exe#/Vibeyard.exe",
-            "hash": "7d7001d771e1532922f27e20a87154385c69164c62daee630a7f24cafa5c2ec5"
+            "url": "https://github.com/elirantutia/vibeyard/releases/download/v0.3.6/Vibeyard-0.3.6.exe#/Vibeyard.exe",
+            "hash": "4966e5cd6e4c0f2869fb0731f97763f45e15ad609a06ba71a585de7d800a5900"
         }
     },
     "bin": "Vibeyard.exe",
