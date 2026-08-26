@@ -1,10 +1,10 @@
 {
-    "version": "5.1.1",
+    "version": "5.1.2",
     "description": "一个通过 Nginx 反向代理实现绕过 SNI 阻断的工具，基于 Pixiv-Nginx-GUI 进行功能扩展与改进",
     "homepage": "https://github.com/racpast/SNIBypassGUI",
     "license": "Unknown",
-    "url": "https://github.com/racpast/SNIBypassGUI/releases/download/v5.1.1/SNIBypassGUI-v5.1.1.zip",
-    "hash": "0652cb6aa0cdf4765856cb694d1211e8cbe45e289c259159b3fcccb5e7d4470f",
+    "url": "https://github.com/racpast/SNIBypassGUI/releases/download/v5.1.2/SNIBypassGUI-v5.1.2.zip",
+    "hash": "c2185687ab05a1dab452d64912f4c18b236d061036d357a7b0d6da2d350866cb",
     "bin": "SNIBypassGUI.exe",
     "shortcuts": [
         [
