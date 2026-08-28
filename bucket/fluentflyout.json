@@ -1,0 +1,65 @@
+{
+    "version": "2.14.0",
+    "description": "Elegant, snappy and practical tray flyout for Windows 10/11 — volume, wifi, airplane, battery, clock and more.",
+    "homepage": "https://github.com/unchihugo/FluentFlyout",
+    "license": "MIT",
+    "url": "https://files.fluentflyout.com/FluentFlyout_2.14.0_x64_Installer.zip",
+    "hash": "702dbca1ffbc484d01e5fc9a094c3821e45b9abfcca4153c5cd31b4302c238e1",
+    "installer": {
+        "script": [
+            "# Scoop already extracted the installer zip into $dir.",
+            "# Appx deployment requires the signing certificate in LocalMachine\\TrustedPeople.",
+            "$cert = Get-ChildItem \"$dir\\SystemFiles\\*.cer\" | Select-Object -First 1 -ExpandProperty FullName",
+            "$bundle = Get-ChildItem \"$dir\\SystemFiles\\*.msixbundle\" | Select-Object -First 1 -ExpandProperty FullName",
+            "if (!$cert -or !$bundle) { throw 'The FluentFlyout certificate or MSIX bundle is missing.' }",
+            "$elevatedInstaller = Join-Path $dir 'install-msix.ps1'",
+            "$installLog = Join-Path $dir 'install-msix.log'",
+            "@'",
+            "param([string]$CertificatePath, [string]$BundlePath)",
+            "$ErrorActionPreference = 'Stop'",
+            "try {",
+            "    certutil.exe -addstore TrustedPeople $CertificatePath | Out-Null",
+            "    if ($LASTEXITCODE -ne 0) { throw 'Failed to trust the FluentFlyout signing certificate.' }",
+            "    Add-AppxPackage -Path $BundlePath -ForceApplicationShutdown",
+            "} catch {",
+            "    $_ | Out-String | Set-Content -Encoding UTF8 (Join-Path $PSScriptRoot 'install-msix.log')",
+            "    exit 1",
+            "}",
+            "'@ | Set-Content -Encoding UTF8 $elevatedInstaller",
+            "$arguments = @('-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ('\"{0}\"' -f $elevatedInstaller), '-CertificatePath', ('\"{0}\"' -f $cert), '-BundlePath', ('\"{0}\"' -f $bundle)) -join ' '",
+            "$process = Start-Process -FilePath powershell.exe -Verb RunAs -Wait -PassThru -ArgumentList $arguments",
+            "if ($process.ExitCode -ne 0) { $details = if (Test-Path $installLog) { Get-Content -Raw $installLog } else { 'Administrator approval was cancelled or the elevated installer did not start.' }; throw \"FluentFlyout MSIX installation failed with exit code $($process.ExitCode): $details\" }",
+            "# Create a launcher that finds the installed app and runs it",
+            "$launcher = Join-Path $dir 'fluentflyout-launch.ps1'",
+            "Set-Content -Encoding UTF8 $launcher '$pkg = Get-AppxPackage -Name ''*FluentFlyout*'' | Select-Object -First 1'",
+            "Add-Content $launcher 'if ($pkg) {'",
+            "Add-Content $launcher '    $exe = Join-Path $pkg.InstallLocation ''FluentFlyout\\FluentFlyout.exe'''",
+            "Add-Content $launcher '    Start-Process $exe'",
+            "Add-Content $launcher '} else {'",
+            "Add-Content $launcher '    Write-Host ''FluentFlyout is not installed. Enable sideloading/Developer Mode and reinstall.'''",
+            "Add-Content $launcher '}'",
+            "# Clean up the extracted installer artifacts (the app now lives in WindowsApps)",
+            "Remove-Item (Join-Path $dir 'SystemFiles') -Recurse -Force -ErrorAction SilentlyContinue",
+            "Remove-Item $elevatedInstaller -Force -ErrorAction SilentlyContinue",
+            "Remove-Item $installLog -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir 'FluentFlyout_Installer.bat') -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir 'README.txt') -Force -ErrorAction SilentlyContinue",
+            "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue"
+        ]
+    },
+    "uninstaller": {
+        "script": "$package = Get-AppxPackage -Name '*FluentFlyout*' | Select-Object -First 1; if ($package) { $package | Remove-AppxPackage }"
+    },
+    "bin": [
+        [
+            "fluentflyout-launch.ps1",
+            "fluentflyout"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/unchihugo/FluentFlyout"
+    },
+    "autoupdate": {
+        "url": "https://files.fluentflyout.com/FluentFlyout_$version_x64_Installer.zip"
+    }
+}
