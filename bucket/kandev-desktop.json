@@ -1,12 +1,12 @@
 {
-    "version": "0.91.0",
+    "version": "0.92.0",
     "description": "Kandev Desktop - desktop client for the AI Kanban & Development Environment",
     "homepage": "https://github.com/kdlbs/kandev",
     "license": "AGPL-3.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/kdlbs/kandev/releases/download/v0.91.0/kandev-desktop-windows-x64-Kandev_0.91.0_x64-setup.exe",
-            "hash": "aa0ba801985fe0967b65d304590d8866ffaf87804c7e786b86419a6e9885ebf5"
+            "url": "https://github.com/kdlbs/kandev/releases/download/v0.92.0/kandev-desktop-windows-x64-Kandev_0.92.0_x64-setup.exe",
+            "hash": "7f8f760240c3799b8ec5bc84e7ebc0fac66a400d0f7553184df1e8a8fe6c89cb"
         }
     },
     "depends": "7zip",
