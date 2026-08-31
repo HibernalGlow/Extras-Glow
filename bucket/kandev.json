@@ -1,12 +1,12 @@
 {
-    "version": "0.92.1",
+    "version": "0.92.2",
     "description": "AI Kanban & Development Environment. Orchestrate multiple agents, review changes, open PRs",
     "homepage": "https://github.com/kdlbs/kandev",
     "license": "AGPL-3.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/kdlbs/kandev/releases/download/v0.92.1/kandev-windows-x64.tar.gz",
-            "hash": "f786d818df648965d18cf768f98b1ef5908158fc596b5120048dbdece0d4c8fb"
+            "url": "https://github.com/kdlbs/kandev/releases/download/v0.92.2/kandev-windows-x64.tar.gz",
+            "hash": "9a8becece44911d1e2010f856aee2ba04fb29fd2461e4155da460e5c6e8d914a"
         }
     },
     "extract_dir": "kandev",
