@@ -1,5 +1,5 @@
 {
-    "version": "0.33.0",
+    "version": "0.34.0",
     "description": "Low-latency desktop and game streaming host with virtual displays",
     "homepage": "https://git.unom.io/unom/punktfunk",
     "license": "MIT OR Apache-2.0",
@@ -10,8 +10,8 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://git.unom.io/unom/punktfunk/releases/download/v0.33.0/punktfunk-host-setup-0.33.0.exe",
-            "hash": "16ae9b6b093b9ef8184d1fa85262e4a564e93da18e4b5b0e939f62ebe9a7df4f"
+            "url": "https://git.unom.io/unom/punktfunk/releases/download/v0.34.0/punktfunk-host-setup-0.34.0.exe",
+            "hash": "26fc0b0cd3837e70ea0591976f13125bdf0265d6b33704296d301fd87d986e00"
         }
     },
     "installer": {
