@@ -1,12 +1,12 @@
 {
-    "version": "0.7.1",
+    "version": "0.7.2",
     "description": "Immersive lyrics player for local music, Navidrome, and third-party NetEase Cloud Music",
     "homepage": "https://github.com/chthollyphile/folia-major",
     "license": "AGPL-3.0-only",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/chthollyphile/folia-major/releases/download/v0.7.1/Folia-Setup-0.7.1.exe#/dl.7z",
-            "hash": "b0b875f97c0d251def6c9b2e92c24fe4e56b2bc651b811a4f990f7a36950eb32"
+            "url": "https://github.com/chthollyphile/folia-major/releases/download/v0.7.2/Folia-Setup-0.7.2.exe#/dl.7z",
+            "hash": "144c8fb02bbd71a185d1d6cbc2cae3af08c603d02a024651af943bda12051119"
         }
     },
     "pre_install": [
