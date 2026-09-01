@@ -1,12 +1,12 @@
 {
-    "version": "5.6.1",
+    "version": "5.6.2",
     "description": "A lightweight desktop client for Codex and GPT Mini",
     "homepage": "https://github.com/CoimgRain/Codex-Mini",
     "license": "Unknown",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/CoimgRain/Codex-Mini/releases/download/codex-mini-v5.6.1/GPTMini_v5.6.1_Windows_Setup.exe",
-            "hash": "ca3574b5e08d6b9357f518329a6f1b4c55c1f7590ff47550ebc8f7c32a2fda38"
+            "url": "https://github.com/CoimgRain/Codex-Mini/releases/download/codex-mini-v5.6.2/GPTMini_v5.6.2_Windows_Setup.exe",
+            "hash": "7807ceb19daf28b0fbd7c2d7861c83d767d1e943c0cd73d50f658a701076ecf8"
         }
     },
     "installer": {
