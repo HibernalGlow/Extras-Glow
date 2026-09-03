@@ -1,0 +1,40 @@
+{
+    "version": "1.0.1",
+    "description": "Automatic daily check-in tool for Skland accounts (Arknights and Arknights: Endfield)",
+    "homepage": "https://github.com/figchean8531-code/SklandAutoSign",
+    "license": {
+        "identifier": "LicenseRef-NonCommercial",
+        "url": "https://github.com/figchean8531-code/SklandAutoSign/blob/main/LICENSE"
+    },
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/figchean8531-code/SklandAutoSign/releases/download/v1.0.1/SklandAutoSign.exe",
+            "hash": "451f3fb78d2583befa277263d3e7f29dd3a2c5e61decfffb82be42de7319c6ce"
+        }
+    },
+    "persist": "data",
+    "shortcuts": [
+        [
+            "SklandAutoSign.exe",
+            "SklandAutoSign"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/figchean8531-code/SklandAutoSign"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/figchean8531-code/SklandAutoSign/releases/download/v$version/SklandAutoSign.exe"
+            }
+        }
+    },
+    "notes": [
+        "森空岛游戏自动签到是第三方非官方工具，与鹰角网络、森空岛及游戏运营方无隶属或授权关系。",
+        "首次运行可能被 Windows SmartScreen 拦截：程序未使用商业代码签名证书，确认来源后再运行。",
+        "配置与日志已持久化到 ~/scoop/persist/sklandautosign/data，升级或重装版本不会丢失 Token。",
+        "Token 使用 Windows DPAPI 按当前用户加密，更换 Windows 用户或重装系统后需重新配置。",
+        "每日签到依赖 Windows 计划任务「森空岛游戏每日签到」，任务指向 current 目录，升级后无需重建。",
+        "命令行静默签到（供脚本调用）: 运行 ~/scoop/apps/sklandautosign/current/SklandAutoSign.exe --run"
+    ]
+}
