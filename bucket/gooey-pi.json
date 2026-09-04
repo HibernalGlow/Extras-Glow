@@ -1,0 +1,29 @@
+{
+    "version": "1.1.16",
+    "description": "Desktop workspace for Pi, OMP, and Prime Agent.",
+    "homepage": "https://github.com/am-will/gooey-pi",
+    "license": "MIT",
+    "notes": "GooeyPi 只提供图形界面，Pi / OMP / Prime Agent 三个编码 agent 需各自安装，并自行管理模型、登录与会话。",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/am-will/gooey-pi/releases/download/v1.1.16/GooeyPi-1.1.16-win-x64.zip",
+            "hash": "72ff097b1129f80d49353519506cbcb8cd8ff4031fa5c45fe086c5b99e5d0d96"
+        }
+    },
+    "shortcuts": [
+        [
+            "GooeyPi.exe",
+            "GooeyPi"
+        ]
+    ],
+    "checkver": {
+        "github": "am-will/gooey-pi"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/am-will/gooey-pi/releases/download/v$version/GooeyPi-$version-win-x64.zip"
+            }
+        }
+    }
+}
