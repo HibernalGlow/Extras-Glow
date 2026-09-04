@@ -1,0 +1,46 @@
+{
+    "version": "0.67.13",
+    "description": "A multi-model AI agent desktop client — connect any AI provider, extend with MCP & skills. Built with Electron + Next.js",
+    "homepage": "https://www.codepilot.sh/",
+    "license": "BUSL-1.1",
+    "depends": "7zip",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/op7418/CodePilot/releases/download/v0.67.13/CodePilot.Setup.0.67.13.exe",
+            "hash": "67f517d52105d690c780bc9d41b4e6d988ddff2b8932c3675544860c59664560"
+        }
+    },
+    "installer": {
+        "script": [
+            "# Unpack the NSIS installer to expose the embedded app payload",
+            "& 7z x \"$dir\\$fname\" -o\"$dir\" -y | Out-Null",
+            "# electron-builder stores the app payload as $PLUGINSDIR\\app-64.7z",
+            "$app = Get-ChildItem -Path $dir -Recurse -Filter 'app-64.7z' -ErrorAction SilentlyContinue | Select-Object -First 1",
+            "if (!$app) { $app = Get-ChildItem -Path $dir -Recurse -Filter '*.7z' -ErrorAction SilentlyContinue | Select-Object -First 1 }",
+            "if (!$app) { throw 'CodePilot: app payload not found inside the installer.' }",
+            "& 7z x $($app.FullName) \"-o$dir\" -y | Out-Null",
+            "# Remove installer leftovers",
+            "Remove-Item \"$dir\\$fname\" -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir '$PLUGINSDIR') -Recurse -Force -ErrorAction SilentlyContinue",
+            "Remove-Item (Join-Path $dir '$R0') -Recurse -Force -ErrorAction SilentlyContinue"
+        ]
+    },
+    "bin": "CodePilot.exe",
+    "shortcuts": [
+        [
+            "CodePilot.exe",
+            "CodePilot"
+        ]
+    ],
+    "notes": "未代码签名，首次启动可能被 Windows SmartScreen 拦截，点击“仍要运行”即可。会话数据存储在 ~/.codepilot/，不写入安装目录。",
+    "checkver": {
+        "github": "https://github.com/op7418/CodePilot"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/op7418/CodePilot/releases/download/v$version/CodePilot.Setup.$version.exe"
+            }
+        }
+    }
+}
