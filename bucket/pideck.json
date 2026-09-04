@@ -1,0 +1,34 @@
+{
+    "version": "0.7.3",
+    "description": "Open-source desktop workbench for managing pi AI coding agent sessions across local projects — session history, Git integration, built-in terminal, model config and plugins",
+    "homepage": "https://github.com/ayuayue/PiDeck",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/ayuayue/PiDeck/releases/download/v0.7.3/PiDeck-0.7.3-win.zip",
+            "hash": "d83c35cc21702d87251380a9caab173c8e7b7d80794e6585ee933226ad5333f9"
+        }
+    },
+    "extract_to": "app",
+    "shortcuts": [
+        [
+            "app\\PiDeck.exe",
+            "PiDeck"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/ayuayue/PiDeck"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/ayuayue/PiDeck/releases/download/v$version/PiDeck-$version-win.zip"
+            }
+        }
+    },
+    "notes": [
+        "PiDeck 需要单独安装 pi CLI 并确保其在系统 PATH 中，启动前可运行 pi --version 验证。",
+        "应用未代码签名，首次启动可能被 Windows SmartScreen 拦截，点击「仍要运行」即可。",
+        "会话与配置由 pi 原生管理（models.json / auth.json / settings.json），应用数据存于 %APPDATA%\\PiDeck，升级不会丢失。"
+    ]
+}
