@@ -1,0 +1,28 @@
+{
+    "version": "0.3.5",
+    "description": "Web interface for AI agents. Run multiple CLI coding agents side-by-side in the browser.",
+    "homepage": "https://caw.rocks",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/04mg/caw/releases/download/0.3.5/caw-windows-amd64.exe",
+            "hash": "02f05fda4cb64518e501e721d46363ab63f048f272178962880412ce58b31077"
+        }
+    },
+    "bin": [
+        [
+            "caw-windows-amd64.exe",
+            "caw"
+        ]
+    ],
+    "checkver": {
+        "github": "04mg/caw"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/04mg/caw/releases/download/$version/caw-windows-amd64.exe"
+            }
+        }
+    }
+}
