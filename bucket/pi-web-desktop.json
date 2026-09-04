@@ -1,0 +1,32 @@
+{
+    "version": "0.8.22",
+    "description": "Pi Web Desktop - Electron-based desktop client for the Pi Web AI coding-agent workspace",
+    "homepage": "https://github.com/yejion/pi-web-personal-use",
+    "license": "MIT",
+    "architecture": {
+        "64bit": {
+            "url": "https://github.com/yejion/pi-web-personal-use/releases/download/v0.8.22/pi-web-0.8.22-portable.exe",
+            "hash": "d6e34569dffbe5e79f8e2c0bef7aa015f13c5c664fb3714fed6216917ff46896"
+        }
+    },
+    "installer": {
+        "script": "Rename-Item \"$dir\\$fname\" \"$dir\\pi-web-desktop.exe\" -Force"
+    },
+    "bin": "pi-web-desktop.exe",
+    "shortcuts": [
+        [
+            "pi-web-desktop.exe",
+            "Pi Web Desktop"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/yejion/pi-web-personal-use"
+    },
+    "autoupdate": {
+        "architecture": {
+            "64bit": {
+                "url": "https://github.com/yejion/pi-web-personal-use/releases/download/v$version/pi-web-$version-portable.exe"
+            }
+        }
+    }
+}
