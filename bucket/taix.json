@@ -1,10 +1,10 @@
 {
-    "version": "1.3.0",
+    "version": "1.3.2",
     "description": "Taix - 基于 Avalonia 与 Rust 构建的跨平台（Windows/macOS）软件与网站使用时长统计工具",
     "homepage": "https://github.com/NLick47/Taix",
     "license": "MIT",
-    "url": "https://github.com/NLick47/Taix/releases/download/v1.3.0/Taix-1.3.0-win-x64.zip",
-    "hash": "30CEE51A694C859FDB002F364F938396FF0FA3282B41E0F769E48C63B08DC5A8",
+    "url": "https://github.com/NLick47/Taix/releases/download/v1.3.2/Taix-1.3.2-win-x64.zip",
+    "hash": "15388b76f473cd32a332739fa14746464052cffc733c04d41d16a9bbaad669b3",
     "bin": "Taix.exe",
     "shortcuts": [
         [
