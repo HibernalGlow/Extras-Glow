@@ -1,12 +1,12 @@
 {
-    "version": "0.2.7",
+    "version": "0.2.8",
     "description": "Desktop workbench for the Pi coding agent",
     "homepage": "https://github.com/heyhuynhgiabuu/openpi",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v0.2.7/OpenPi-0.2.7-x64.exe#/dl.7z",
-            "hash": "14256d4e531a50bff3f9d55b056ab0e16825b2d6aa0594cbecd5fbe248f8d86a"
+            "url": "https://github.com/heyhuynhgiabuu/openpi/releases/download/v0.2.8/OpenPi-0.2.8-x64.exe#/dl.7z",
+            "hash": "aad6e4cbcbe1b0fd69e69041cd14560c763f37a7a9e9d47d1ec81954809efbe5"
         }
     },
     "pre_install": [
