@@ -1,0 +1,31 @@
+{
+    "version": "0.8.5",
+    "description": "A local-first workbench for browsing, searching, and resuming Pi AI coding sessions",
+    "homepage": "https://dwsy.github.io/pi-session-manager/",
+    "license": "MIT",
+    "url": "https://github.com/Dwsy/pi-session-manager/releases/download/v0.8.5/Pi.Session.Manager_0.8.5_x64-setup.exe",
+    "hash": "a5e34a696fbb8b498a43f375c32583b0e34e9b3b9a51d26942c4ee0fab3f3e88",
+    "installer": {
+        "script": [
+            "7z x \"$dir\\$fname\" -o\"$dir\" -y",
+            "Get-ChildItem \"$dir\" | Where-Object { $_.Name -ne 'pi-session-manager.exe' } | Remove-Item -Recurse -Force",
+            "$fs = [IO.File]::Open(\"$dir\\pi-session-manager.exe\", [IO.FileMode]::Open, [IO.FileAccess]::ReadWrite)",
+            "$br = [IO.BinaryReader]::new($fs); $fs.Position = 0x3C; $pe = $br.ReadInt32()",
+            "$fs.Position = $pe + 0x5C; $bw = [IO.BinaryWriter]::new($fs); $bw.Write([int16] 2)",
+            "$bw.Close(); $br.Close(); $fs.Close()"
+        ]
+    },
+    "bin": "pi-session-manager.exe",
+    "shortcuts": [
+        [
+            "pi-session-manager.exe",
+            "Pi Session Manager"
+        ]
+    ],
+    "checkver": {
+        "github": "https://github.com/Dwsy/pi-session-manager"
+    },
+    "autoupdate": {
+        "url": "https://github.com/Dwsy/pi-session-manager/releases/download/v$version/Pi.Session.Manager_$version_x64-setup.exe"
+    }
+}
