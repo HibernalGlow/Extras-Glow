@@ -1,32 +1,37 @@
 {
-  "version": "1.9.8",
-  "description": "A modern, open-source graphical interface (GUI) for managing Windows applications with Scoop.",
-  "homepage": "https://amarbego.github.io/Rscoop/",
-  "license": "MIT",
-  "url": "https://github.com/AmarBego/Rscoop/releases/download/v1.9.8/rscoop.exe",
-  "hash": "8070f6f4d75b8c8f25c237d989557f883e9d5de00df6b6032b9a6a7f342cae1c",
-  "bin": [["rscoop.exe", "rscoop"]],
-  "shortcuts": [
-    [
-      "rscoop.exe",
-      "rScoop"
+    "version": "1.9.9",
+    "description": "A modern, open-source graphical interface (GUI) for managing Windows applications with Scoop.",
+    "homepage": "https://amarbego.github.io/Rscoop/",
+    "license": "MIT",
+    "url": "https://github.com/AmarBego/Rscoop/releases/download/v1.9.9/rscoop.exe",
+    "hash": "8f1bf45cb7e38fddf49cf420229f23868665927c3704b994923dcb59499ef4a0",
+    "bin": [
+        [
+            "rscoop.exe",
+            "rscoop"
+        ]
+    ],
+    "shortcuts": [
+        [
+            "rscoop.exe",
+            "rScoop"
+        ]
+    ],
+    "checkver": {
+        "url": "https://api.github.com/repos/AmarBego/Rscoop/releases/latest",
+        "jsonpath": "$.tag_name",
+        "regex": "v([\\d.]+)"
+    },
+    "autoupdate": {
+        "url": "https://github.com/AmarBego/Rscoop/releases/download/v$version/rscoop.exe",
+        "hash": {
+            "url": "https://api.github.com/repos/AmarBego/Rscoop/releases/tags/v$version",
+            "jsonpath": "$.assets.[?(@name=='rscoop.exe')].digest"
+        }
+    },
+    "notes": [
+        "rScoop is installed as a portable single-file application.",
+        "Run it from the Start Menu shortcut or with the rscoop command.",
+        "Requires Windows 10 or newer."
     ]
-  ],
-  "checkver": {
-    "url": "https://api.github.com/repos/AmarBego/Rscoop/releases/latest",
-    "jsonpath": "$.tag_name",
-    "regex": "v([\\d.]+)"
-  },
-  "autoupdate": {
-    "url": "https://github.com/AmarBego/Rscoop/releases/download/v$version/rscoop.exe",
-    "hash": {
-      "url": "https://api.github.com/repos/AmarBego/Rscoop/releases/tags/v$version",
-      "jsonpath": "$.assets.[?(@name=='rscoop.exe')].digest"
-    }
-  },
-  "notes": [
-    "rScoop is installed as a portable single-file application.",
-    "Run it from the Start Menu shortcut or with the rscoop command.",
-    "Requires Windows 10 or newer."
-  ]
 }
