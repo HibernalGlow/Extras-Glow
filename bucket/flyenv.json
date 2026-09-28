@@ -1,10 +1,10 @@
 {
-    "version": "4.19.0",
+    "version": "4.19.1",
     "description": "All-In-One Native Local Development Environment for Windows, macOS & Linux. Docker alternative for PHP, Node.js, Python and more",
     "homepage": "https://github.com/xpf0000/FlyEnv",
     "license": "BSD-3-Clause",
-    "url": "https://github.com/xpf0000/FlyEnv/releases/download/v4.19.0/FlyEnv-Setup-4.19.0.exe",
-    "hash": "333801e573769a70466dbae2edd8dbbb468267b07a219631d319ea5b6ca3e38b",
+    "url": "https://github.com/xpf0000/FlyEnv/releases/download/v4.19.1/FlyEnv-Setup-4.19.1.exe",
+    "hash": "4fb6ac72c377f6e00c16b5ca8475c0796d6654b7c9f15f4b2a87c7449acc9a04",
     "depends": "7zip",
     "installer": {
         "script": [
