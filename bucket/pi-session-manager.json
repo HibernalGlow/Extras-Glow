@@ -1,10 +1,10 @@
 {
-    "version": "0.8.6",
+    "version": "0.8.8",
     "description": "A local-first workbench for browsing, searching, and resuming Pi AI coding sessions",
     "homepage": "https://dwsy.github.io/pi-session-manager/",
     "license": "MIT",
-    "url": "https://github.com/Dwsy/pi-session-manager/releases/download/v0.8.6/Pi.Session.Manager_0.8.6_x64-setup.exe",
-    "hash": "5ae8f61f8d8547ca35720e485e6add89035def6640b7d547f5400effea8abce8",
+    "url": "https://github.com/Dwsy/pi-session-manager/releases/download/v0.8.8/Pi.Session.Manager_0.8.8_x64-setup.exe",
+    "hash": "e10429d090ed24280c71cce9d11170dd02622f8a99a1484cc7c1ade51fd2f6af",
     "installer": {
         "script": [
             "7z x \"$dir\\$fname\" -o\"$dir\" -y",
