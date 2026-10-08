@@ -1,12 +1,12 @@
 {
-    "version": "0.2.15",
+    "version": "0.2.16",
     "description": "Unofficial Windows Terminal fork whose panes can render with ghostty's engine per-profile. Installs alongside stock Windows Terminal, with no MSIX signing/certificate trust required for the portable build.",
     "homepage": "https://github.com/ibuildthecloud/winterm-ghostty",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/ibuildthecloud/winterm-ghostty/releases/download/v0.2.15/winterm-ghostty-0.2.15.0-x64-portable.zip",
-            "hash": "9ffef7ad39cb565166450c33ed4b907092d0feffc16000a899c91ea91d6d127e"
+            "url": "https://github.com/ibuildthecloud/winterm-ghostty/releases/download/v0.2.16/winterm-ghostty-0.2.16.0-x64-portable.zip",
+            "hash": "8e9e5528f398441c8f5a9e9b62dd98ddaed72ecef6de71bdc4d248e58f2dfe8f"
         }
     },
     "extract_dir": "terminal-0.2.9.0",
