@@ -1,12 +1,12 @@
 {
-    "version": "2.3.22",
+    "version": "2.3.24",
     "description": "MooshieUI: A modern, beginner-friendly desktop frontend for ComfyUI built with Tauri",
     "homepage": "https://github.com/Mooshieblob1/MooshieUI",
     "license": "AGPL-3.0",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Mooshieblob1/MooshieUI/releases/download/v2.3.22/MooshieUI_2.3.22_x64-setup.exe#/dl.7z",
-            "hash": "05b1b6c8c04dd0325bf2f74b0ffa35b66b8577a9724275fdf017261765906464"
+            "url": "https://github.com/Mooshieblob1/MooshieUI/releases/download/v2.3.24/MooshieUI_2.3.24_x64-setup.exe#/dl.7z",
+            "hash": "7b055dd4374a23e4c64b13335efdf8ad115b6a4efb69adc3947a734857721655"
         }
     },
     "post_install": "Remove-Item \"$dir\\`$PLUGINSDIR\" -Force -Recurse -ErrorAction SilentlyContinue",
