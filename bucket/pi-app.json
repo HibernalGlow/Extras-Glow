@@ -1,12 +1,12 @@
 {
-    "version": "0.7.6",
+    "version": "0.7.7",
     "description": "pi Desktop - 桌面端 AI Agent GUI (Electron)",
     "homepage": "https://github.com/justhil/pi-app",
     "license": "MIT",
     "architecture": {
         "64bit": {
-            "url": "https://github.com/justhil/pi-app/releases/download/v0.7.6/pi.Desktop-Setup-0.7.6-x64.exe#/dl.7z",
-            "hash": "36f2a68f64c381333240922f3541d01595c7673250f3c2e0b18f83ca345a2b16",
+            "url": "https://github.com/justhil/pi-app/releases/download/v0.7.7/pi.Desktop-Setup-0.7.7-x64.exe#/dl.7z",
+            "hash": "ecd3b32c913cd7bcaa691df71bfcc07cec079029a7abfca408a0d7e9c3b85abd",
             "installer": {
                 "script": [
                     "Expand-7zipArchive \"$dir\\`$PLUGINSDIR\\app-64.7z\" \"$dir\"",
