@@ -1,8 +1,8 @@
 on:
   workflow_dispatch:
   schedule:
-    # run every 12 hours
-    - cron: "20 */12 * * *"
+    # Run once a week (Monday 00:20 UTC)
+    - cron: "20 0 * * 1"
   repository_dispatch:
     types: [neoview-release]
 name: Excavator
