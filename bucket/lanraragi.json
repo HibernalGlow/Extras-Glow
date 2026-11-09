@@ -1,5 +1,5 @@
 {
-    "version": "0.9.81",
+    "version": "0.9.82",
     "description": "Web application for archival and reading of manga/doujinshi. Lightweight and Docker-ready for NAS/servers.",
     "homepage": "https://github.com/Difegue/LANraragi",
     "license": "MIT",
@@ -10,8 +10,8 @@
     ],
     "architecture": {
         "64bit": {
-            "url": "https://github.com/Difegue/LANraragi/releases/download/v.0.9.81/LANraragi.msi",
-            "hash": "99fd70f71485c470a7d8c998bcd3beefdbd7825febc413df409a355fa99dbe53"
+            "url": "https://github.com/Difegue/LANraragi/releases/download/v.0.9.82/LANraragi.msi",
+            "hash": "758456aa4a58d59cdb259d9ca6cc6af30cea55ee16a3f15f8a3b489a7ddb7592"
         }
     },
     "extract_dir": "AppDataFolder\\LANraragi",
